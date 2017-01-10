@@ -78,8 +78,8 @@
 				33B88B481E24255D006C756D /* Main.storyboard */,
 				33B88B4B1E24255D006C756D /* Info.plist */,
 				33B88B401E24255D006C756D /* Supporting Files */,
-				D5AF67D925AD72937A2C6379 /* HIDController.mm */,
 				D5AF67EF142E8AF49751059F /* HIDController.h */,
+				D5AF67D925AD72937A2C6379 /* HIDController.mm */,
 				D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */,
 			);
 			path = MFHID;

@@ -33,6 +33,7 @@
 @implementation ViewController {
     GCExtendedGamepad *_gamepad;
     HIDController *_hidController;
+    NSTimer *_thumbstickUpdateTimer;
 }
 
 - (void)viewDidLoad {
@@ -86,7 +87,6 @@
 }
 
 - (void)configureGamepad {
-    static dispatch_once_t once;
     if (_hidController != NULL) {
         delete _hidController;
     }
@@ -152,12 +152,63 @@
         _hidController->setRightTriggerPressed(pressed);
     }];
 
+    // Analogue sticks.
+
+    [_gamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+        _hidController->setLeftAnalogueXY(xValue, yValue);
+    }];
+
+    [_gamepad.rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+        _hidController->setRightAnalogueXY(xValue, yValue);
+    }];
+
     // Pause button.
     [_gamepad.controller setControllerPausedHandler:^(GCController *controller) {
         NSLog(@"Pause");
         _hidController->setPauseButtonPressed(true);
         _hidController->setPauseButtonPressed(false);
     }];
+
+//    _thumbstickUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer *timer) {
+//        GCControllerDirectionPad *leftThumbstick = _gamepad.leftThumbstick;
+//
+//
+//        BOOL updateLeftX = NO;
+//        BOOL updateLeftY = NO;
+//        if (_hidController->getLeftAnalogueX() != leftThumbstick.xAxis.value){
+//            updateLeftX = YES;
+//        }
+//        if (_hidController->getLeftAnalogueY() != leftThumbstick.yAxis.value){
+//            updateLeftY = YES;
+//        }
+//
+//        GCControllerDirectionPad *rightThumbstick = _gamepad.rightThumbstick;
+////        _hidController->setRightAnalogueXY(rightThumbstick.xAxis.value, rightThumbstick.yAxis.value);
+////        _hidController->setRightAnalogueXY(rightThumbstick.xAxis.value, rightThumbstick.yAxis.value);
+//        BOOL updateRightX = NO;
+//        BOOL updateRightY = NO;
+//        if (_hidController->getRightAnalogueX() != rightThumbstick.xAxis.value){
+//            updateRightX = YES;
+//        }
+//        if (_hidController->getRightAnalogueY() != rightThumbstick.yAxis.value){
+//            updateRightY = YES;
+//        }
+//
+//        BOOL updateLeftXY = NO;
+//        if (updateLeftX && updateLeftY){
+//            updateLeftXY = YES;
+//        }
+//
+//        BOOL updateRightXY = NO;
+//        if (updateRightX && updateRightY){
+//            updateRightXY = YES;
+//        }
+//
+//        if (updateLeftXY && updateRightXY){
+//
+//        }
+//
+//    }];
 }
 
 

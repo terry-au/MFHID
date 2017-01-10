@@ -88,6 +88,10 @@ public:
 
     void setRightAnalogueY(float rightAnalogueY);
 
+    void setLeftAnalogueXY(float leftAnalogueX, float leftAnalogueY);
+
+    void setRightAnalogueXY(float rightAnalogueX, float rightAnalogueY);
+
 private:
     // Buttons
     bool mButtonAPressed;
@@ -116,20 +120,24 @@ private:
     float mRightAnalogueY;
 
     // Interface.
-    bool mDriverInvoked;
+    bool mDriverInitialised;
     gamepad_report_t mReport;
     uint64_t mInput[INPUT_COUNT];
-    io_iterator_t mIoIterator;
-    io_service_t mIoService;
     io_connect_t mIoConnect;
 
     void logBits();
 
-    void invokeDriverThreadIfRequired();
+    void invokeDriver();
 
-    void setBit(int bitIndex, bool value, uint16_t *ptr);
+    void updateHidButtonState(int bitIndex, bool value, uint16_t *ptr);
 
     void sendHIDMessage();
+
+    void initialiseDriver();
+
+    void updateJoystickState(float leftXValue, int8_t *leftXStick, float leftYValue, int8_t *leftYStick);
+
+    void logJoysticks();
 };
 
 
