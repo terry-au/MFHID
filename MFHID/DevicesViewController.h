@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DevicesViewController.h
 //  MFHID
 //
 //  Created by Terry Lewis on 9/1/17.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
+@interface DevicesViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSButton *searchForControllersButton;
 @property (weak) IBOutlet NSProgressIndicator *searchForControllersIndicator;

@@ -1,15 +1,16 @@
 //
-//  ViewController.m
+//  DevicesViewController.m
 //  MFHID
 //
 //  Created by Terry Lewis on 9/1/17.
 //  Copyright © 2017 Terry Lewis. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DevicesViewController.h"
 #import "HIDBridgedGamepad.h"
+#import "StatusBarManager.h"
 
-@implementation ViewController {
+@implementation DevicesViewController {
     HIDBridgedGamepad *_selectedGamepad;
     NSArray<HIDBridgedGamepad *> *_connectedControllers;
 }
@@ -61,6 +62,7 @@
 }
 
 - (void)searchForControllers{
+    StatusBarManager.sharedManager.statusBarEnabled = !StatusBarManager.sharedManager.statusBarEnabled;
     self.searchForControllersIndicator.hidden = NO;
     [self.searchForControllersIndicator startAnimation:self];
     [GCController startWirelessControllerDiscoveryWithCompletionHandler:^{
