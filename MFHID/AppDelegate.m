@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Categories.h"
 
 @interface AppDelegate ()
 

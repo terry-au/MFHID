@@ -7,33 +7,10 @@
 //
 
 #import "ViewController.h"
-#import <GameController/GameController.h>
-#import "HIDController.h"
-
-@interface _GCControllerManager : NSObject
-
-@end
-
-// Essential overrides to allow using the controller without the app being in focus.
-@implementation _GCControllerManager (Overrides)
-
-- (BOOL)isAppInBackground{
-//    NSLog(@"Requested knowledge of app state");
-    // NOPE!
-    return NO;
-}
-
-- (void)CBApplicationWillResignActive{
-    // No, it won't!
-//    NSLog(@"WIll resign active...");
-}
-
-@end
+#import "HIDBridgedGamepad.h"
 
 @implementation ViewController {
-    GCExtendedGamepad *_gamepad;
-    HIDController *_hidController;
-    NSTimer *_thumbstickUpdateTimer;
+    HIDBridgedGamepad *gamepad;
 }
 
 - (void)viewDidLoad {
@@ -58,10 +35,6 @@
     });
 }
 
-- (void)dealloc {
-    delete _hidController;
-}
-
 - (void)searchForControllersButtonClicked:(id)sender {
     NSLog(@"Searching for controllers...");
     NSLog(@"Have: %@", [GCController controllers]);
@@ -84,131 +57,6 @@
     } else {
         NSLog(@"No gamepads found.");
     }
-}
-
-- (void)configureGamepad {
-    if (_hidController != NULL) {
-        delete _hidController;
-    }
-
-    _hidController = new HIDController();
-
-
-//    [_gamepad setValueChangedHandler:^(GCExtendedGamepad *gamepad, GCControllerElement *element) {
-////        NSLog(@"%@", element);
-//        [_gamepad saveSnapshot];
-//    }];
-
-    // Buttons
-    [_gamepad.buttonA setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setButtonAPressed(pressed);
-    }];
-
-    [_gamepad.buttonB setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setButtonBPressed(pressed);
-    }];
-
-    [_gamepad.buttonX setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setButtonXPressed(pressed);
-    }];
-
-    [_gamepad.buttonY setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setButtonYPressed(pressed);
-    }];
-
-    // Directional-pad.
-    [_gamepad.dpad.up setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setDpadUpPressed(pressed);
-    }];
-
-    [_gamepad.dpad.right setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setDpadRightPressed(pressed);
-    }];
-
-    [_gamepad.dpad.down setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setDpadDownPressed(pressed);
-    }];
-
-    [_gamepad.dpad.left setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setDpadLeftPressed(pressed);
-    }];
-
-
-    // Shoulder buttons.
-    [_gamepad.leftShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setLeftShoulderPressed(pressed);
-    }];
-
-    [_gamepad.rightShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setRightShoulderPressed(pressed);
-    }];
-
-    // Triggers.
-    [_gamepad.leftTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setLeftTriggerPressed(pressed);
-    }];
-
-    [_gamepad.rightTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        _hidController->setRightTriggerPressed(pressed);
-    }];
-
-    // Analogue sticks.
-
-    [_gamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
-        _hidController->setLeftAnalogueXY(xValue, yValue);
-    }];
-
-    [_gamepad.rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
-        _hidController->setRightAnalogueXY(xValue, yValue);
-    }];
-
-    // Pause button.
-    [_gamepad.controller setControllerPausedHandler:^(GCController *controller) {
-        NSLog(@"Pause");
-        _hidController->setPauseButtonPressed(true);
-        _hidController->setPauseButtonPressed(false);
-    }];
-
-//    _thumbstickUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer *timer) {
-//        GCControllerDirectionPad *leftThumbstick = _gamepad.leftThumbstick;
-//
-//
-//        BOOL updateLeftX = NO;
-//        BOOL updateLeftY = NO;
-//        if (_hidController->getLeftAnalogueX() != leftThumbstick.xAxis.value){
-//            updateLeftX = YES;
-//        }
-//        if (_hidController->getLeftAnalogueY() != leftThumbstick.yAxis.value){
-//            updateLeftY = YES;
-//        }
-//
-//        GCControllerDirectionPad *rightThumbstick = _gamepad.rightThumbstick;
-////        _hidController->setRightAnalogueXY(rightThumbstick.xAxis.value, rightThumbstick.yAxis.value);
-////        _hidController->setRightAnalogueXY(rightThumbstick.xAxis.value, rightThumbstick.yAxis.value);
-//        BOOL updateRightX = NO;
-//        BOOL updateRightY = NO;
-//        if (_hidController->getRightAnalogueX() != rightThumbstick.xAxis.value){
-//            updateRightX = YES;
-//        }
-//        if (_hidController->getRightAnalogueY() != rightThumbstick.yAxis.value){
-//            updateRightY = YES;
-//        }
-//
-//        BOOL updateLeftXY = NO;
-//        if (updateLeftX && updateLeftY){
-//            updateLeftXY = YES;
-//        }
-//
-//        BOOL updateRightXY = NO;
-//        if (updateRightX && updateRightY){
-//            updateRightXY = YES;
-//        }
-//
-//        if (updateLeftXY && updateRightXY){
-//
-//        }
-//
-//    }];
 }
 
 
