@@ -19,6 +19,11 @@ using namespace std;
 #define DEVICE_NAME "Foohid Virtual Gamepad"
 #define DEVICE_SN "SN 123456"
 
+#define ANALOGUE_MIN -127
+#define ANALOGUE_MAX 127
+
+uint32_t const input_count = INPUT_COUNT;
+
 static int report_descriptor[52] = {
         0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
         0x09, 0x05,                    // USAGE (Game Pad)
@@ -79,11 +84,12 @@ HIDController::HIDController() {
     mReport.left_y = 0;
     mReport.right_x = 0;
     mReport.right_y = 0;
+
+    mDriverInvoked = false;
 }
 
 void HIDController::setBit(int bitIndex, bool value, uint16_t *ptr){
     // If there is a change, update the bits.
-//    cout << ((*ptr >> bitIndex) & 1) << endl;
     if (((*ptr >> bitIndex) & 1) != value){
         if (value){
             *ptr |= 1 << bitIndex;
@@ -91,7 +97,9 @@ void HIDController::setBit(int bitIndex, bool value, uint16_t *ptr){
             *ptr &= ~(1 << bitIndex);
         }
         logBits();
-        sendHIDMessage();
+        if (mDriverInvoked == false){
+            invokeDriverThreadIfRequired();
+        }
     }
 }
 
@@ -217,6 +225,7 @@ float HIDController::getLeftAnalogueX() const {
 }
 
 void HIDController::setLeftAnalogueX(float leftAnalogueX) {
+    mReport.right_y = ANALOGUE_MAX * leftAnalogueX;
     HIDController::mLeftAnalogueX = leftAnalogueX;
 }
 
@@ -225,6 +234,7 @@ float HIDController::getLeftAnalogueY() const {
 }
 
 void HIDController::setLeftAnalogueY(float leftAnalogueY) {
+    mReport.right_y = ANALOGUE_MAX * leftAnalogueY;
     HIDController::mLeftAnalogueY = leftAnalogueY;
 }
 
@@ -233,6 +243,7 @@ float HIDController::getRightAnalogueX() const {
 }
 
 void HIDController::setRightAnalogueX(float rightAnalogueX) {
+    mReport.right_y = ANALOGUE_MAX * rightAnalogueX;
     HIDController::mRightAnalogueX = rightAnalogueX;
 }
 
@@ -241,89 +252,19 @@ float HIDController::getRightAnalogueY() const {
 }
 
 void HIDController::setRightAnalogueY(float rightAnalogueY) {
+    mReport.right_y = ANALOGUE_MAX * rightAnalogueY;
     HIDController::mRightAnalogueY = rightAnalogueY;
 }
 
-void HIDController::initialiseDriver(){
-//    if (mDriverInitialised){
-//        return;
-//    }
-//
-//    mDriverInitialised = true;
-//
-//    io_iterator_t iterator;
-//    io_service_t service;
-//
-//
-//    kern_return_t ret = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(SERVICE_NAME), &iterator);
-//
-//    if (ret == KERN_SUCCESS) {
-//        cout << "Accessing foohid service." << endl;
-//    }else{
-//        cout << "Unable to access IOService" << endl;
-//    }
-//
-//    bool found = false;
-//    while ((service = IOIteratorNext(iterator)) != IO_OBJECT_NULL) {
-//        ret = IOServiceOpen(service, mach_task_self(), 0, &mConnect);
-//
-//        if (ret == KERN_SUCCESS) {
-//            found = true;
-//            break;
-//        }
-//
-//        IOObjectRelease(service);
-//    }
-//    IOObjectRelease(iterator);
-//
-//    if (found){
-//        cout << "Opened IOService" << endl;
-//    }else{
-//        cout << "Unable to open IOService" << endl;
-//    }
-//
-//    // Fill up the input arguments.
-//    uint32_t input_count = 8;
-//    uint64_t mInput[input_count];
-//    mInput[0] = (uint64_t) strdup(DEVICE_NAME);  // device name
-//    mInput[1] = strlen((char *)mInput[0]);  // name length
-//    mInput[2] = (uint64_t) report_descriptor;  // report descriptor
-//    mInput[3] = sizeof(report_descriptor);  // report descriptor len
-//    mInput[4] = (uint64_t) strdup(DEVICE_SN);  // serial number
-//    mInput[5] = strlen((char *)mInput[4]);  // serial number len
-//    mInput[6] = (uint64_t) 2;  // vendor ID
-//    mInput[7] = (uint64_t) 3;  // device ID
-//
-//    ret = IOConnectCallScalarMethod(connect, FOOHID_CREATE, mInput, input_count, NULL, 0);
-//    if (ret == KERN_SUCCESS) {
-//        cout << "Created HID device." << endl;
-//    }else{
-//        cout << "Unable to create HID device. The device may have already been created." << endl;
-//    }
-}
-
-void HIDController::sendHIDMessage() {
-//    initialiseDriver();
-//
-//    // Arguments to be passed through the HID message.
-//    uint32_t send_count = 4;
-//    uint64_t send[send_count];
-//    send[0] = (uint64_t)mInput[0];  // device name
-//    send[1] = strlen((char *)mInput[0]);  // name length
-//    send[2] = (uint64_t) &mReport;  // mouse struct
-//    send[3] = sizeof(struct gamepad_report_t);  // mouse struct len
-//
-//    for(;;) {
-//        kern_return_t ret = IOConnectCallScalarMethod(mConnect, FOOHID_SEND, send, send_count, NULL, 0);
-//        if (ret != KERN_SUCCESS) {
-//            cout << "Unable to send message to HID device." << endl;
-//        }
-//
-//        usleep(400000);  // sleep for a second
-//    }
-    std::thread hidMessengerThread(runDriver);
-
-    runDriver();
+void HIDController::invokeDriverThreadIfRequired() {
+    if (mDriverInvoked){
+        cout << "The driver has already been invoked." << endl;
+        return;
+    }
+    mDriverInvoked = true;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        sendHIDMessage();
+    });
 }
 
 void printBits(size_t const size, void const * const ptr)
@@ -347,13 +288,10 @@ void HIDController::logBits() {
     printBits(sizeof(uint16_t), &mReport.buttons);
 }
 
-void HIDController::runDriver() {
-    io_iterator_t iterator;
-    io_service_t service;
-    io_connect_t connect;
+void HIDController::sendHIDMessage() {
 
     // Get a reference to the IOService
-    kern_return_t ret = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(SERVICE_NAME), &iterator);
+    kern_return_t ret = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(SERVICE_NAME), &mIoIterator);
 
     if (ret != KERN_SUCCESS) {
         printf("Unable to access IOService.\n");
@@ -362,17 +300,17 @@ void HIDController::runDriver() {
 
     // Iterate till success
     int found = 0;
-    while ((service = IOIteratorNext(iterator)) != IO_OBJECT_NULL) {
-        ret = IOServiceOpen(service, mach_task_self(), 0, &connect);
+    while ((mIoService = IOIteratorNext(mIoIterator)) != IO_OBJECT_NULL) {
+        ret = IOServiceOpen(mIoService, mach_task_self(), 0, &mIoConnect);
 
         if (ret == KERN_SUCCESS) {
             found = 1;
             break;
         }
 
-        IOObjectRelease(service);
+        IOObjectRelease(mIoService);
     }
-    IOObjectRelease(iterator);
+    IOObjectRelease(mIoIterator);
 
     if (!found) {
         printf("Unable to open IOService.\n");
@@ -380,37 +318,36 @@ void HIDController::runDriver() {
     }
 
     // Fill up the input arguments.
-    uint32_t input_count = 8;
-    uint64_t input[input_count];
-    input[0] = (uint64_t) strdup(DEVICE_NAME);  // device name
-    input[1] = strlen((char *)input[0]);  // name length
-    input[2] = (uint64_t) report_descriptor;  // report descriptor
-    input[3] = sizeof(report_descriptor);  // report descriptor len
-    input[4] = (uint64_t) strdup(DEVICE_SN);  // serial number
-    input[5] = strlen((char *)input[4]);  // serial number len
-    input[6] = (uint64_t) 2;  // vendor ID
-    input[7] = (uint64_t) 3;  // device ID
 
-    ret = IOConnectCallScalarMethod(connect, FOOHID_CREATE, input, input_count, NULL, 0);
+
+    mInput[0] = (uint64_t) strdup(DEVICE_NAME);  // device name
+    mInput[1] = strlen((char *)mInput[0]);  // name length
+    mInput[2] = (uint64_t) report_descriptor;  // report descriptor
+    mInput[3] = sizeof(report_descriptor);  // report descriptor len
+    mInput[4] = (uint64_t) strdup(DEVICE_SN);  // serial number
+    mInput[5] = strlen((char *)mInput[4]);  // serial number len
+    mInput[6] = (uint64_t) 2;  // vendor ID
+    mInput[7] = (uint64_t) 3;  // device ID
+
+    ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_CREATE, mInput, input_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to create HID device. May be fine if created previously.\n");
     }
 
     // Arguments to be passed through the HID message.
-    struct gamepad_report_t gamepad;
     uint32_t send_count = 4;
     uint64_t send[send_count];
-    send[0] = (uint64_t)input[0];  // device name
-    send[1] = strlen((char *)input[0]);  // name length
-    send[2] = (uint64_t) &gamepad;  // mouse struct
+    send[0] = (uint64_t)mInput[0];  // device name
+    send[1] = strlen((char *)mInput[0]);  // name length
+    send[2] = (uint64_t) &mReport;  // mouse struct
     send[3] = sizeof(struct gamepad_report_t);  // mouse struct len
 
     for(;;) {
-        ret = IOConnectCallScalarMethod(connect, FOOHID_SEND, send, send_count, NULL, 0);
+        ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_SEND, send, send_count, NULL, 0);
         if (ret != KERN_SUCCESS) {
             printf("Unable to send message to HID device.\n");
         }
 
-        usleep(400000);  // sleep for a second
+        usleep(10000000);  // sleep for a second
     }
 }

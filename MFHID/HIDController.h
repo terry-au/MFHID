@@ -6,6 +6,8 @@
 #ifndef MFHID_HIDCONTROLLER_H
 #define MFHID_HIDCONTROLLER_H
 
+#define INPUT_COUNT 8
+
 struct gamepad_report_t{
     uint16_t buttons;
     int8_t left_x;
@@ -114,20 +116,20 @@ private:
     float mRightAnalogueY;
 
     // Interface.
-//    bool mDriverInitialised;
+    bool mDriverInvoked;
     gamepad_report_t mReport;
-//    uint64_t mInput[];
-//    io_connect_t mConnect;
+    uint64_t mInput[INPUT_COUNT];
+    io_iterator_t mIoIterator;
+    io_service_t mIoService;
+    io_connect_t mIoConnect;
 
     void logBits();
 
-    void sendHIDMessage();
+    void invokeDriverThreadIfRequired();
 
     void setBit(int bitIndex, bool value, uint16_t *ptr);
 
-    void initialiseDriver();
-
-    void runDriver();
+    void sendHIDMessage();
 };
 
 
