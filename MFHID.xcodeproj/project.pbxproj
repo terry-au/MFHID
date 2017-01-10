@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3306415B1E250F100044CB68 /* IOKit.framework */; };
 		33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */; };
 		33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B3E1E24255D006C756D /* AppDelegate.m */; };
 		33B88B421E24255D006C756D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B411E24255D006C756D /* main.m */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3306415B1E250F100044CB68 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		33B88B3A1E24255D006C756D /* MFHID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFHID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B88B3D1E24255D006C756D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */,
 				33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */,
 				33B88B531E242584006C756D /* GameController.framework in Frameworks */,
 			);
@@ -93,6 +96,7 @@
 		33B88B511E242584006C756D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3306415B1E250F100044CB68 /* IOKit.framework */,
 				33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */,
 				33B88B521E242584006C756D /* GameController.framework */,
 			);

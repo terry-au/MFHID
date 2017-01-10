@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="Button masking is now setup.&#10;Ability to receive controller events when app is not focused.">
+    <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/AppDelegate.m" afterPath="$PROJECT_DIR$/MFHID/AppDelegate.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.h" afterPath="$PROJECT_DIR$/MFHID/HIDController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.mm" afterPath="$PROJECT_DIR$/MFHID/HIDController.mm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/ViewController.mm" afterPath="$PROJECT_DIR$/MFHID/ViewController.mm" />
@@ -31,11 +31,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HIDController.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ViewController.mm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/ViewController.mm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+              <folding>
+                <element signature="e#134#160#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HIDController.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="1497">
+              <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -44,22 +56,10 @@
       <file leaf-file-name="HIDController.mm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-529">
-              <caret line="199" column="47" lean-forward="false" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
+            <state relative-caret-position="270">
+              <caret line="324" column="0" lean-forward="false" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
               <folding>
                 <element signature="e#101#118#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewController.mm" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MFHID/ViewController.mm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="46" column="68" lean-forward="true" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
-              <folding>
-                <element signature="e#134#160#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,6 +73,7 @@
       <find>snapsh</find>
       <find>report</find>
       <find>setBit</find>
+      <find>conne</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -85,11 +86,11 @@
         <option value="$PROJECT_DIR$/MFHID/HIDController.hpp" />
         <option value="$PROJECT_DIR$/MFHID/MFIHID-Prefix.pch" />
         <option value="$PROJECT_DIR$/MFHID/Hooks.h" />
-        <option value="$PROJECT_DIR$/MFHID/HIDController.h" />
-        <option value="$PROJECT_DIR$/MFHID/HIDController.mm" />
         <option value="$PROJECT_DIR$/MFHID/AppDelegate.m" />
         <option value="$PROJECT_DIR$/MFHID/Hooks.m" />
         <option value="$PROJECT_DIR$/MFHID/ViewController.mm" />
+        <option value="$PROJECT_DIR$/MFHID/HIDController.h" />
+        <option value="$PROJECT_DIR$/MFHID/HIDController.mm" />
       </list>
     </option>
   </component>
@@ -130,20 +131,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="MFHID" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -214,7 +201,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484040494047</updated>
-      <workItem from="1484040498609" duration="8287000" />
+      <workItem from="1484040498609" duration="10115000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -223,11 +210,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484043085191</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Button masking is now setup.&#10;Ability to receive controller events when app is not focused.&#10;Refactoring and renaming.&#10;Renamed HIDController private variables.">
+      <created>1484050021147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1484050021147</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8287000" />
+    <option name="totallyTimeSpent" value="10115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -262,7 +256,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor." />
+    <MESSAGE value="Button masking is now setup.&#10;Ability to receive controller events when app is not focused.&#10;Refactoring and renaming.&#10;Renamed HIDController private variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Button masking is now setup.&#10;Ability to receive controller events when app is not focused.&#10;Refactoring and renaming.&#10;Renamed HIDController private variables." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,11 +280,6 @@
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="23" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="appcode.project-settings://38b747f0">
-      <provider selected="true" editor-type-id="AppCode.ProjectSettings">
-        <state />
       </provider>
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/GameController.framework/Headers/GCControllerDirectionPad.h">
@@ -337,24 +327,6 @@
         <state relative-caret-position="90">
           <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529">
-          <caret line="199" column="47" lean-forward="false" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
-          <folding>
-            <element signature="e#101#118#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -414,13 +386,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="appcode.project-settings://38b747f0">
+      <provider selected="true" editor-type-id="AppCode.ProjectSettings">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/ViewController.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="46" column="68" lean-forward="true" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
+        <state relative-caret-position="221">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="e#134#160#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/IOKit.framework/Headers/IOKitLib.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="822" column="37" lean-forward="true" selection-start-line="822" selection-start-column="37" selection-end-line="822" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="324" column="0" lean-forward="false" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
+          <folding>
+            <element signature="e#101#118#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1497">
+          <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

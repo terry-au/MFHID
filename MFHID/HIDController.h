@@ -15,29 +15,6 @@ struct gamepad_report_t{
 };
 
 class HIDController {
-    bool mButtonAPressed;
-    bool mButtonBPressed;
-    bool mButtonXPressed;
-    bool mButtonYPressed;
-
-    bool mDpadUpPressed;
-    bool mDpadRightPressed;
-    bool mDpadDownPressed;
-    bool mDpadLeftPressed;
-
-    bool mLeftShoulderPressed;
-    bool mLeftTriggerPressed;
-
-    bool mRightShoulderPressed;
-    bool mRightTriggerPressed;
-
-    bool mPauseButtonPressed;
-
-    float mLeftAnalogueX;
-    float mLeftAnalogueY;
-
-    float mRightAnalogueX;
-    float mRightAnalogueY;
 public:
     HIDController();
 
@@ -110,13 +87,47 @@ public:
     void setRightAnalogueY(float rightAnalogueY);
 
 private:
-    gamepad_report_t report;
+    // Buttons
+    bool mButtonAPressed;
+    bool mButtonBPressed;
+    bool mButtonXPressed;
+    bool mButtonYPressed;
+
+    bool mDpadUpPressed;
+    bool mDpadRightPressed;
+    bool mDpadDownPressed;
+    bool mDpadLeftPressed;
+
+    bool mLeftShoulderPressed;
+    bool mLeftTriggerPressed;
+
+    bool mRightShoulderPressed;
+    bool mRightTriggerPressed;
+
+    bool mPauseButtonPressed;
+
+    // Analogue sticks.
+    float mLeftAnalogueX;
+    float mLeftAnalogueY;
+
+    float mRightAnalogueX;
+    float mRightAnalogueY;
+
+    // Interface.
+//    bool mDriverInitialised;
+    gamepad_report_t mReport;
+//    uint64_t mInput[];
+//    io_connect_t mConnect;
 
     void logBits();
 
     void sendHIDMessage();
 
     void setBit(int bitIndex, bool value, uint16_t *ptr);
+
+    void initialiseDriver();
+
+    void runDriver();
 };
 
 
