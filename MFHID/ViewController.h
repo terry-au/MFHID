@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (weak) IBOutlet NSButton *searchForControllersButton;
 @property (weak) IBOutlet NSProgressIndicator *searchForControllersIndicator;

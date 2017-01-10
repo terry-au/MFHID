@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3306415B1E250F100044CB68 /* IOKit.framework */; };
 		33A117961E253F3B00698588 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A117951E253F3B00698588 /* Categories.m */; };
-		33A117991E253F8500698588 /* ControllerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 33A117981E253F8500698588 /* ControllerManager.mm */; };
 		33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */; };
 		33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */; };
 		33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B3E1E24255D006C756D /* AppDelegate.m */; };
@@ -25,8 +24,6 @@
 		3306415B1E250F100044CB68 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		33A117941E253F3B00698588 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		33A117951E253F3B00698588 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
-		33A117971E253F8500698588 /* ControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerManager.h; sourceTree = "<group>"; };
-		33A117981E253F8500698588 /* ControllerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ControllerManager.mm; sourceTree = "<group>"; };
 		33A1179A1E2541FA00698588 /* HIDBridgedGamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDBridgedGamepad.h; sourceTree = "<group>"; };
 		33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDBridgedGamepad.mm; sourceTree = "<group>"; };
 		33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -83,8 +80,6 @@
 				33B88B3E1E24255D006C756D /* AppDelegate.m */,
 				33B88B431E24255D006C756D /* ViewController.h */,
 				33B88B441E24255D006C756D /* ViewController.mm */,
-				33A117971E253F8500698588 /* ControllerManager.h */,
-				33A117981E253F8500698588 /* ControllerManager.mm */,
 				33A1179A1E2541FA00698588 /* HIDBridgedGamepad.h */,
 				33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */,
 				33A117941E253F3B00698588 /* Categories.h */,
@@ -192,7 +187,6 @@
 				33B88B451E24255D006C756D /* ViewController.mm in Sources */,
 				33B88B421E24255D006C756D /* main.m in Sources */,
 				33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */,
-				33A117991E253F8500698588 /* ControllerManager.mm in Sources */,
 				33A117961E253F3B00698588 /* Categories.m in Sources */,
 				D5AF675852F991207F837BEE /* HIDController.mm in Sources */,
 				33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */,

@@ -29,5 +29,9 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 @property (nonatomic, retain, readonly) id gamepad;
 @property (nonatomic, retain, readonly) GCController *controller;
 @property (readonly) HIDBridgedGamepadType gamepadType;
+@property (nonatomic, readonly) BOOL active;
+
+- (void)activate;
+- (void)deactivate;
 
 @end
