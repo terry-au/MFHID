@@ -34,4 +34,6 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 - (void)activate;
 - (void)deactivate;
 
+- (NSString *)localisedControllerTypeString;
+
 @end

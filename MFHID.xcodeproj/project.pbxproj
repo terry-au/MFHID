@@ -17,6 +17,7 @@
 		33B88B471E24255D006C756D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B461E24255D006C756D /* Assets.xcassets */; };
 		33B88B4A1E24255D006C756D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B481E24255D006C756D /* Main.storyboard */; };
 		33B88B531E242584006C756D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B88B521E242584006C756D /* GameController.framework */; };
+		D5AF600D816B96579843D576 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5AF68A3FC84660A7FD713B2 /* Localizable.strings */; };
 		D5AF675852F991207F837BEE /* HIDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF67D925AD72937A2C6379 /* HIDController.mm */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		33B88B521E242584006C756D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		D5AF67D925AD72937A2C6379 /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
 		D5AF67EF142E8AF49751059F /* HIDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDController.h; sourceTree = "<group>"; };
+		D5AF68A3FC84660A7FD713B2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFIHID-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				D5AF67EF142E8AF49751059F /* HIDController.h */,
 				D5AF67D925AD72937A2C6379 /* HIDController.mm */,
 				D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */,
+				D5AF68A3FC84660A7FD713B2 /* Localizable.strings */,
 			);
 			path = MFHID;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				33B88B471E24255D006C756D /* Assets.xcassets in Resources */,
 				33B88B4A1E24255D006C756D /* Main.storyboard in Resources */,
+				D5AF600D816B96579843D576 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

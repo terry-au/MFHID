@@ -15,10 +15,11 @@
 
 - (instancetype)initWithController:(GCController *)controller {
     if (self = [super init]) {
-        if (controller.extendedGamepad != nil) {
+        _controller = controller;
+        if (controller.extendedGamepad) {
             _gamepadType = HIDBridgedGamepadTypeExtended;
             _gamepad = controller.extendedGamepad;
-        } else if (controller.gamepad != nil) {
+        } else if (controller.gamepad) {
             _gamepadType = HIDBridgedGamepadTypeStandard;
             _gamepad = controller.gamepad;
         } else {
@@ -41,6 +42,17 @@
         return;
     }
     _active = NO;
+}
+
+- (NSString *)localisedControllerTypeString {
+    switch (self.gamepadType){
+        case HIDBridgedGamepadTypeStandard:
+            return NSLocalizedString(@"Standard", @"Standard");
+        case HIDBridgedGamepadTypeExtended:
+            return NSLocalizedString(@"Extended", @"Extended");
+        default:
+            return NSLocalizedString(@"Unknown", @"Unknown");
+    }
 }
 
 
@@ -106,7 +118,9 @@
         // The pause button doesn't act like a normal button.
         // Probably wise to turn it off otherwise it'll appear always on as the HID gamepad supports a binary state.
         _hidController->setPauseButtonPressed(true);
-        _hidController->setPauseButtonPressed(false);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.01 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+            _hidController->setPauseButtonPressed(false);
+        });
     }];
 
     if (self.gamepadType == HIDBridgedGamepadTypeExtended) {

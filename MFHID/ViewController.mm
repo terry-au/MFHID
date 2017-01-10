@@ -10,8 +10,8 @@
 #import "HIDBridgedGamepad.h"
 
 @implementation ViewController {
-    HIDBridgedGamepad *_bridgedGamepad;
-    NSArray *_connectedControllers;
+    HIDBridgedGamepad *_selectedGamepad;
+    NSArray<HIDBridgedGamepad *> *_connectedControllers;
 }
 
 - (void)viewDidLoad {
@@ -48,7 +48,15 @@
 
 - (void)refreshTableView{
     
-    _connectedControllers = GCController.controllers;
+
+    NSMutableArray *HIDControllers = NSMutableArray.array;
+    for (GCController *controller in GCController.controllers) {
+        HIDBridgedGamepad *gamepad = [[HIDBridgedGamepad alloc] initWithController:controller];
+        if (gamepad){
+            [HIDControllers addObject:gamepad];
+        }
+    }
+    _connectedControllers = [NSArray arrayWithArray:HIDControllers];
     [self.tableView reloadData];
 }
 
@@ -58,11 +66,22 @@
     [GCController startWirelessControllerDiscoveryWithCompletionHandler:^{
         self.searchForControllersIndicator.hidden = YES;
         [self.searchForControllersIndicator stopAnimation:self];
-        _connectedControllers = GCController.controllers;
+        [self refreshTableView];
     }];
 }
 
 - (void)connectControllerButtonClicked:(id)sender {
+    if (_selectedGamepad){
+        [_selectedGamepad deactivate];
+    }
+
+    NSUInteger selectedIndex = [[self.tableView selectedRowIndexes] firstIndex];
+    if (selectedIndex == NSNotFound){
+        return;
+    }
+
+    _selectedGamepad = _connectedControllers[selectedIndex];
+    [_selectedGamepad activate];
 //    NSArray<GCController *> *controllers = [GCController controllers];
 //    if (controllers.count > 0) {
 //        GCController *controller = [controllers firstObject];
@@ -95,16 +114,16 @@
     
     NSString *cellIdentifier = nil;
     
-    GCController *controller = _connectedControllers[row];
+    HIDBridgedGamepad *gamepad = _connectedControllers[row];
     NSString *text = nil;
     NSImage *image = nil;
     if (tableColumn == tableView.tableColumns[0]) {
         cellIdentifier = ControllerVendorCellID;
-        text = controller.vendorName;
+        text = gamepad.controller.vendorName;
         image = [NSImage imageNamed:@"Controller"];
     }else if(tableColumn == tableView.tableColumns[1]){
         cellIdentifier = ControllerTextCellID;
-        controller.playerIndex = GCControllerPlayerIndexUnset;
+        text = gamepad.localisedControllerTypeString;
     }
     
     NSTableCellView *cell = [tableView makeViewWithIdentifier:cellIdentifier owner:nil];
