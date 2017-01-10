@@ -3,7 +3,11 @@
 // Copyright (c) 2017 Terry Lewis. All rights reserved.
 //
 
+#import <cstdint>
+#import <iostream>
 #include "HIDController.h"
+
+using namespace std;
 
 static int report_descriptor[52] = {
         0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
@@ -59,140 +63,193 @@ HIDController::HIDController() {
 
     float rightAnalogueX = 0;
     float rightAnalogueY = 0;
+
+    report.buttons = 0;
+    report.left_x = 0;
+    report.left_y = 0;
+    report.right_x = 0;
+    report.right_y = 0;
+}
+
+void HIDController::setBit(int bitIndex, bool value, uint16_t *ptr){
+    if (value){
+        *ptr |= 1 << bitIndex;
+    }else{
+        *ptr &= ~(1 << bitIndex);
+    }
+    logBits();
 }
 
 bool HIDController::isButtonAPressed() const {
-    return buttonAPressed;
+    return mButtonAPressed;
 }
 
 void HIDController::setButtonAPressed(bool buttonAPressed) {
-    HIDController::buttonAPressed = buttonAPressed;
+    HIDController::mButtonAPressed = buttonAPressed;
+    setBit(0, buttonAPressed, &report.buttons);
 }
 
 bool HIDController::isButtonBPressed() const {
-    return buttonBPressed;
+    return mButtonBPressed;
 }
 
 void HIDController::setButtonBPressed(bool buttonBPressed) {
-    HIDController::buttonBPressed = buttonBPressed;
+    HIDController::mButtonBPressed = buttonBPressed;
+    setBit(1, buttonBPressed, &report.buttons);
 }
 
 bool HIDController::isButtonXPressed() const {
-    return buttonXPressed;
+    return mButtonXPressed;
 }
 
 void HIDController::setButtonXPressed(bool buttonXPressed) {
-    HIDController::buttonXPressed = buttonXPressed;
+    HIDController::mButtonXPressed = buttonXPressed;
+    setBit(2, buttonXPressed, &report.buttons);
 }
 
 bool HIDController::isButtonYPressed() const {
-    return buttonYPressed;
+    return mButtonYPressed;
 }
 
 void HIDController::setButtonYPressed(bool buttonYPressed) {
-    HIDController::buttonYPressed = buttonYPressed;
+    HIDController::mButtonYPressed = buttonYPressed;
+    setBit(3, buttonYPressed, &report.buttons);
 }
 
 bool HIDController::isDpadUpPressed() const {
-    return dpadUpPressed;
+    return mDpadUpPressed;
 }
 
 void HIDController::setDpadUpPressed(bool dpadUpPressed) {
-    HIDController::dpadUpPressed = dpadUpPressed;
+    HIDController::mDpadUpPressed = dpadUpPressed;
+    setBit(4, dpadUpPressed, &report.buttons);
 }
 
 bool HIDController::isDpadRightPressed() const {
-    return dpadRightPressed;
+    return mDpadRightPressed;
 }
 
 void HIDController::setDpadRightPressed(bool dpadRightPressed) {
-    HIDController::dpadRightPressed = dpadRightPressed;
+    HIDController::mDpadRightPressed = dpadRightPressed;
+    setBit(5, dpadRightPressed, &report.buttons);
 }
 
 bool HIDController::isDpadDownPressed() const {
-    return dpadDownPressed;
+    return mDpadDownPressed;
 }
 
 void HIDController::setDpadDownPressed(bool dpadDownPressed) {
-    HIDController::dpadDownPressed = dpadDownPressed;
+    HIDController::mDpadDownPressed = dpadDownPressed;
+    setBit(6, dpadDownPressed, &report.buttons);
 }
 
 bool HIDController::isDpadLeftPressed() const {
-    return dpadLeftPressed;
+    return mDpadLeftPressed;
 }
 
 void HIDController::setDpadLeftPressed(bool dpadLeftPressed) {
-    HIDController::dpadLeftPressed = dpadLeftPressed;
+    HIDController::mDpadLeftPressed = dpadLeftPressed;
+    setBit(7, dpadLeftPressed, &report.buttons);
 }
 
 bool HIDController::isLeftShoulderPressed() const {
-    return leftShoulderPressed;
+    return mLeftShoulderPressed;
 }
 
 void HIDController::setLeftShoulderPressed(bool leftShoulderPressed) {
-    HIDController::leftShoulderPressed = leftShoulderPressed;
+    HIDController::mLeftShoulderPressed = leftShoulderPressed;
+    setBit(8, leftShoulderPressed, &report.buttons);
 }
 
 bool HIDController::isLeftTriggerPressed() const {
-    return leftTriggerPressed;
+    return mLeftTriggerPressed;
 }
 
 void HIDController::setLeftTriggerPressed(bool leftTriggerPressed) {
-    HIDController::leftTriggerPressed = leftTriggerPressed;
+    HIDController::mLeftTriggerPressed = leftTriggerPressed;
+    setBit(9, leftTriggerPressed, &report.buttons);
 }
 
 bool HIDController::isRightShoulderPressed() const {
-    return rightShoulderPressed;
+    return mRightShoulderPressed;
 }
 
 void HIDController::setRightShoulderPressed(bool rightShoulderPressed) {
-    HIDController::rightShoulderPressed = rightShoulderPressed;
+    HIDController::mRightShoulderPressed = rightShoulderPressed;
+    setBit(10, rightShoulderPressed, &report.buttons);
 }
 
 bool HIDController::isRightTriggerPressed() const {
-    return rightTriggerPressed;
+    return mRightTriggerPressed;
 }
 
 void HIDController::setRightTriggerPressed(bool rightTriggerPressed) {
-    HIDController::rightTriggerPressed = rightTriggerPressed;
+    HIDController::mRightTriggerPressed = rightTriggerPressed;
+    setBit(11, rightTriggerPressed, &report.buttons);
 }
 
 bool HIDController::isPauseButtonPressed() const {
-    return pauseButtonPressed;
+    return mPauseButtonPressed;
 }
 
 void HIDController::setPauseButtonPressed(bool pauseButtonPressed) {
-    HIDController::pauseButtonPressed = pauseButtonPressed;
+    HIDController::mPauseButtonPressed = pauseButtonPressed;
+    setBit(12, pauseButtonPressed, &report.buttons);
 }
 
 float HIDController::getLeftAnalogueX() const {
-    return leftAnalogueX;
+    return mLeftAnalogueX;
 }
 
 void HIDController::setLeftAnalogueX(float leftAnalogueX) {
-    HIDController::leftAnalogueX = leftAnalogueX;
+    HIDController::mLeftAnalogueX = leftAnalogueX;
 }
 
 float HIDController::getLeftAnalogueY() const {
-    return leftAnalogueY;
+    return mLeftAnalogueY;
 }
 
 void HIDController::setLeftAnalogueY(float leftAnalogueY) {
-    HIDController::leftAnalogueY = leftAnalogueY;
+    HIDController::mLeftAnalogueY = leftAnalogueY;
 }
 
 float HIDController::getRightAnalogueX() const {
-    return rightAnalogueX;
+    return mRightAnalogueX;
 }
 
 void HIDController::setRightAnalogueX(float rightAnalogueX) {
-    HIDController::rightAnalogueX = rightAnalogueX;
+    HIDController::mRightAnalogueX = rightAnalogueX;
 }
 
 float HIDController::getRightAnalogueY() const {
-    return rightAnalogueY;
+    return mRightAnalogueY;
 }
 
 void HIDController::setRightAnalogueY(float rightAnalogueY) {
-    HIDController::rightAnalogueY = rightAnalogueY;
+    HIDController::mRightAnalogueY = rightAnalogueY;
+}
+
+void HIDController::sendHIDMessage() {
+
+}
+
+void printBits(size_t const size, void const * const ptr)
+{
+    unsigned char *b = (unsigned char*) ptr;
+    unsigned char byte;
+    int i, j;
+
+    for (i=size-1;i>=0;i--)
+    {
+        for (j=7;j>=0;j--)
+        {
+            byte = (b[i] >> j) & 1;
+            printf("%u", byte);
+        }
+    }
+    puts("");
+}
+
+void HIDController::logBits() {
+    printBits(sizeof(uint16_t), &report.buttons);
 }

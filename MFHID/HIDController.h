@@ -6,31 +6,38 @@
 #ifndef MFHID_HIDCONTROLLER_H
 #define MFHID_HIDCONTROLLER_H
 
+struct gamepad_report_t{
+    uint16_t buttons;
+    int8_t left_x;
+    int8_t left_y;
+    int8_t right_x;
+    int8_t right_y;
+};
 
 class HIDController {
-    bool buttonAPressed;
-    bool buttonBPressed;
-    bool buttonXPressed;
-    bool buttonYPressed;
+    bool mButtonAPressed;
+    bool mButtonBPressed;
+    bool mButtonXPressed;
+    bool mButtonYPressed;
 
-    bool dpadUpPressed;
-    bool dpadRightPressed;
-    bool dpadDownPressed;
-    bool dpadLeftPressed;
+    bool mDpadUpPressed;
+    bool mDpadRightPressed;
+    bool mDpadDownPressed;
+    bool mDpadLeftPressed;
 
-    bool leftShoulderPressed;
-    bool leftTriggerPressed;
+    bool mLeftShoulderPressed;
+    bool mLeftTriggerPressed;
 
-    bool rightShoulderPressed;
-    bool rightTriggerPressed;
+    bool mRightShoulderPressed;
+    bool mRightTriggerPressed;
 
-    bool pauseButtonPressed;
+    bool mPauseButtonPressed;
 
-    float leftAnalogueX;
-    float leftAnalogueY;
+    float mLeftAnalogueX;
+    float mLeftAnalogueY;
 
-    float rightAnalogueX;
-    float rightAnalogueY;
+    float mRightAnalogueX;
+    float mRightAnalogueY;
 public:
     HIDController();
 
@@ -101,6 +108,15 @@ public:
     float getRightAnalogueY() const;
 
     void setRightAnalogueY(float rightAnalogueY);
+
+private:
+    gamepad_report_t report;
+
+    void logBits();
+
+    void sendHIDMessage();
+
+    void setBit(int bitIndex, bool value, uint16_t *ptr);
 };
 
 
