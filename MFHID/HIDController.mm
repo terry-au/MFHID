@@ -102,7 +102,9 @@ void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr
         }else{
             *ptr &= ~(1 << bitIndex);
         }
+#if DEBUG == 1
         logBits();
+#endif
         invokeDriver();
     }
 }
@@ -114,7 +116,9 @@ void HIDController::updateJoystickState(float leftXValue, int8_t *leftXStick, fl
     if (leftXStick){
         *leftYStick = leftYValue * ANALOGUE_MAX;
     }
+#if DEBUG == 1
     logJoysticks();
+#endif
     invokeDriver();
 }
 
@@ -319,8 +323,6 @@ void HIDController::sendHIDMessage() {
     kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_SEND, send, send_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to send message to HID device.\n");
-    }else{
-        cout << "Sent: " << mReport.buttons << endl;
     }
 }
 
@@ -378,27 +380,8 @@ void HIDController::initialiseDriver() {
     }
 }
 
-// source http://stackoverflow.com/a/18327468/2714839
-void printBits(size_t const size, void const * const ptr)
-{
-    unsigned char *b = (unsigned char*) ptr;
-    unsigned char byte;
-    int i, j;
-
-    for (i = size - 1; i >= 0; i--)
-    {
-        for (j = 7; j >= 0; j--)
-        {
-            byte = (b[i] >> j) & 1;
-            printf("%u", byte);
-        }
-    }
-    puts("");
-}
-
 void HIDController::logBits() {
-    bitset<sizeof(mReport.buttons)> reportBitset(mReport.buttons);
-    cout << reportBitset << endl;
+    cout << bitset<sizeof(mReport.buttons) * CHAR_BIT>(mReport.buttons) << endl;
 }
 
 void HIDController::logJoysticks() {
