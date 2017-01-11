@@ -9,6 +9,7 @@
 #import <cmath>
 #import "HIDController.h"
 #import "HIDBridgedGamepad.h"
+#import "Vector2D.h"
 
 using namespace std;
 
@@ -150,24 +151,7 @@ void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr
     }
 }
 
-void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide) {
-    if (joystickSide == JoystickLeft && HIDController::isLeftThumbstickDeadzoneEnabled()) {
-        float deadzoneValue = HIDController::getLeftThumbstickDeadzoneValue();
-        if (abs(xValue) < deadzoneValue) {
-            xValue = 0;
-        }
-        if (abs(yValue) < deadzoneValue) {
-            yValue = 0;
-        }
-    } else if (joystickSide == JoystickRight && HIDController::isRightThumbstickDeadzoneEnabled()) {
-        float deadzoneValue = HIDController::getRightThumbstickDeadzoneValue();
-        if (abs(xValue) < deadzoneValue) {
-            xValue = 0;
-        }
-        if (abs(yValue) < deadzoneValue) {
-            yValue = 0;
-        }
-    }
+void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick) {
     if (xStick) {
         *xStick = xValue * ANALOGUE_STICK_MAX;
     }
@@ -303,7 +287,7 @@ float HIDController::getLeftThumbstickX() const {
 
 void HIDController::setLeftThumbstickX(float leftThumbstickX) {
     HIDController::mLeftThumbstickX = leftThumbstickX;
-    updateJoystickState(leftThumbstickX, &mReport.left_x, 0, nullptr, JoystickLeft);
+    updateJoystickState(leftThumbstickX, &mReport.left_x, 0, nullptr);
 }
 
 float HIDController::getLeftThumbstickY() const {
@@ -312,7 +296,7 @@ float HIDController::getLeftThumbstickY() const {
 
 void HIDController::setLeftThumbstickY(float leftThumbstickY) {
     HIDController::mLeftThumbstickY = leftThumbstickY;
-    updateJoystickState(leftThumbstickY, &mReport.left_y, 0, nullptr, JoystickLeft);
+    updateJoystickState(leftThumbstickY, &mReport.left_y, 0, nullptr);
 }
 
 float HIDController::getRightThumbstickX() const {
@@ -321,7 +305,7 @@ float HIDController::getRightThumbstickX() const {
 
 void HIDController::setRightThumbstickX(float rightThumbstickX) {
     HIDController::mRightThumbstickX = rightThumbstickX;
-    updateJoystickState(rightThumbstickX, &mReport.right_x, 0, nullptr, JoystickRight);
+    updateJoystickState(rightThumbstickX, &mReport.right_x, 0, nullptr);
 }
 
 float HIDController::getRightThumbstickY() const {
@@ -330,51 +314,19 @@ float HIDController::getRightThumbstickY() const {
 
 void HIDController::setRightThumbstickY(float rightThumbstickY) {
     HIDController::mRightThumbstickY = rightThumbstickY;
-    updateJoystickState(rightThumbstickY, &mReport.right_y, 0, nullptr, JoystickRight);
+    updateJoystickState(rightThumbstickY, &mReport.right_y, 0, nullptr);
 }
 
 void HIDController::setLeftThumbstickXY(float leftThumbstickX, float leftThumbstickY) {
     HIDController::mLeftThumbstickX = leftThumbstickX;
     HIDController::mLeftThumbstickY = leftThumbstickY;
-    updateJoystickState(leftThumbstickX, &mReport.left_x, leftThumbstickY, &mReport.left_y, JoystickLeft);
+    updateJoystickState(leftThumbstickX, &mReport.left_x, leftThumbstickY, &mReport.left_y);
 }
 
-void HIDController::setRightThumbstickXY(float rightThumbstickX, float rightThumbstickY) {
+void HIDController::setRightThumbstickXY(Vector2D stickInput) {
     HIDController::mRightThumbstickX = rightThumbstickX;
     HIDController::mRightThumbstickX = rightThumbstickX;
-    updateJoystickState(rightThumbstickX, &mReport.right_x, rightThumbstickY, &mReport.right_y, JoystickRight);
-}
-
-bool HIDController::isLeftThumbstickDeadzoneEnabled() const {
-    return mLeftThumbstickDeadzoneEnabled;
-}
-
-void HIDController::setLeftThumbstickDeadzoneEnabled(bool leftThumbstickDeadzoneEnabled) {
-    HIDController::mLeftThumbstickDeadzoneEnabled = leftThumbstickDeadzoneEnabled;
-}
-
-bool HIDController::isRightThumbstickDeadzoneEnabled() const {
-    return mRightThumbstickDeadzoneEnabled;
-}
-
-void HIDController::setRightThumbstickDeadzoneEnabled(bool rightThumbstickDeadzoneEnabled) {
-    HIDController::mRightThumbstickDeadzoneEnabled = rightThumbstickDeadzoneEnabled;
-}
-
-float HIDController::getLeftThumbstickDeadzoneValue() const {
-    return mLeftThumbstickDeadzone;
-}
-
-void HIDController::setLeftThumbstickDeadzoneValue(float leftThumbstickeDeadzoneValue) {
-    HIDController::mLeftThumbstickDeadzone = leftThumbstickeDeadzoneValue;
-}
-
-float HIDController::getRightThumbstickDeadzoneValue() const {
-    return mRightThumbstickDeadzone;
-}
-
-void HIDController::setRightThumbstickDeadzoneValue(float rightThumbstickDeadzoneValue) {
-    HIDController::mRightThumbstickDeadzone = rightThumbstickDeadzoneValue;
+    updateJoystickState(stickInput.getX(), &mReport.right_x, stickInput.getY(), &mReport.right_y);
 }
 
 HIDBridgedGamepad *HIDController::getBridgedGamepad() const {

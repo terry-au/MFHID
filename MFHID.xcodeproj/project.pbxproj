@@ -19,6 +19,7 @@
 		33B88B4A1E24255D006C756D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B481E24255D006C756D /* Main.storyboard */; };
 		33B88B531E242584006C756D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B88B521E242584006C756D /* GameController.framework */; };
 		D5AF600D816B96579843D576 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5AF68A3FC84660A7FD713B2 /* Localizable.strings */; };
+		D5AF620A25D29325013CBD44 /* Vector2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF68235A8624B36C4A1EC0 /* Vector2D.mm */; };
 		D5AF675852F991207F837BEE /* HIDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF67D925AD72937A2C6379 /* HIDController.mm */; };
 		D5AF6D1560E664065B21EDCF /* StatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF64428E85C25B856CEB83 /* StatusBarManager.m */; };
 		D5AF6FE6AE2E9034DB7C9C52 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6C454697561FB85067AB /* Settings.m */; };
@@ -48,9 +49,11 @@
 		D5AF64428E85C25B856CEB83 /* StatusBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarManager.m; sourceTree = "<group>"; };
 		D5AF67D925AD72937A2C6379 /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
 		D5AF67EF142E8AF49751059F /* HIDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDController.h; sourceTree = "<group>"; };
+		D5AF68235A8624B36C4A1EC0 /* Vector2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Vector2D.mm; sourceTree = "<group>"; };
 		D5AF68A3FC84660A7FD713B2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D5AF6C454697561FB85067AB /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFIHID-Prefix.pch"; sourceTree = "<group>"; };
+		D5AF6F4B4AA08FC662093C8E /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				D5AF6C454697561FB85067AB /* Settings.m */,
 				D5AF60A07413A6097A0C2ED8 /* StatusBarManager.h */,
 				D5AF64428E85C25B856CEB83 /* StatusBarManager.m */,
+				D5AF68235A8624B36C4A1EC0 /* Vector2D.mm */,
+				D5AF6F4B4AA08FC662093C8E /* Vector2D.h */,
 			);
 			path = MFHID;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */,
 				D5AF6FE6AE2E9034DB7C9C52 /* Settings.m in Sources */,
 				D5AF6D1560E664065B21EDCF /* StatusBarManager.m in Sources */,
+				D5AF620A25D29325013CBD44 /* Vector2D.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,8 @@
 #import "Settings.h"
 #import "StatusBarManager.h"
 
+extern NSNotificationName kGamepadRelatedSettingsChangedNotification = @"GamepadRelatedSettingsChangedNotification";
+
 static NSString *kShowDevicesWindowOnStartSettingsKey = @"ShowDevicesWindowOnStart";
 static NSString *kShowStatusBarIconSettingsKey = @"ShowStatusBarIcon";
 static NSString *kShowInDockSettingsKey = @"ShowInDock";

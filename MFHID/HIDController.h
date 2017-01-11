@@ -23,11 +23,6 @@ struct foohid_message_send{
     uint64_t fields[4];
 };
 
-enum joystick_side_t{
-    JoystickLeft,
-    JoystickRight,
-};
-
 class HIDController {
 public:
     HIDController();
@@ -107,22 +102,6 @@ public:
 
     void setRightThumbstickXY(float rightThumbstickX, float rightThumbstickY);
 
-    bool isLeftThumbstickDeadzoneEnabled() const;
-
-    void setLeftThumbstickDeadzoneEnabled(bool leftThumbstickDeadzoneEnabled);
-
-    bool isRightThumbstickDeadzoneEnabled() const;
-
-    void setRightThumbstickDeadzoneEnabled(bool rightThumbstickDeadzoneEnabled);
-
-    float getRightThumbstickDeadzoneValue() const;
-
-    void setRightThumbstickDeadzoneValue(float rightThumbstickDeadzoneValue);
-
-    float getLeftThumbstickDeadzoneValue() const;
-
-    void setLeftThumbstickDeadzoneValue(float leftThumbstickeDeadzoneValue);
-
     HIDBridgedGamepad *getBridgedGamepad() const;
 
     void setBridgedGamepad(HIDBridgedGamepad *bridgedGamepad);
@@ -167,12 +146,6 @@ private:
     float mRightThumbstickX;
     float mRightThumbstickY;
 
-    // Deadzones
-    bool mLeftThumbstickDeadzoneEnabled;
-    bool mRightThumbstickDeadzoneEnabled;
-    float mLeftThumbstickDeadzone;
-    float mRightThumbstickDeadzone;
-
     void logBits();
 
     void invokeDriver();
@@ -183,15 +156,11 @@ private:
     
     void listDevices();
 
-    void updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide);
+    void updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick);
 
     void logJoysticks();
 
     bool allButtonsReleased();
-
-    float getAdjustedLeftDeadzoneValue() const;
-
-    float getAdjustedRightDeadzoneValue() const;
 };
 
 

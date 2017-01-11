@@ -9,6 +9,7 @@
 #import "DevicesViewController.h"
 #import "HIDBridgedGamepad.h"
 #import "StatusBarManager.h"
+#import "Settings.h"
 
 @implementation DevicesViewController {
     HIDBridgedGamepad *_selectedGamepad;
@@ -31,6 +32,7 @@
     
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refreshTableView) name:GCControllerDidConnectNotification object:nil];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(refreshTableView) name:GCControllerDidDisconnectNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(updateGamepadSettingsNotification:) name:kGamepadRelatedSettingsChangedNotification object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -83,6 +85,7 @@
     }
 
     _selectedGamepad = _connectedControllers[selectedIndex];
+    [self configureGamepadSettings];
     [_selectedGamepad activate];
 //    NSArray<GCController *> *controllers = [GCController controllers];
 //    if (controllers.count > 0) {
@@ -95,6 +98,17 @@
 //    }
 }
 
+- (void)updateGamepadSettingsNotification:(id)updateGamepadSettingsNotification {
+    [self configureGamepadSettings];
+}
+
+- (void)configureGamepadSettings {
+    Settings *sharedSettings = Settings.sharedSettings;
+    _selectedGamepad.leftThumbstickDeadzoneEnabled = sharedSettings.leftThumbstickDeadzoneEnabled;
+    _selectedGamepad.rightThumbstickDeadzoneEnabled = sharedSettings.rightThumbstickDeadzoneEnabled;
+    _selectedGamepad.leftThumbstickDeadzone = (float)sharedSettings.leftStickDeadzone/100.0f;
+    _selectedGamepad.rightThumbstickDeadzone = (float)sharedSettings.rightStickDeadzone/100.0f;
+}
 
 
 - (void)setRepresentedObject:(id)representedObject {

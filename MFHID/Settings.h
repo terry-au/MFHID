@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSNotificationName kGamepadRelatedSettingsChangedNotification;
 
 @interface Settings : NSObject
 

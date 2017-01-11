@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/ControllerTabIcon.imageset/IconConnectedDevices.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/ControllerTabIcon.imageset/Contents.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Vector2D.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Vector2D.mm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/DevicesViewController.mm" afterPath="$PROJECT_DIR$/MFHID/DevicesViewController.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" afterPath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" afterPath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.h" afterPath="$PROJECT_DIR$/MFHID/HIDController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.mm" afterPath="$PROJECT_DIR$/MFHID/HIDController.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Settings.h" afterPath="$PROJECT_DIR$/MFHID/Settings.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Settings.m" afterPath="$PROJECT_DIR$/MFHID/Settings.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,9 +30,21 @@
       <file leaf-file-name="HIDBridgedGamepad.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+            <state relative-caret-position="178">
+              <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DevicesViewController.mm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/DevicesViewController.mm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1484">
+              <caret line="107" column="39" lean-forward="false" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
+              <folding>
+                <element signature="e#141#174#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -43,9 +52,33 @@
       <file leaf-file-name="HIDBridgedGamepad.mm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="143" column="27" lean-forward="false" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
+            <state relative-caret-position="313">
+              <caret line="168" column="31" lean-forward="false" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
+              <folding>
+                <element signature="e#138#167#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vector2D.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MFHID/Vector2D.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vector2D.mm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/Vector2D.mm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+              <folding>
+                <element signature="e#101#116#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,8 +86,8 @@
       <file leaf-file-name="HIDController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+            <state relative-caret-position="-257">
+              <caret line="123" column="25" lean-forward="false" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -63,21 +96,11 @@
       <file leaf-file-name="HIDController.mm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+            <state relative-caret-position="284">
+              <caret line="327" column="56" lean-forward="true" selection-start-line="327" selection-start-column="56" selection-end-line="327" selection-end-column="56" />
               <folding>
                 <element signature="e#101#118#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -86,9 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>input_count</find>
-      <find>_connectedControllers</find>
-      <find>image</find>
       <find>separa</find>
       <find>window</find>
       <find>notif</find>
@@ -116,6 +136,9 @@
       <find>IOServiceGetMatchingServices</find>
       <find>mInput</find>
       <find>IOConnectCallScalarMethod</find>
+      <find>deadzon</find>
+      <find>HIDBridgedGamepad</find>
+      <find>_selectedGamepad</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,16 +156,18 @@
         <option value="$PROJECT_DIR$/MFHID/main.m" />
         <option value="$PROJECT_DIR$/MFHID/AppDelegate.h" />
         <option value="$PROJECT_DIR$/MFHID/StatusBarManager.h" />
-        <option value="$PROJECT_DIR$/MFHID/DevicesViewController.mm" />
         <option value="$PROJECT_DIR$/MFHID/StatusBarManager.m" />
-        <option value="$PROJECT_DIR$/MFHID/Settings.h" />
         <option value="$PROJECT_DIR$/MFHID/SettingsViewController.m" />
-        <option value="$PROJECT_DIR$/MFHID/Settings.m" />
         <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" />
+        <option value="$PROJECT_DIR$/MFHID/AppDelegate.m" />
         <option value="$PROJECT_DIR$/MFHID/HIDController.h" />
+        <option value="$PROJECT_DIR$/MFHID/Settings.h" />
+        <option value="$PROJECT_DIR$/MFHID/Settings.m" />
+        <option value="$PROJECT_DIR$/MFHID/DevicesViewController.mm" />
+        <option value="$PROJECT_DIR$/MFHID/Vector2D.mm" />
+        <option value="$PROJECT_DIR$/MFHID/Vector2D.h" />
         <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
         <option value="$PROJECT_DIR$/MFHID/HIDController.mm" />
-        <option value="$PROJECT_DIR$/MFHID/AppDelegate.m" />
       </list>
     </option>
   </component>
@@ -199,24 +224,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Supporting Files" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -312,7 +319,7 @@
       <workItem from="1484152208402" duration="4124000" />
       <workItem from="1484157017180" duration="202000" />
       <workItem from="1484157603372" duration="684000" />
-      <workItem from="1484159711655" duration="4072000" />
+      <workItem from="1484159711655" duration="6547000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -398,15 +405,22 @@
       <option name="project" value="LOCAL" />
       <updated>1484142069615</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Tab bar icons.&#10;Changed application icon.">
+      <created>1484165435275</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1484165435275</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43478000" />
+    <option name="totallyTimeSpent" value="45953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="710" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -415,7 +429,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32761312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32761312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -472,7 +486,8 @@
     <MESSAGE value="Rename analogue &gt; thumbstick (might add analogue triggers at a later date.).&#10;Removed some unecessary logging." />
     <MESSAGE value="Renamed HID device.&#10;Moving deadzone calculation to bridge class." />
     <MESSAGE value="Renamed HID device.&#10;Moving deadzone calculation to bridge class.&#10;Not working with Dolphin anymore..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed HID device.&#10;Moving deadzone calculation to bridge class.&#10;Not working with Dolphin anymore..." />
+    <MESSAGE value="Tab bar icons.&#10;Changed application icon." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tab bar icons.&#10;Changed application icon." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -481,25 +496,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="26" lean-forward="false" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#101#118#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDController.hpp" />
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.cpp" />
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/GameController.framework/Headers/GCMotion.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -522,13 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/GameController.framework/Headers/GCController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="114" column="38" lean-forward="true" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/MFIHID-Prefix.pch">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -540,13 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="128" column="6" lean-forward="true" selection-start-line="128" selection-start-column="6" selection-end-line="128" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotification.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="47" column="6" lean-forward="true" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -662,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/DevicesViewController.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="46" lean-forward="false" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWorkspace.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -718,16 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Settings.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="66" column="57" lean-forward="false" selection-start-line="66" selection-start-column="57" selection-end-line="66" selection-end-column="57" />
-          <folding>
-            <element signature="e#101#121#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/SettingsViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -756,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Settings.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -784,44 +742,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h">
+    <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        <state relative-caret-position="283">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        <state relative-caret-position="-257">
+          <caret line="123" column="25" lean-forward="false" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotification.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/GameController.framework/Headers/GameController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/DevicesViewController.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1484">
+          <caret line="107" column="39" lean-forward="false" selection-start-line="107" selection-start-column="39" selection-end-line="107" selection-end-column="39" />
+          <folding>
+            <element signature="e#141#174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/GameController.framework/Headers/GCController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="38" column="54" lean-forward="false" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Settings.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Settings.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Vector2D.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="16" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding>
+            <element signature="e#101#116#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="143" column="27" lean-forward="false" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="313">
+          <caret line="168" column="31" lean-forward="false" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
+          <folding>
+            <element signature="e#138#167#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        <state relative-caret-position="284">
+          <caret line="327" column="56" lean-forward="true" selection-start-line="327" selection-start-column="56" selection-end-line="327" selection-end-column="56" />
           <folding>
             <element signature="e#101#118#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
+    <entry file="file://$PROJECT_DIR$/MFHID/Vector2D.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
           <folding />
         </state>
       </provider>

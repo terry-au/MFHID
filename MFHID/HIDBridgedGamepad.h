@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 @property (nonatomic) BOOL leftThumbstickDeadzoneEnabled;
 @property (nonatomic) BOOL rightThumbstickDeadzoneEnabled;
 @property (nonatomic) float leftThumbstickDeadzone;
-@property (nonatomic) float righttThumbstickDeadzone;
+@property (nonatomic) float rightThumbstickDeadzone;
 
 - (void)activate;
 - (void)deactivate;

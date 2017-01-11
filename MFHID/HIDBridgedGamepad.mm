@@ -8,6 +8,7 @@
 
 #import "HIDBridgedGamepad.h"
 #import "HIDController.h"
+#import "Vector2D.h"
 
 @implementation HIDBridgedGamepad {
     HIDController *_hidController;
@@ -57,7 +58,7 @@
 
 
 - (void)dealloc {
-    delete _hidController;
+    [self unconfigureGamepad];
 }
 
 - (void)configureGamepad {
@@ -70,8 +71,6 @@
     _hidController->initialiseDriver();
     _hidController->sendEmptyState();
 
-    _hidController->setLeftThumbstickDeadzoneEnabled(self.leftThumbstickDeadzoneEnabled);
-    _hidController->setRightThumbstickDeadzoneEnabled(self.rightThumbstickDeadzoneEnabled);
     _hidController->setBridgedGamepad(self);
 
     GCGamepad *mfiGamepad = self.gamepad;
@@ -143,10 +142,30 @@
 
         // Analogue sticks.
         [extendedGamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+            if (self.leftThumbstickDeadzoneEnabled){
+                if (abs(xValue) < self.leftThumbstickDeadzone){
+                    xValue = 0;
+                }
+                if (fabs(yValue) < self.leftThumbstickDeadzone){
+                    yValue = 0;
+                }
+            }
             _hidController->setLeftThumbstickXY(xValue, yValue);
         }];
 
         [extendedGamepad.rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+            if (self.rightThumbstickDeadzoneEnabled){
+                if (abs(xValue) < self.rightThumbstickDeadzone){
+                    xValue = 0;
+                }
+                if (fabs(yValue) < self.rightThumbstickDeadzone){
+                    yValue = 0;
+                }
+                Vector2D vector = Vector2D(xValue, xValue);
+                if(vector.magnitude() < self.rightThumbstickDeadzone){
+
+                }
+            }
             _hidController->setRightThumbstickXY(xValue, yValue);
         }];
     }
