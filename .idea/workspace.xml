@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem-Alt.imageset/StatusBarItem-Alt.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem.imageset/StatusBarItem.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem-Alt.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem.imageset/Contents.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Settings.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Settings.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/StatusBarManager.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/StatusBarManager.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MFHID/ViewController.h" afterPath="$PROJECT_DIR$/MFHID/DevicesViewController.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MFHID/ViewController.mm" afterPath="$PROJECT_DIR$/MFHID/DevicesViewController.mm" />
+    <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/AppDelegate.m" afterPath="$PROJECT_DIR$/MFHID/AppDelegate.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,8 +52,8 @@
       <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="59" column="81" lean-forward="false" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+            <state relative-caret-position="598">
+              <caret line="90" column="26" lean-forward="false" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
               <folding>
                 <element signature="e#131#154#0" expanded="true" />
               </folding>
@@ -321,7 +308,7 @@
       <workItem from="1484058214268" duration="33000" />
       <workItem from="1484058263581" duration="6079000" />
       <workItem from="1484071191077" duration="7027000" />
-      <workItem from="1484082279734" duration="3881000" />
+      <workItem from="1484082279734" duration="3930000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -372,15 +359,22 @@
       <option name="project" value="LOCAL" />
       <updated>1484077732293</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start.&#10;Begin implementing settings view controller.">
+      <created>1484086380080</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1484086380080</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29084000" />
+    <option name="totallyTimeSpent" value="29133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -440,7 +434,8 @@
     <MESSAGE value="Listing connected controllers in table view working.&#10;Added activate and deactivate functionality to HIDBridgedController." />
     <MESSAGE value="Added icon.&#10;Show gamepad specification in table.&#10;Autolayout." />
     <MESSAGE value="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start." />
+    <MESSAGE value="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start.&#10;Begin implementing settings view controller." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start.&#10;Begin implementing settings view controller." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -833,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="59" column="81" lean-forward="false" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+        <state relative-caret-position="598">
+          <caret line="90" column="26" lean-forward="false" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
           <folding>
             <element signature="e#131#154#0" expanded="true" />
           </folding>

@@ -18,5 +18,6 @@
 + (instancetype)sharedManager;
 
 @property (nonatomic) BOOL statusBarEnabled;
+@property (nonatomic) id <StatusBarManagerDelegate> delegate;
 
 @end

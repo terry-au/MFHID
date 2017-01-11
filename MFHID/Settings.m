@@ -8,10 +8,12 @@
 
 static NSString *kShowDevicesWindowOnStartSettingsKey = @"ShowDevicesWindowOnStart";
 static NSString *kShowStatusBarIconSettingsKey = @"ShowStatusBarIcon";
-static NSString *kLeftStickDeadZoneXSettingsKey = @"LeftStickDeadZoneX";
-static NSString *kLeftStickDeadZoneYSettingsKey = @"LeftStickDeadZoneY";
-static NSString *kRightStickDeadZoneXSettingsKey = @"RightStickDeadZoneX";
-static NSString *kRightStickDeadZoneYSettingsKey = @"RightStickDeadZoneY";
+//static NSString *kLeftStickDeadZoneXSettingsKey = @"LeftStickDeadZoneX";
+//static NSString *kLeftStickDeadZoneYSettingsKey = @"LeftStickDeadZoneY";
+//static NSString *kRightStickDeadZoneXSettingsKey = @"RightStickDeadZoneX";
+//static NSString *kRightStickDeadZoneYSettingsKey = @"RightStickDeadZoneY";
+static NSString *kLeftStickDeadZoneSettingsKey = @"LeftStickDeadZone";
+static NSString *kRightStickDeadZoneSettingsKey = @"RightStickDeadZone";
 
 @implementation Settings {
     NSUserDefaults *_userDefaults;
@@ -42,10 +44,10 @@ static NSString *kRightStickDeadZoneYSettingsKey = @"RightStickDeadZoneY";
     return defaultValue;
 }
 
-- (float)floatForSettingNamed:(NSString *)settingName defaultValue:(float)defaultValue{
+- (NSInteger)integerForSettingNamed:(NSString *)settingName defaultValue:(float)defaultValue{
     id temp = [_userDefaults objectForKey:settingName];
     if (temp){
-        return [temp floatValue];
+        return [temp integerValue];
     }
     return defaultValue;
 }
@@ -54,10 +56,13 @@ static NSString *kRightStickDeadZoneYSettingsKey = @"RightStickDeadZoneY";
     _showDevicesWindowOnStart = [self boolForSettingNamed:kShowDevicesWindowOnStartSettingsKey defaultValue:YES];
     _showStatusBarIcon = [self boolForSettingNamed:kShowStatusBarIconSettingsKey defaultValue:YES];
 
-    _leftStickDeadzoneX = [self floatForSettingNamed:kLeftStickDeadZoneXSettingsKey defaultValue:0.0f];
-    _leftStickDeadzoneY = [self floatForSettingNamed:kLeftStickDeadZoneYSettingsKey defaultValue:0.0f];
-    _rightStickDeadzoneX = [self floatForSettingNamed:kRightStickDeadZoneXSettingsKey defaultValue:0.0f];
-    _rightStickDeadzoneY = [self floatForSettingNamed:kRightStickDeadZoneYSettingsKey defaultValue:0.0f];
+//    _leftStickDeadzoneX = [self integerForSettingNamed:kLeftStickDeadZoneXSettingsKey defaultValue:0.0f];
+//    _leftStickDeadzoneY = [self integerForSettingNamed:kLeftStickDeadZoneYSettingsKey defaultValue:0.0f];
+//    _rightStickDeadzoneX = [self integerForSettingNamed:kRightStickDeadZoneXSettingsKey defaultValue:0.0f];
+//    _rightStickDeadzoneY = [self integerForSettingNamed:kRightStickDeadZoneYSettingsKey defaultValue:0.0f];
+    
+    _leftStickDeadzone = [self integerForSettingNamed:kLeftStickDeadZoneSettingsKey defaultValue:0];
+    _rightStickDeadzone = [self integerForSettingNamed:kRightStickDeadZoneSettingsKey defaultValue:0];
 }
 
 - (void)setShowDevicesWindowOnStart:(BOOL)showDevicesWindowOnStart {
@@ -71,25 +76,34 @@ static NSString *kRightStickDeadZoneYSettingsKey = @"RightStickDeadZoneY";
     StatusBarManager.sharedManager.statusBarEnabled = self.showStatusBarIcon;
 }
 
-- (void)setLeftStickDeadzoneX:(float)leftStickDeadzoneX {
-    _leftStickDeadzoneX = leftStickDeadzoneX;
-    [_userDefaults setFloat:self.leftStickDeadzoneX forKey:kLeftStickDeadZoneXSettingsKey];
+//- (void)setLeftStickDeadzoneX:(float)leftStickDeadzoneX {
+//    _leftStickDeadzoneX = leftStickDeadzoneX;
+//    [_userDefaults setFloat:self.leftStickDeadzoneX forKey:kLeftStickDeadZoneXSettingsKey];
+//}
+//
+//- (void)setLeftStickDeadzoneY:(float)leftStickDeadzoneY {
+//    _leftStickDeadzoneY = leftStickDeadzoneY;
+//    [_userDefaults setFloat:self.leftStickDeadzoneY forKey:kLeftStickDeadZoneYSettingsKey];
+//}
+//
+//- (void)setRightStickDeadzoneX:(float)rightStickDeadzoneX {
+//    _rightStickDeadzoneX = rightStickDeadzoneX;
+//    [_userDefaults setFloat:self.rightStickDeadzoneX forKey:kRightStickDeadZoneXSettingsKey];
+//}
+//
+//- (void)setRightStickDeadzoneY:(float)rightStickDeadzoneY {
+//    _rightStickDeadzoneY = rightStickDeadzoneY;
+//    [_userDefaults setFloat:self.rightStickDeadzoneY forKey:kRightStickDeadZoneYSettingsKey];
+//}
+
+- (void)setLeftStickDeadzone:(float)leftStickDeadzone {
+    _leftStickDeadzone = leftStickDeadzone;
+    [_userDefaults setFloat:self.leftStickDeadzone forKey:kLeftStickDeadZoneSettingsKey];
 }
 
-- (void)setLeftStickDeadzoneY:(float)leftStickDeadzoneY {
-    _leftStickDeadzoneY = leftStickDeadzoneY;
-    [_userDefaults setFloat:self.leftStickDeadzoneY forKey:kLeftStickDeadZoneYSettingsKey];
+- (void)setRightStickDeadzoneX:(float)rightStickDeadzone {
+    _rightStickDeadzone = rightStickDeadzone;
+    [_userDefaults setFloat:self.rightStickDeadzone forKey:kRightStickDeadZoneSettingsKey];
 }
-
-- (void)setRightStickDeadzoneX:(float)rightStickDeadzoneX {
-    _rightStickDeadzoneX = rightStickDeadzoneX;
-    [_userDefaults setFloat:self.rightStickDeadzoneX forKey:kRightStickDeadZoneXSettingsKey];
-}
-
-- (void)setRightStickDeadzoneY:(float)rightStickDeadzoneY {
-    _rightStickDeadzoneY = rightStickDeadzoneY;
-    [_userDefaults setFloat:self.rightStickDeadzoneY forKey:kRightStickDeadZoneYSettingsKey];
-}
-
 
 @end

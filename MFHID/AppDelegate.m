@@ -8,12 +8,13 @@
 
 #import "AppDelegate.h"
 #import "DevicesViewController.h"
+#import "StatusBarManager.h"
 
-@interface AppDelegate () <NSApplicationDelegate>
+@interface AppDelegate () <NSApplicationDelegate, StatusBarManagerDelegate>
 
-@property (nonatomic, retain) DevicesViewController *devicesViewController;
 @property (nonatomic, retain) NSWindow *window;
-@property (nonatomic, retain) NSWindowController *windowController;
+@property (nonatomic, retain) NSWindowController *devicesWindowController;
+@property (nonatomic, retain) NSStoryboard *storyboard;
 
 @end
 
@@ -27,13 +28,33 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
     [self setupStatusItem];
 }
 
+- (NSStoryboard *)storyboard{
+    if (!_storyboard){
+        _storyboard = [NSStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
+    }
+    return _storyboard;
+}
+
+- (NSWindow *)window{
+    if (!_window) {
+        NSWindowStyleMask styleMask = NSWindowStyleMaskTitled|NSWindowStyleMaskResizable|NSWindowStyleMaskMiniaturizable|NSWindowStyleMaskClosable;
+        NSSize screenSize = NSScreen.mainScreen.frame.size;
+        NSRect windowRect = NSMakeRect(0, 0, screenSize.width/2, screenSize.height/2);
+        self.window = [[NSWindow alloc] initWithContentRect:windowRect
+                                                  styleMask:styleMask
+                                                    backing:NSBackingStoreBuffered
+                                                      defer:NO];
+    }
+    return _window;
+}
+
 - (void)checkSingleInstance {
     NSString *bundleIdentifier = NSBundle.mainBundle.bundleIdentifier;
     NSArray *runningApplications = [NSRunningApplication runningApplicationsWithBundleIdentifier:bundleIdentifier];
     NSDistributedNotificationCenter *distributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter;
     if (runningApplications.count > 1) {
         [distributedNotificationCenter postNotificationName:kAwakenInstanceNotificationName object:nil];
-        [NSApplication.sharedApplication terminate:self];
+        [self quitApplication];
     }
     [distributedNotificationCenter addObserver:self
                                       selector:@selector(awakenNotificationReceived:)
@@ -42,49 +63,33 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
 }
 
 - (void)awakenNotificationReceived:(id)awakenNotificationReceived {
-    [self.windowController showWindow:nil];
-    [self.windowController.window makeKeyAndOrderFront:self];
-    [self.windowController.window makeMainWindow];
+    [self.devicesWindowController showWindow:nil];
+    [self.devicesWindowController.window makeKeyAndOrderFront:self];
+    [self.devicesWindowController.window makeMainWindow];
 }
 
 - (void)setupWindowController{
-    NSWindowStyleMask styleMask = NSTitledWindowMask|NSResizableWindowMask|NSMiniaturizableWindowMask|NSClosableWindowMask;
-    NSSize screenSize = NSScreen.mainScreen.frame.size;
-    NSRect windowRect = NSMakeRect(0, 0, screenSize.width/2, screenSize.height/2);
-    self.window = [[NSWindow alloc] initWithContentRect:windowRect
-                                              styleMask:styleMask
-                                                backing:NSBackingStoreBuffered
-                                                  defer:NO];
-
-    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
-    self.devicesViewController = [storyboard instantiateControllerWithIdentifier:@"DevicesWindowViewController"];
-    self.windowController = [[NSWindowController alloc] initWithWindow:self.window];
-    [self.windowController showWindow:nil];
-    [self.windowController.window makeKeyAndOrderFront:self];
-    [self.windowController.window makeMainWindow];
-    self.windowController.contentViewController = self.devicesViewController;
-    [self.windowController.window center];
+    self.devicesWindowController = [self.storyboard instantiateControllerWithIdentifier:@"DevicesWindowViewController"];
+    [self.devicesWindowController showWindow:self.window];
+    [self.devicesWindowController.window center];
 }
 
 - (void)setupStatusItem {
+    [StatusBarManager.sharedManager setStatusBarEnabled:YES];
+    StatusBarManager.sharedManager.delegate = self;
 }
 
-- (void)applicationDidBecomeActive:(NSNotification *)aNotification {
-
-    if (!self.devicesViewController) {
-        NSViewController *viewController = NSApplication.sharedApplication.mainWindow.contentViewController;
-        if ([viewController isKindOfClass:[DevicesViewController class]]) {
-            self.devicesViewController = (DevicesViewController *)viewController;
-        }
-    }
+- (void)statusBarManagerDevicesButtonClicked:(StatusBarManager *)statusBarManager{
+//    [NSApplication.sharedApplication.keyWindow.contentView addSubview:self.devicesViewController.view];
 }
 
-- (void)showPreferencesWindow:(id)showPreferencesWindow {
-
+- (void)statusBarManagerQuitButtonClicked:(StatusBarManager *)statusBarManager{
+    [self quitApplication];
 }
 
-- (void)showDevicesWindow:(id)showDevicesWindow {
-    [NSApplication.sharedApplication.keyWindow.contentView addSubview:self.devicesViewController.view];
+- (void)statusBarManagerPreferencesButtonClicked:(StatusBarManager *)statusBarManager{
+//    self.settingsWindowController = [self.storyboard instantiateControllerWithIdentifier:@"SettingsWindowController"];
+//    [self.settingsWindowController showWindow:self.window];
 }
 
 - (void)quitApplication {

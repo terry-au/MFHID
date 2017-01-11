@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3306415B1E250F100044CB68 /* IOKit.framework */; };
+		33402E821E26285300155282 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33402E811E26285300155282 /* SettingsViewController.m */; };
 		33A117961E253F3B00698588 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A117951E253F3B00698588 /* Categories.m */; };
 		33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */; };
 		33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */; };
@@ -25,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		3306415B1E250F100044CB68 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		33402E801E26285200155282 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		33402E811E26285300155282 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		33A117941E253F3B00698588 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		33A117951E253F3B00698588 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		33A1179A1E2541FA00698588 /* HIDBridgedGamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDBridgedGamepad.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */,
 				33A117941E253F3B00698588 /* Categories.h */,
 				33A117951E253F3B00698588 /* Categories.m */,
+				33402E801E26285200155282 /* SettingsViewController.h */,
+				33402E811E26285300155282 /* SettingsViewController.m */,
 				33B88B461E24255D006C756D /* Assets.xcassets */,
 				33B88B481E24255D006C756D /* Main.storyboard */,
 				33B88B4B1E24255D006C756D /* Info.plist */,
@@ -100,10 +105,10 @@
 				D5AF67D925AD72937A2C6379 /* HIDController.mm */,
 				D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */,
 				D5AF68A3FC84660A7FD713B2 /* Localizable.strings */,
-				D5AF6C454697561FB85067AB /* Settings.m */,
 				D5AF62A5A5FF041D3E02C91E /* Settings.h */,
-				D5AF64428E85C25B856CEB83 /* StatusBarManager.m */,
+				D5AF6C454697561FB85067AB /* Settings.m */,
 				D5AF60A07413A6097A0C2ED8 /* StatusBarManager.h */,
+				D5AF64428E85C25B856CEB83 /* StatusBarManager.m */,
 			);
 			path = MFHID;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */,
 				33A117961E253F3B00698588 /* Categories.m in Sources */,
 				D5AF675852F991207F837BEE /* HIDController.mm in Sources */,
+				33402E821E26285300155282 /* SettingsViewController.m in Sources */,
 				33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */,
 				D5AF6FE6AE2E9034DB7C9C52 /* Settings.m in Sources */,
 				D5AF6D1560E664065B21EDCF /* StatusBarManager.m in Sources */,

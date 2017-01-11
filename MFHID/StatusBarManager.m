@@ -46,10 +46,16 @@
 
     NSMenu *menu = [[NSMenu alloc] init];
 
-    NSMenuItem *devicesMenuItem = [[NSMenuItem alloc] initWithTitle:@"Devices" action:@selector(showDevicesWindow:) keyEquivalent:@""];
-    NSMenuItem *preferencesMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:@selector(showPreferencesWindow:) keyEquivalent:@""];
+    NSMenuItem *devicesMenuItem = [[NSMenuItem alloc] initWithTitle:@"Devices" action:@selector(showDevicesWindow:) keyEquivalent:@"D"];
+    devicesMenuItem.target = self;
+    
+    NSMenuItem *preferencesMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:@selector(showPreferencesWindow:) keyEquivalent:@"P"];
+    preferencesMenuItem.target = self;
+    
     NSMenuItem *separatorMenuItem = [NSMenuItem separatorItem];
-    NSMenuItem *quitMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quitApplication) keyEquivalent:@"Q"];
+    
+    NSMenuItem *quitMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quitApplication:) keyEquivalent:@"Q"];
+    quitMenuItem.target = self;
 
     [menu addItem:devicesMenuItem];
     [menu addItem:preferencesMenuItem];
@@ -57,6 +63,18 @@
     [menu addItem:quitMenuItem];
 
     self.statusItem.menu = menu;
+}
+
+- (void)showDevicesWindow:(id)sender{
+    [self.delegate statusBarManagerDevicesButtonClicked:self];
+}
+
+- (void)showPreferencesWindow:(id)sender{
+    [self.delegate statusBarManagerPreferencesButtonClicked:self];
+}
+
+- (void)quitApplication:(id)sender{
+    [self.delegate statusBarManagerQuitButtonClicked:self];
 }
 
 

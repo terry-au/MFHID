@@ -12,13 +12,17 @@
 
 @property (nonatomic) BOOL showStatusBarIcon;
 
-@property (nonatomic) float leftStickDeadzoneX;
+//@property (nonatomic) float leftStickDeadzoneX;
+//
+//@property (nonatomic) float leftStickDeadzoneY;
+//
+//@property (nonatomic) float rightStickDeadzoneX;
+//
+//@property (nonatomic) float rightStickDeadzoneY;
 
-@property (nonatomic) float leftStickDeadzoneY;
+@property (nonatomic) NSInteger leftStickDeadzone;
 
-@property (nonatomic) float rightStickDeadzoneX;
-
-@property (nonatomic) float rightStickDeadzoneY;
+@property (nonatomic) NSInteger rightStickDeadzone;
 
 + (instancetype)sharedSettings;
 
