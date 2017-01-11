@@ -17,7 +17,7 @@ using namespace std;
 #define FOOHID_CREATE 0  // create selector
 #define FOOHID_SEND 2  // send selector
 
-#define DEVICE_NAME "Foohid Virtual Gamepad"
+#define DEVICE_NAME "MFIHID Gamepad"
 #define DEVICE_SN "SN 123456"
 
 #define ANALOGUE_STICK_MAX 127
@@ -112,7 +112,7 @@ void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr
 
 void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide) {
     if (joystickSide == JoystickLeft && HIDController::isLeftThumbstickDeadzoneEnabled()){
-        float deadzoneValue = HIDController::mAdjustedRightDeadzoneValue;
+        float deadzoneValue = HIDController::getLeftThumbstickDeadzoneValue();
         if (abs(xValue) < deadzoneValue){
             xValue = 0;
         }
@@ -120,7 +120,7 @@ void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yVal
             yValue = 0;
         }
     }else if (joystickSide == JoystickRight && HIDController::isRightThumbstickDeadzoneEnabled()){
-        float deadzoneValue = HIDController::mAdjustedRightDeadzoneValue;
+        float deadzoneValue = HIDController::getRightThumbstickDeadzoneValue();
         if (abs(xValue) < deadzoneValue){
             xValue = 0;
         }
@@ -357,6 +357,8 @@ void HIDController::sendHIDMessage() {
     kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_SEND, send, send_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to send message to HID device.\n");
+    }else{
+        cout << "Sending " << mReport.buttons << endl;
     }
 }
 

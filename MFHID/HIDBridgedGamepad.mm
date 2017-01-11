@@ -67,7 +67,8 @@
 
     _hidController = new HIDController();
 
-    _hidController.deadz
+    _hidController->setLeftThumbstickDeadzoneEnabled(self.leftThumbstickDeadzoneEnabled);
+    _hidController->setRightThumbstickDeadzoneEnabled(self.rightThumbstickDeadzoneEnabled);
 
     GCGamepad *mfiGamepad = self.gamepad;
 
