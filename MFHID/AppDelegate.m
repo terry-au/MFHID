@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DevicesViewController.h"
 #import "StatusBarManager.h"
+#import "Settings.h"
 
 @interface AppDelegate () <NSApplicationDelegate, StatusBarManagerDelegate>
 
@@ -24,6 +25,7 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self checkSingleInstance];
+    [self loadSettings];
     [self setupWindowController];
     [self setupStatusItem];
 }
@@ -54,6 +56,12 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
     NSDistributedNotificationCenter *distributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter;
     if (runningApplications.count > 1) {
         [distributedNotificationCenter postNotificationName:kAwakenInstanceNotificationName object:nil];
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"Error";
+        alert.informativeText = [NSString stringWithFormat: @"Only one instance of %@ may be running. This application will now terminate and the running instance will be displayed.", NSBundle.mainBundle.infoDictionary[@"CFBundleName"]];;
+        [alert addButtonWithTitle:@"OK"];
+        [alert setAlertStyle:NSAlertStyleWarning];
+        [alert runModal];
         [self quitApplication];
     }
     [distributedNotificationCenter addObserver:self
@@ -62,7 +70,39 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
                                         object:nil];
 }
 
+- (void)loadSettings{
+    Settings *sharedSettings = Settings.sharedSettings;
+    [sharedSettings addObserver:self forKeyPath:@"showInDock" options:0 context:nil];
+    [sharedSettings loadSettings];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if (object == Settings.sharedSettings) {
+        if ([keyPath isEqualToString:@"showInDock"]) {
+            ProcessSerialNumber psn = { 0, kCurrentProcess };
+            ProcessApplicationTransformState transformState;
+            if (Settings.sharedSettings.showInDock) {
+                transformState = kProcessTransformToForegroundApplication;
+            }else{
+                transformState = kProcessTransformToUIElementApplication;
+            }
+            TransformProcessType(&psn, transformState);
+            
+            // Hack. Otherwise the window never comes back.
+            if (transformState == kProcessTransformToUIElementApplication){
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self focusDevicesWindow];
+                });
+            }
+        }
+    }
+}
+
 - (void)awakenNotificationReceived:(id)awakenNotificationReceived {
+    [self focusDevicesWindow];
+}
+
+- (void)focusDevicesWindow{
     [self.devicesWindowController showWindow:nil];
     [self.devicesWindowController.window makeKeyAndOrderFront:self];
     [self.devicesWindowController.window makeMainWindow];
@@ -98,6 +138,11 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
+    [self focusDevicesWindow];
+    return YES;
 }
 
 @end

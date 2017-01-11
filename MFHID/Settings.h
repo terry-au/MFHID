@@ -12,6 +12,8 @@
 
 @property (nonatomic) BOOL showStatusBarIcon;
 
+@property (nonatomic) BOOL showInDock;
+
 //@property (nonatomic) float leftStickDeadzoneX;
 //
 //@property (nonatomic) float leftStickDeadzoneY;

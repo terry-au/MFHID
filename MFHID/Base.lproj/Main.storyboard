@@ -1026,11 +1026,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="checkEnableLeftDeadzone" destination="F3Y-ra-C9e" id="ZFO-Cf-5Mc"/>
-                        <outlet property="checkEnableRightDeadzone" destination="37w-QC-3Bg" id="7Cu-ee-e8l"/>
-                        <outlet property="checkShowInDock" destination="yAl-uh-txh" id="PlS-xZ-3A1"/>
-                        <outlet property="checkShowStatusBarIcon" destination="Y9r-na-ndB" id="i1G-Fo-g7z"/>
-                        <outlet property="checkShowWindowWhenOpening" destination="s08-9W-0f7" id="THe-lM-mTl"/>
                         <outlet property="enableLeftDeadZoneCheckButton" destination="F3Y-ra-C9e" id="xmz-AX-Var"/>
                         <outlet property="enableRightDeadzoneCheckButton" destination="37w-QC-3Bg" id="zfV-0R-4HB"/>
                         <outlet property="leftDeadZoneValueTextField" destination="iXJ-C8-IF5" id="1sX-fs-GD7"/>
