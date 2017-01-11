@@ -6,25 +6,27 @@
 #import <cstdint>
 #import <iostream>
 #import <IOKit/IOKitLib.h>
-#import <thread>
 #import <cmath>
 #import "HIDController.h"
+#import "HIDBridgedGamepad.h"
 
 using namespace std;
 
 #define SERVICE_NAME "it_unbit_foohid"
 
-#define FOOHID_CREATE 0  // create selector
-#define FOOHID_SEND 2  // send selector
+#define FOOHID_CREATE   0   // create selector
+#define FOOHID_DESTROY  1   // destroy selector
+#define FOOHID_SEND     2   // send selector
+#define FOOHID_LIST     3   // list selector
 
-#define DEVICE_NAME "MFIHID Gamepad"
-#define DEVICE_SN "SN 123456"
+#define DEVICE_NAME "MFHID Gamepad"
+#define DEVICE_SN "SN 121212"
 
 #define ANALOGUE_STICK_MAX 127
 
 uint32_t const input_count = INPUT_COUNT;
 
-static int report_descriptor[52] = {
+unsigned char report_descriptor[52] = {
         0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
         0x09, 0x05,                    // USAGE (Game Pad)
         0xa1, 0x01,                    // COLLECTION (Application)
@@ -60,24 +62,24 @@ HIDController::HIDController() {
     mButtonBPressed = false;
     mButtonXPressed = false;
     mButtonYPressed = false;
-    
+
     mDpadUpPressed = false;
     mDpadRightPressed = false;
     mDpadDownPressed = false;
     mDpadLeftPressed = false;
-    
+
     mLeftShoulderPressed = false;
     mLeftTriggerPressed = false;
-    
+
     mRightShoulderPressed = false;
     mRightTriggerPressed = false;
-    
+
     mPauseButtonPressed = false;
-    
+
     // Analogue sticks.
     mLeftThumbstickX = 0;
     mLeftThumbstickY = 0;
-    
+
     mRightThumbstickX = 0;
     mRightThumbstickY = 0;
 
@@ -86,21 +88,59 @@ HIDController::HIDController() {
     mReport.left_y = 0;
     mReport.right_x = 0;
     mReport.right_y = 0;
-    logJoysticks();
+
+    for (int i = 0; i < mSendMessage.field_count; ++i) {
+        mSendMessage.fields[i] = 0;
+    }
 
     mDriverInitialised = false;
+}
+
+void HIDController::listDevices() {
+    uint32_t output_count = 2;
+    uint64_t output[2] = {0, 0};
+
+    uint16_t buf_len = 4096;
+    char *buf = new char(buf_len);
+    uint64_t input[2];
+    input[0] = (uint64_t) buf;
+    input[1] = (uint64_t) buf_len;
+    kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_LIST, input, 2, output, &output_count);
+    if (ret == KERN_SUCCESS) {
+        cout << "Listing devices: successful." << buf << endl;
+        delete buf;
+    } else {
+        cout << "Listing devices: unsuccessful." << endl;
+    }
+}
+
+HIDController::~HIDController() {
+    if (mDriverInitialised) {
+        uint32_t send_count = 2;
+        uint64_t send[send_count];
+        send[0] = (uint64_t) mInput[0];  // device name
+        send[1] = strlen((char *) mInput[0]);  // name length
+
+        kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_DESTROY, send, send_count, NULL, 0);
+        if (ret == KERN_SUCCESS) {
+            cout << "Successfully destroyed foohid device." << endl;
+        } else {
+            cout << "Unable to destroy foohid device." << endl;;
+        }
+        IOObjectRelease(mIoConnect);
+    }
 }
 
 //typedef NS_ENUM(int8_t, joystick_axis_t){
 //
 //};
 
-void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr){
+void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr) {
     // If there is a change, update the bits.
-    if (((*ptr >> bitIndex) & 1) != value){
-        if (value){
+    if (((*ptr >> bitIndex) & 1) != value) {
+        if (value) {
             *ptr |= 1 << bitIndex;
-        }else{
+        } else {
             *ptr &= ~(1 << bitIndex);
         }
 #if DEBUG == 1
@@ -111,27 +151,27 @@ void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr
 }
 
 void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide) {
-    if (joystickSide == JoystickLeft && HIDController::isLeftThumbstickDeadzoneEnabled()){
+    if (joystickSide == JoystickLeft && HIDController::isLeftThumbstickDeadzoneEnabled()) {
         float deadzoneValue = HIDController::getLeftThumbstickDeadzoneValue();
-        if (abs(xValue) < deadzoneValue){
+        if (abs(xValue) < deadzoneValue) {
             xValue = 0;
         }
-        if (abs(yValue) < deadzoneValue){
+        if (abs(yValue) < deadzoneValue) {
             yValue = 0;
         }
-    }else if (joystickSide == JoystickRight && HIDController::isRightThumbstickDeadzoneEnabled()){
+    } else if (joystickSide == JoystickRight && HIDController::isRightThumbstickDeadzoneEnabled()) {
         float deadzoneValue = HIDController::getRightThumbstickDeadzoneValue();
-        if (abs(xValue) < deadzoneValue){
+        if (abs(xValue) < deadzoneValue) {
             xValue = 0;
         }
-        if (abs(yValue) < deadzoneValue){
+        if (abs(yValue) < deadzoneValue) {
             yValue = 0;
         }
     }
-    if (xStick){
+    if (xStick) {
         *xStick = xValue * ANALOGUE_STICK_MAX;
     }
-    if (yStick){
+    if (yStick) {
         *yStick = yValue * ANALOGUE_STICK_MAX;
     }
 #if DEBUG == 1
@@ -337,39 +377,38 @@ void HIDController::setRightThumbstickDeadzoneValue(float rightThumbstickDeadzon
     HIDController::mRightThumbstickDeadzone = rightThumbstickDeadzoneValue;
 }
 
+HIDBridgedGamepad *HIDController::getBridgedGamepad() const {
+    if (!mBridgedGamepad) {
+        return nil;
+    }
+    return (__bridge HIDBridgedGamepad *) mBridgedGamepad;
+}
+
+void HIDController::setBridgedGamepad(HIDBridgedGamepad *bridgedGamepad) {
+    if (getBridgedGamepad() != bridgedGamepad) {
+        if (mBridgedGamepad) {
+            CFRelease(mBridgedGamepad);
+        }
+        mBridgedGamepad = (__bridge_retained CFTypeRef) bridgedGamepad;
+    }
+}
+
 void HIDController::invokeDriver() {
-    if (!mDriverInitialised){
+    if (!mDriverInitialised) {
         initialiseDriver();
     }
-    
+
     sendHIDMessage();
 }
 
-void HIDController::sendHIDMessage() {
-    // Arguments to be passed through the HID message.
-    uint32_t send_count = 4;
-    uint64_t send[send_count];
-    send[0] = (uint64_t)mInput[0];  // device name
-    send[1] = strlen((char *)mInput[0]);  // name length
-    send[2] = (uint64_t) &mReport;  // mouse struct
-    send[3] = sizeof(struct gamepad_report_t);  // mouse struct len
-
-    kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_SEND, send, send_count, NULL, 0);
-    if (ret != KERN_SUCCESS) {
-        printf("Unable to send message to HID device.\n");
-    }else{
-        cout << "Sending " << mReport.buttons << endl;
-    }
-}
-
 void HIDController::initialiseDriver() {
-    if (mDriverInitialised){
+    if (mDriverInitialised) {
         cout << "Driver already initialised." << endl;
         return;
     }
-    
+
     mDriverInitialised = true;
-    
+
     io_iterator_t ioIterator;
     io_service_t ioService;
 
@@ -401,18 +440,40 @@ void HIDController::initialiseDriver() {
     }
 
     // Fill up the input arguments.
-    mInput[0] = (uint64_t) strdup(DEVICE_NAME);  // device name
-    mInput[1] = strlen((char *)mInput[0]);  // name length
-    mInput[2] = (uint64_t) report_descriptor;  // report descriptor
-    mInput[3] = sizeof(report_descriptor);  // report descriptor len
-    mInput[4] = (uint64_t) strdup(DEVICE_SN);  // serial number
-    mInput[5] = strlen((char *)mInput[4]);  // serial number len
-    mInput[6] = (uint64_t) 2;  // vendor ID
-    mInput[7] = (uint64_t) 3;  // device ID
+    mInput[0] = (uint64_t) strdup(DEVICE_NAME);     // device name
+    mInput[1] = strlen((char *) mInput[0]);          // name length
+    mInput[2] = (uint64_t) report_descriptor;       // report descriptor
+    mInput[3] = sizeof(report_descriptor);          // report descriptor len
+    mInput[4] = (uint64_t) strdup(DEVICE_SN);       // serial number
+    mInput[5] = strlen((char *) mInput[4]);          // serial number len
+    mInput[6] = (uint64_t) 1;                       // vendor ID
+    mInput[7] = (uint64_t) 2;                       // device ID
 
     ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_CREATE, mInput, input_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to create HID device. May be fine if created previously.\n");
+    }
+
+//    listDevices();
+
+    cout << "IOConnect [Initialise]: " << &mIoConnect << endl;
+}
+
+void HIDController::sendHIDMessage() {
+    // Arguments to be passed through the HID message.
+
+//    uint32_t field_count = 4;
+//    uint64_t fields[field_count];
+    mSendMessage.fields[0] = (uint64_t) mInput[0];  // device name
+    mSendMessage.fields[1] = strlen((char *) mInput[0]);  // name length
+    mSendMessage.fields[2] = (uint64_t) &mReport;  // mouse struct
+    mSendMessage.fields[3] = sizeof(struct gamepad_report_t);  // mouse struct len
+
+    kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_SEND, mSendMessage.fields, mSendMessage.field_count, NULL, 0);
+    if (ret != KERN_SUCCESS) {
+        printf("Unable to fields message to HID device.\n");
+    } else {
+        cout << "Sending " << mReport.buttons << endl;
     }
 }
 
@@ -421,6 +482,20 @@ void HIDController::logBits() {
 }
 
 void HIDController::logJoysticks() {
-    cout << "L-X: " << (int)mReport.left_x << endl << "L-Y: " << (int)mReport.left_y << endl;
-    cout << "R-X: " << (int)mReport.right_x << endl << "R-Y: " << (int)mReport.right_y << endl;
+    cout << "L-X: " << (int) mReport.left_x << endl << "L-Y: " << (int) mReport.left_y << endl;
+    cout << "R-X: " << (int) mReport.right_x << endl << "R-Y: " << (int) mReport.right_y << endl;
+}
+
+void HIDController::sendEmptyState() {
+    if (allButtonsReleased()) {
+        sendHIDMessage();
+    }
+}
+
+bool HIDController::allButtonsReleased() {
+    return mReport.buttons == 0 &&
+            mReport.left_x == 0 &&
+            mReport.left_y == 0 &&
+            mReport.right_x == 0 &&
+            mReport.right_y == 0;
 }

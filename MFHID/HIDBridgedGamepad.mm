@@ -62,13 +62,17 @@
 
 - (void)configureGamepad {
     if (_hidController != NULL) {
+
         delete _hidController;
     }
 
     _hidController = new HIDController();
+    _hidController->initialiseDriver();
+    _hidController->sendEmptyState();
 
     _hidController->setLeftThumbstickDeadzoneEnabled(self.leftThumbstickDeadzoneEnabled);
     _hidController->setRightThumbstickDeadzoneEnabled(self.rightThumbstickDeadzoneEnabled);
+    _hidController->setBridgedGamepad(self);
 
     GCGamepad *mfiGamepad = self.gamepad;
 
@@ -138,7 +142,6 @@
         }];
 
         // Analogue sticks.
-
         [extendedGamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
             _hidController->setLeftThumbstickXY(xValue, yValue);
         }];

@@ -8,12 +8,19 @@
 
 #define INPUT_COUNT 8
 
+@class HIDBridgedGamepad;
+
 struct gamepad_report_t{
     uint16_t buttons;
     int8_t left_x;
     int8_t left_y;
     int8_t right_x;
     int8_t right_y;
+};
+
+struct foohid_message_send{
+    const uint32_t field_count = 4;
+    uint64_t fields[4];
 };
 
 enum joystick_side_t{
@@ -24,6 +31,9 @@ enum joystick_side_t{
 class HIDController {
 public:
     HIDController();
+    ~HIDController();
+    
+    void initialiseDriver();
 
     bool isButtonAPressed() const;
 
@@ -113,6 +123,12 @@ public:
 
     void setLeftThumbstickDeadzoneValue(float leftThumbstickeDeadzoneValue);
 
+    HIDBridgedGamepad *getBridgedGamepad() const;
+
+    void setBridgedGamepad(HIDBridgedGamepad *bridgedGamepad);
+
+    void sendEmptyState();
+
 private:
 
     // Interface.
@@ -120,6 +136,11 @@ private:
     gamepad_report_t mReport;
     uint64_t mInput[INPUT_COUNT];
     io_connect_t mIoConnect;
+    struct foohid_message_send mSendMessage;
+
+    // Callback
+    CFTypeRef mBridgedGamepad;
+
     // Buttons
     bool mButtonAPressed;
     bool mButtonBPressed;
@@ -159,12 +180,14 @@ private:
     void updateHidButtonState(int bitIndex, bool value, uint16_t *ptr);
 
     void sendHIDMessage();
-
-    void initialiseDriver();
+    
+    void listDevices();
 
     void updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide);
 
     void logJoysticks();
+
+    bool allButtonsReleased();
 
     float getAdjustedLeftDeadzoneValue() const;
 
