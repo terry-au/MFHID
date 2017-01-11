@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/ControllerTabIcon.imageset/IconConnectedDevices.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/ControllerTabIcon.imageset/Contents.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_128x128@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_16x16@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_256x256@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_32x32@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512@2x.png" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/AppIcon.appiconset/Icon_512x512@2x.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" afterPath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.h" afterPath="$PROJECT_DIR$/MFHID/HIDController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.mm" afterPath="$PROJECT_DIR$/MFHID/HIDController.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -54,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+              <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
               <folding>
                 <element signature="e#101#118#0" expanded="true" />
               </folding>
@@ -65,7 +75,7 @@
       <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="283">
               <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding />
             </state>
@@ -302,7 +312,7 @@
       <workItem from="1484152208402" duration="4124000" />
       <workItem from="1484157017180" duration="202000" />
       <workItem from="1484157603372" duration="684000" />
-      <workItem from="1484159711655" duration="1708000" />
+      <workItem from="1484159711655" duration="4072000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -392,7 +402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41114000" />
+    <option name="totallyTimeSpent" value="43478000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="710" extended-state="6" />
@@ -785,7 +795,7 @@
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -801,7 +811,7 @@
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
           <folding>
             <element signature="e#101#118#0" expanded="true" />
           </folding>
@@ -810,7 +820,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="283">
           <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding />
         </state>

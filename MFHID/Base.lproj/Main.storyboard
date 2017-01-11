@@ -862,8 +862,8 @@
             <objects>
                 <tabViewController title="MFIHID" selectedTabViewItemIndex="0" tabStyle="toolbar" id="qFY-uw-3K9" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem id="ZYC-pk-TrP"/>
-                        <tabViewItem id="RIf-VC-UAE"/>
+                        <tabViewItem image="ControllerTabIcon" id="ZYC-pk-TrP"/>
+                        <tabViewItem image="NSPreferencesGeneral" id="RIf-VC-UAE"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="A9i-gl-teI">
@@ -1045,6 +1045,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ControllerTabIcon" width="1025" height="702"/>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
     </resources>
 </document>
