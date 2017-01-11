@@ -81,11 +81,37 @@
     self.leftDeadZoneValueTextField.delegate = self;
     self.rightDeadZoneValueTextField.delegate = self;
     
+    self.showWindowWhenOpeningCheckButton.target = self;
+    self.showWindowWhenOpeningCheckButton.action = @selector(checkboxButtonChanged:);
+    
+    self.showStatusBarIconCheckButton.target = self;
+    self.showStatusBarIconCheckButton.action = @selector(checkboxButtonChanged:);
+    
     self.showInDockCheckButton.target = self;
     self.showInDockCheckButton.action = @selector(checkboxButtonChanged:);
+
+    self.enableLeftDeadZoneCheckButton.target = self;
+    self.enableLeftDeadZoneCheckButton.action = @selector(checkboxButtonChanged:);
+
+    self.enableRightDeadzoneCheckButton.target = self;
+    self.enableRightDeadzoneCheckButton.action = @selector(checkboxButtonChanged:);
     
     [self loadStepperSettings];
     [self updateSteppers];
+    
+    [self loadCheckboxSettings];
+}
+
+- (void)loadCheckboxSettings{
+    Settings *sharedSettings = Settings.sharedSettings;
+    self.showWindowWhenOpeningCheckButton.state = sharedSettings.showDevicesWindowOnStart ? NSOnState : NSOffState;
+    self.showStatusBarIconCheckButton.state = sharedSettings.showStatusBarIcon ? NSOnState : NSOffState;
+    self.showInDockCheckButton.state = sharedSettings.showInDock ? NSOnState : NSOffState;
+    self.enableLeftDeadZoneCheckButton.state = sharedSettings.leftThumbstickDeadzoneEnabled ? NSOnState : NSOffState;
+    self.enableRightDeadzoneCheckButton.state = sharedSettings.rightThumbstickDeadzoneEnabled ? NSOnState : NSOffState;
+
+    [self setLeftDeadzoneControlsEnabled:sharedSettings.leftThumbstickDeadzoneEnabled];
+    [self setRightDeadzoneControlsEnabled:sharedSettings.rightThumbstickDeadzoneEnabled];
 }
 
 - (void)loadStepperSettings{
@@ -125,13 +151,30 @@
 
 - (void)checkboxButtonChanged:(NSButton *)sender{
     Settings *sharedSettings = Settings.sharedSettings;
+    BOOL checked = sender.state == NSOnState;
     if (sender == self.showWindowWhenOpeningCheckButton) {
-        sharedSettings.showDevicesWindowOnStart = sender.state == NSOnState;
+        sharedSettings.showDevicesWindowOnStart = checked;
     }else if(sender == self.showStatusBarIconCheckButton){
-        sharedSettings.showStatusBarIcon = sender.state == NSOnState;
+        sharedSettings.showStatusBarIcon = checked;
     }else if(sender == self.showInDockCheckButton){
-        sharedSettings.showInDock = sender.state == NSOnState;
+        sharedSettings.showInDock = checked;
+    }else if(sender == self.enableLeftDeadZoneCheckButton){
+        sharedSettings.leftThumbstickDeadzoneEnabled = checked;
+        [self setLeftDeadzoneControlsEnabled:checked];
+    }else if(sender == self.enableRightDeadzoneCheckButton){
+        sharedSettings.rightThumbstickDeadzoneEnabled = checked;
+        [self setRightDeadzoneControlsEnabled:checked];
     }
+}
+
+- (void)setLeftDeadzoneControlsEnabled:(BOOL)enabled{
+    self.leftDeadzoneStepper.enabled = enabled;
+    self.leftDeadZoneValueTextField.enabled = enabled;
+}
+
+- (void)setRightDeadzoneControlsEnabled:(BOOL)enabled{
+    self.rightDeadzoneStepper.enabled = enabled;
+    self.rightDeadZoneValueTextField.enabled = enabled;
 }
 
 @end

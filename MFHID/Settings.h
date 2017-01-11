@@ -14,6 +14,10 @@
 
 @property (nonatomic) BOOL showInDock;
 
+@property (nonatomic) BOOL leftThumbstickDeadzoneEnabled;
+
+@property (nonatomic) BOOL rightThumbstickDeadzoneEnabled;
+
 //@property (nonatomic) float leftStickDeadzoneX;
 //
 //@property (nonatomic) float leftStickDeadzoneY;

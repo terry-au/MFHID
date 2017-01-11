@@ -283,6 +283,22 @@ void HIDController::setRightAnalogueXY(float rightAnalogueX, float rightAnalogue
     updateJoystickState(rightAnalogueX, &mReport.right_x, rightAnalogueY, &mReport.right_y);
 }
 
+float HIDController::getRightAnalogueDeadzone() const {
+    return rightAnalogueDeadzone;
+}
+
+void HIDController::setRightAnalogueDeadzone(float rightAnalogueDeadzone) {
+    HIDController::rightAnalogueDeadzone = rightAnalogueDeadzone;
+}
+
+float HIDController::getLeftAnalogueDeadzone() const {
+    return leftAnalogueDeadzone;
+}
+
+void HIDController::setLeftAnalogueDeadzone(float leftAnalogueDeadzone) {
+    HIDController::leftAnalogueDeadzone = leftAnalogueDeadzone;
+}
+
 void HIDController::invokeDriver() {
     if (!mDriverInitialised){
         initialiseDriver();
@@ -362,6 +378,7 @@ void HIDController::initialiseDriver() {
     }
 }
 
+// source http://stackoverflow.com/a/18327468/2714839
 void printBits(size_t const size, void const * const ptr)
 {
     unsigned char *b = (unsigned char*) ptr;
@@ -380,7 +397,8 @@ void printBits(size_t const size, void const * const ptr)
 }
 
 void HIDController::logBits() {
-    printBits(sizeof(uint16_t), &mReport.buttons);
+    bitset<sizeof(mReport.buttons)> reportBitset(mReport.buttons);
+    cout << reportBitset << endl;
 }
 
 void HIDController::logJoysticks() {

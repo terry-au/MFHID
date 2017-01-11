@@ -15,6 +15,8 @@ static NSString *kShowInDockSettingsKey = @"ShowInDock";
 //static NSString *kRightStickDeadZoneYSettingsKey = @"RightStickDeadZoneY";
 static NSString *kLeftStickDeadZoneSettingsKey = @"LeftStickDeadZone";
 static NSString *kRightStickDeadZoneSettingsKey = @"RightStickDeadZone";
+static NSString *kLeftThumbstickDeadZoneEnabledSettingsKey = @"LeftThumbstickDeadZoneEnabled";
+static NSString *kRightThumbstickDeadZoneEnabledSettingsKey = @"RightThumbstickDeadZoneEnabled";
 
 @implementation Settings {
     NSUserDefaults *_userDefaults;
@@ -55,12 +57,16 @@ static NSString *kRightStickDeadZoneSettingsKey = @"RightStickDeadZone";
 - (void)loadSettings{
     _showDevicesWindowOnStart = [self boolForSettingNamed:kShowDevicesWindowOnStartSettingsKey defaultValue:YES];
     _showStatusBarIcon = [self boolForSettingNamed:kShowStatusBarIconSettingsKey defaultValue:YES];
-    _showInDock = [self boolForSettingNamed:kShowStatusBarIconSettingsKey defaultValue:YES];
+    _showInDock = [self boolForSettingNamed:kShowInDockSettingsKey defaultValue:YES];
 
 //    _leftStickDeadzoneX = [self integerForSettingNamed:kLeftStickDeadZoneXSettingsKey defaultValue:0.0f];
 //    _leftStickDeadzoneY = [self integerForSettingNamed:kLeftStickDeadZoneYSettingsKey defaultValue:0.0f];
 //    _rightStickDeadzoneX = [self integerForSettingNamed:kRightStickDeadZoneXSettingsKey defaultValue:0.0f];
 //    _rightStickDeadzoneY = [self integerForSettingNamed:kRightStickDeadZoneYSettingsKey defaultValue:0.0f];
+
+    NSLog(@"%@", _userDefaults.dictionaryRepresentation);
+    _leftThumbstickDeadzoneEnabled = [self boolForSettingNamed:kLeftThumbstickDeadZoneEnabledSettingsKey defaultValue:NO];
+    _rightThumbstickDeadzoneEnabled = [self boolForSettingNamed:kRightThumbstickDeadZoneEnabledSettingsKey defaultValue:NO];
     
     _leftStickDeadzone = [self integerForSettingNamed:kLeftStickDeadZoneSettingsKey defaultValue:0];
     _rightStickDeadzone = [self integerForSettingNamed:kRightStickDeadZoneSettingsKey defaultValue:0];
@@ -111,5 +117,16 @@ static NSString *kRightStickDeadZoneSettingsKey = @"RightStickDeadZone";
     _rightStickDeadzone = rightStickDeadzone;
     [_userDefaults setInteger:self.rightStickDeadzone forKey:kRightStickDeadZoneSettingsKey];
 }
+
+- (void)setLeftThumbstickDeadzoneEnabled:(BOOL)leftThumbstickDeadzoneEnabled {
+    _leftThumbstickDeadzoneEnabled = leftThumbstickDeadzoneEnabled;
+    [_userDefaults setBool:self.leftThumbstickDeadzoneEnabled forKey:kLeftThumbstickDeadZoneEnabledSettingsKey];
+}
+
+- (void)setRightThumbstickDeadzoneEnabled:(BOOL)rightThumbstickDeadzoneEnabled {
+    _rightThumbstickDeadzoneEnabled = rightThumbstickDeadzoneEnabled;
+    [_userDefaults setBool:self.rightThumbstickDeadzoneEnabled forKey:kRightThumbstickDeadZoneEnabledSettingsKey];
+}
+
 
 @end

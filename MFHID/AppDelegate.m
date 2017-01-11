@@ -26,8 +26,6 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self checkSingleInstance];
     [self loadSettings];
-    [self setupWindowController];
-    [self setupStatusItem];
 }
 
 - (NSStoryboard *)storyboard{
@@ -48,6 +46,13 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
                                                       defer:NO];
     }
     return _window;
+}
+
+- (NSWindowController *)devicesWindowController{
+    if (!_devicesWindowController) {
+        _devicesWindowController = [self.storyboard instantiateControllerWithIdentifier:@"DevicesWindowViewController"];
+    }
+    return _devicesWindowController;
 }
 
 - (void)checkSingleInstance {
@@ -74,44 +79,57 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
     Settings *sharedSettings = Settings.sharedSettings;
     [sharedSettings addObserver:self forKeyPath:@"showInDock" options:0 context:nil];
     [sharedSettings loadSettings];
+    
+    if (sharedSettings.showDevicesWindowOnStart) {
+        [self focusDevicesWindowCentred:YES];
+    }
+    
+    if (sharedSettings.showStatusBarIcon) {
+        [self setupStatusItem];
+    }
+    
+    if (!sharedSettings.showInDock) {
+        [self setDockIconVisible:sharedSettings.showInDock];
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     if (object == Settings.sharedSettings) {
         if ([keyPath isEqualToString:@"showInDock"]) {
-            ProcessSerialNumber psn = { 0, kCurrentProcess };
-            ProcessApplicationTransformState transformState;
-            if (Settings.sharedSettings.showInDock) {
-                transformState = kProcessTransformToForegroundApplication;
-            }else{
-                transformState = kProcessTransformToUIElementApplication;
-            }
-            TransformProcessType(&psn, transformState);
-            
-            // Hack. Otherwise the window never comes back.
-            if (transformState == kProcessTransformToUIElementApplication){
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self focusDevicesWindow];
-                });
-            }
+            [self setDockIconVisible:Settings.sharedSettings.showInDock];
         }
     }
 }
 
-- (void)awakenNotificationReceived:(id)awakenNotificationReceived {
-    [self focusDevicesWindow];
+- (void)setDockIconVisible:(BOOL)visible{
+    ProcessSerialNumber psn = { 0, kCurrentProcess };
+    ProcessApplicationTransformState transformState;
+    if (visible) {
+        transformState = kProcessTransformToForegroundApplication;
+    }else{
+        transformState = kProcessTransformToUIElementApplication;
+    }
+    TransformProcessType(&psn, transformState);
+    
+    // Hack. Otherwise the window never comes back.
+    if (transformState == kProcessTransformToUIElementApplication){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self focusDevicesWindowCentred:NO];
+        });
+    }
 }
 
-- (void)focusDevicesWindow{
-    [self.devicesWindowController showWindow:nil];
+- (void)awakenNotificationReceived:(id)awakenNotificationReceived {
+    [self focusDevicesWindowCentred:NO];
+}
+
+- (void)focusDevicesWindowCentred:(BOOL)centred{
+    [self.devicesWindowController showWindow:self.window];
     [self.devicesWindowController.window makeKeyAndOrderFront:self];
     [self.devicesWindowController.window makeMainWindow];
-}
-
-- (void)setupWindowController{
-    self.devicesWindowController = [self.storyboard instantiateControllerWithIdentifier:@"DevicesWindowViewController"];
-    [self.devicesWindowController showWindow:self.window];
-    [self.devicesWindowController.window center];
+    if (centred) {
+        [self.devicesWindowController.window center];
+    }
 }
 
 - (void)setupStatusItem {
@@ -141,7 +159,7 @@ static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenI
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
-    [self focusDevicesWindow];
+    [self focusDevicesWindowCentred:NO];
     return YES;
 }
 

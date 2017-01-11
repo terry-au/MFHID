@@ -119,6 +119,20 @@ private:
     float mRightAnalogueX;
     float mRightAnalogueY;
 
+    // Deadzones
+    float rightAnalogueDeadzone;
+public:
+    float getRightAnalogueDeadzone() const;
+
+    void setRightAnalogueDeadzone(float rightAnalogueDeadzone);
+
+    float getLeftAnalogueDeadzone() const;
+
+    void setLeftAnalogueDeadzone(float leftAnalogueDeadzone);
+
+private:
+    float leftAnalogueDeadzone;
+
     // Interface.
     bool mDriverInitialised;
     gamepad_report_t mReport;
