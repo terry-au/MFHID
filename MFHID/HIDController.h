@@ -16,6 +16,11 @@ struct gamepad_report_t{
     int8_t right_y;
 };
 
+enum joystick_side_t{
+    JoystickLeft,
+    JoystickRight,
+};
+
 class HIDController {
 public:
     HIDController();
@@ -72,27 +77,49 @@ public:
 
     void setPauseButtonPressed(bool pauseButtonPressed);
 
-    float getLeftAnalogueX() const;
+    float getLeftThumbstickX() const;
 
-    void setLeftAnalogueX(float leftAnalogueX);
+    void setLeftThumbstickX(float leftThumbstickX);
 
-    float getLeftAnalogueY() const;
+    float getLeftThumbstickY() const;
 
-    void setLeftAnalogueY(float leftAnalogueY);
+    void setLeftThumbstickY(float leftThumbstickY);
 
-    float getRightAnalogueX() const;
+    float getRightThumbstickX() const;
 
-    void setRightAnalogueX(float rightAnalogueX);
+    void setRightThumbstickX(float rightThumbstickX);
 
-    float getRightAnalogueY() const;
+    float getRightThumbstickY() const;
 
-    void setRightAnalogueY(float rightAnalogueY);
+    void setRightThumbstickY(float rightThumbstickY);
 
-    void setLeftAnalogueXY(float leftAnalogueX, float leftAnalogueY);
+    void setLeftThumbstickXY(float leftThumbstickX, float leftThumbstickY);
 
-    void setRightAnalogueXY(float rightAnalogueX, float rightAnalogueY);
+    void setRightThumbstickXY(float rightThumbstickX, float rightThumbstickY);
+
+    bool isLeftThumbstickDeadzoneEnabled() const;
+
+    void setLeftThumbstickDeadzoneEnabled(bool leftThumbstickDeadzoneEnabled);
+
+    bool isRightThumbstickDeadzoneEnabled() const;
+
+    void setRightThumbstickDeadzoneEnabled(bool rightThumbstickDeadzoneEnabled);
+
+    float getRightThumbstickDeadzoneValue() const;
+
+    void setRightThumbstickDeadzoneValue(float rightThumbstickDeadzoneValue);
+
+    float getLeftThumbstickDeadzoneValue() const;
+
+    void setLeftThumbstickDeadzoneValue(float leftThumbstickeDeadzoneValue);
 
 private:
+
+    // Interface.
+    bool mDriverInitialised;
+    gamepad_report_t mReport;
+    uint64_t mInput[INPUT_COUNT];
+    io_connect_t mIoConnect;
     // Buttons
     bool mButtonAPressed;
     bool mButtonBPressed;
@@ -113,31 +140,17 @@ private:
     bool mPauseButtonPressed;
 
     // Analogue sticks.
-    float mLeftAnalogueX;
-    float mLeftAnalogueY;
+    float mLeftThumbstickX;
+    float mLeftThumbstickY;
 
-    float mRightAnalogueX;
-    float mRightAnalogueY;
+    float mRightThumbstickX;
+    float mRightThumbstickY;
 
     // Deadzones
-    float rightAnalogueDeadzone;
-public:
-    float getRightAnalogueDeadzone() const;
-
-    void setRightAnalogueDeadzone(float rightAnalogueDeadzone);
-
-    float getLeftAnalogueDeadzone() const;
-
-    void setLeftAnalogueDeadzone(float leftAnalogueDeadzone);
-
-private:
-    float leftAnalogueDeadzone;
-
-    // Interface.
-    bool mDriverInitialised;
-    gamepad_report_t mReport;
-    uint64_t mInput[INPUT_COUNT];
-    io_connect_t mIoConnect;
+    bool mLeftThumbstickDeadzoneEnabled;
+    bool mRightThumbstickDeadzoneEnabled;
+    float mLeftThumbstickDeadzone;
+    float mRightThumbstickDeadzone;
 
     void logBits();
 
@@ -149,9 +162,13 @@ private:
 
     void initialiseDriver();
 
-    void updateJoystickState(float leftXValue, int8_t *leftXStick, float leftYValue, int8_t *leftYStick);
+    void updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide);
 
     void logJoysticks();
+
+    float getAdjustedLeftDeadzoneValue() const;
+
+    float getAdjustedRightDeadzoneValue() const;
 };
 
 

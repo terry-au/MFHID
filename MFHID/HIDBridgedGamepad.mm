@@ -67,6 +67,8 @@
 
     _hidController = new HIDController();
 
+    _hidController.deadz
+
     GCGamepad *mfiGamepad = self.gamepad;
 
     // Buttons
@@ -137,11 +139,11 @@
         // Analogue sticks.
 
         [extendedGamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
-            _hidController->setLeftAnalogueXY(xValue, yValue);
+            _hidController->setLeftThumbstickXY(xValue, yValue);
         }];
 
         [extendedGamepad.rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
-            _hidController->setRightAnalogueXY(xValue, yValue);
+            _hidController->setRightThumbstickXY(xValue, yValue);
         }];
     }
 }

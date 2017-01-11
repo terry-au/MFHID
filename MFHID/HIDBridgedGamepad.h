@@ -30,6 +30,10 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 @property (nonatomic, retain, readonly) GCController *controller;
 @property (readonly) HIDBridgedGamepadType gamepadType;
 @property (nonatomic, readonly) BOOL active;
+@property (nonatomic) BOOL leftThumbstickDeadzoneEnabled;
+@property (nonatomic) BOOL rightThumbstickDeadzoneEnabled;
+@property (nonatomic) float leftThumbstickDeadzone;
+@property (nonatomic) float righttThumbstickDeadzone;
 
 - (void)activate;
 - (void)deactivate;

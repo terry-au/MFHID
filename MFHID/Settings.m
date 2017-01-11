@@ -64,7 +64,6 @@ static NSString *kRightThumbstickDeadZoneEnabledSettingsKey = @"RightThumbstickD
 //    _rightStickDeadzoneX = [self integerForSettingNamed:kRightStickDeadZoneXSettingsKey defaultValue:0.0f];
 //    _rightStickDeadzoneY = [self integerForSettingNamed:kRightStickDeadZoneYSettingsKey defaultValue:0.0f];
 
-    NSLog(@"%@", _userDefaults.dictionaryRepresentation);
     _leftThumbstickDeadzoneEnabled = [self boolForSettingNamed:kLeftThumbstickDeadZoneEnabledSettingsKey defaultValue:NO];
     _rightThumbstickDeadzoneEnabled = [self boolForSettingNamed:kRightThumbstickDeadZoneEnabledSettingsKey defaultValue:NO];
     

@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" afterPath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" afterPath="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.h" afterPath="$PROJECT_DIR$/MFHID/HIDController.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/HIDController.mm" afterPath="$PROJECT_DIR$/MFHID/HIDController.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Settings.m" afterPath="$PROJECT_DIR$/MFHID/Settings.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +25,8 @@
       <file leaf-file-name="HIDBridgedGamepad.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="252">
+              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -40,11 +44,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="HIDController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="HIDController.mm" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3738">
-              <caret line="120" column="6" lean-forward="true" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+            <state relative-caret-position="122">
+              <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding>
                 <element signature="e#101#118#0" expanded="true" />
               </folding>
@@ -52,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HIDController.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
+      <file leaf-file-name="HIDBridgedGamepad.mm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12">
-              <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+            <state relative-caret-position="282">
+              <caret line="69" column="24" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -84,32 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/Settings.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="126" column="25" lean-forward="false" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
-              <folding>
-                <element signature="e#101#121#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SettingsViewController.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/SettingsViewController.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="171" column="12" lean-forward="false" selection-start-line="171" selection-start-column="12" selection-end-line="171" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Settings.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/Settings.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
+            <state relative-caret-position="89">
               <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
               <folding />
             </state>
@@ -126,7 +118,6 @@
       <find>setBit</find>
       <find>conne</find>
       <find>input_count</find>
-      <find>updateJoystickState</find>
       <find>_connectedControllers</find>
       <find>image</find>
       <find>separa</find>
@@ -135,6 +126,16 @@
       <find>kLeftThumbstickDeadZoneEnabledSettingsKey</find>
       <find>showin</find>
       <find>logBits</find>
+      <find>rightAnalogueDeadzone</find>
+      <find>eftAnalogueDeadzone</find>
+      <find>joystick_side_t</find>
+      <find>updateJoystickState</find>
+      <find>nullptr</find>
+      <find>side_t</find>
+      <find>Adjusted</find>
+      <find>deadzone</find>
+      <find>adjuste</find>
+      <find>Analog</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,18 +149,18 @@
         <option value="$PROJECT_DIR$/MFHID/MFIHID-Prefix.pch" />
         <option value="$PROJECT_DIR$/MFHID/Hooks.h" />
         <option value="$PROJECT_DIR$/MFHID/Hooks.m" />
-        <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" />
         <option value="$PROJECT_DIR$/MFHID/ViewController.mm" />
-        <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
         <option value="$PROJECT_DIR$/MFHID/main.m" />
         <option value="$PROJECT_DIR$/MFHID/AppDelegate.h" />
         <option value="$PROJECT_DIR$/MFHID/StatusBarManager.h" />
         <option value="$PROJECT_DIR$/MFHID/DevicesViewController.mm" />
         <option value="$PROJECT_DIR$/MFHID/StatusBarManager.m" />
         <option value="$PROJECT_DIR$/MFHID/Settings.h" />
-        <option value="$PROJECT_DIR$/MFHID/Settings.m" />
         <option value="$PROJECT_DIR$/MFHID/SettingsViewController.m" />
         <option value="$PROJECT_DIR$/MFHID/AppDelegate.m" />
+        <option value="$PROJECT_DIR$/MFHID/Settings.m" />
+        <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h" />
+        <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
         <option value="$PROJECT_DIR$/MFHID/HIDController.h" />
         <option value="$PROJECT_DIR$/MFHID/HIDController.mm" />
       </list>
@@ -250,7 +251,7 @@
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="MFHID" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="SearchEverywhereHistoryKey" value="hidcon&#9;FILE&#9;file:///Users/terrylewis/Documents/Xcode/MFHID/MFHID/HIDController.mm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++/Objective-C" />
   </component>
   <component name="RunManager" selected="Application.MFHID">
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MFHID" TARGET_NAME="MFHID" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MFHID" RUN_TARGET_NAME="MFHID" MAKE_ACTIVE="TRUE">
@@ -325,7 +326,7 @@
       <workItem from="1484058263581" duration="6079000" />
       <workItem from="1484071191077" duration="7027000" />
       <workItem from="1484082279734" duration="3930000" />
-      <workItem from="1484136644884" duration="1706000" />
+      <workItem from="1484136644884" duration="4342000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -390,11 +391,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484137898648</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Migrated C function to C++.&#10;Only log on debug builds.">
+      <created>1484138382826</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1484138382826</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30839000" />
+    <option name="totallyTimeSpent" value="33475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="710" extended-state="6" />
@@ -460,7 +468,8 @@
     <MESSAGE value="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start." />
     <MESSAGE value="Added settings.&#10;Made single instance only.&#10;Added status bar toggle.&#10;Added settings for deadzones.&#10;Added status bar icons.&#10;Window management improvements.&#10;Ability to defer display of window on start.&#10;Begin implementing settings view controller." />
     <MESSAGE value="Migrating from some C remnants to C++ implementation.&#10;Deadzone enable/disable working.&#10;Added deadzones to HIDController class.&#10;Settings complete?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Migrating from some C remnants to C++ implementation.&#10;Deadzone enable/disable working.&#10;Added deadzones to HIDController class.&#10;Settings complete?" />
+    <MESSAGE value="Migrated C function to C++.&#10;Only log on debug builds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrated C function to C++.&#10;Only log on debug builds." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -672,18 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding>
-            <element signature="e#1111#1154#0" expanded="false" />
-            <element signature="e#1219#1262#0" expanded="false" />
-            <element signature="e#1300#1341#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWindowController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
@@ -731,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSWorkspace.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
@@ -769,24 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Settings.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Settings.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="126" column="25" lean-forward="false" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
-          <folding>
-            <element signature="e#101#121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/StatusBarManager.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-363">
@@ -794,14 +765,6 @@
           <folding>
             <element signature="e#101#129#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/SettingsViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="171" column="12" lean-forward="false" selection-start-line="171" selection-start-column="12" selection-end-line="171" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,18 +794,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Settings.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="66" column="57" lean-forward="false" selection-start-line="66" selection-start-column="57" selection-end-line="66" selection-end-column="57" />
+          <folding>
+            <element signature="e#101#121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/SettingsViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="171" column="12" lean-forward="false" selection-start-line="171" selection-start-column="12" selection-end-line="171" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Settings.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="69" column="24" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="122" column="30" lean-forward="false" selection-start-line="122" selection-start-column="30" selection-end-line="122" selection-end-column="30" />
+        <state relative-caret-position="125">
+          <caret line="141" column="13" lean-forward="false" selection-start-line="141" selection-start-column="7" selection-end-line="141" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/HIDController.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3738">
-          <caret line="120" column="6" lean-forward="true" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+        <state relative-caret-position="122">
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding>
             <element signature="e#101#118#0" expanded="true" />
           </folding>

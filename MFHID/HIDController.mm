@@ -7,6 +7,7 @@
 #import <iostream>
 #import <IOKit/IOKitLib.h>
 #import <thread>
+#import <cmath>
 #import "HIDController.h"
 
 using namespace std;
@@ -19,7 +20,7 @@ using namespace std;
 #define DEVICE_NAME "Foohid Virtual Gamepad"
 #define DEVICE_SN "SN 123456"
 
-#define ANALOGUE_MAX 127
+#define ANALOGUE_STICK_MAX 127
 
 uint32_t const input_count = INPUT_COUNT;
 
@@ -74,11 +75,11 @@ HIDController::HIDController() {
     mPauseButtonPressed = false;
     
     // Analogue sticks.
-    mLeftAnalogueX = 0;
-    mLeftAnalogueY = 0;
+    mLeftThumbstickX = 0;
+    mLeftThumbstickY = 0;
     
-    mRightAnalogueX = 0;
-    mRightAnalogueY = 0;
+    mRightThumbstickX = 0;
+    mRightThumbstickY = 0;
 
     mReport.buttons = 0;
     mReport.left_x = 0;
@@ -109,12 +110,29 @@ void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr
     }
 }
 
-void HIDController::updateJoystickState(float leftXValue, int8_t *leftXStick, float leftYValue, int8_t *leftYStick) {
-    if (leftXStick){
-        *leftXStick = leftXValue * ANALOGUE_MAX;
+void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick, joystick_side_t joystickSide) {
+    if (joystickSide == JoystickLeft && HIDController::isLeftThumbstickDeadzoneEnabled()){
+        float deadzoneValue = HIDController::mAdjustedRightDeadzoneValue;
+        if (abs(xValue) < deadzoneValue){
+            xValue = 0;
+        }
+        if (abs(yValue) < deadzoneValue){
+            yValue = 0;
+        }
+    }else if (joystickSide == JoystickRight && HIDController::isRightThumbstickDeadzoneEnabled()){
+        float deadzoneValue = HIDController::mAdjustedRightDeadzoneValue;
+        if (abs(xValue) < deadzoneValue){
+            xValue = 0;
+        }
+        if (abs(yValue) < deadzoneValue){
+            yValue = 0;
+        }
     }
-    if (leftXStick){
-        *leftYStick = leftYValue * ANALOGUE_MAX;
+    if (xStick){
+        *xStick = xValue * ANALOGUE_STICK_MAX;
+    }
+    if (yStick){
+        *yStick = yValue * ANALOGUE_STICK_MAX;
     }
 #if DEBUG == 1
     logJoysticks();
@@ -239,68 +257,84 @@ void HIDController::setPauseButtonPressed(bool pauseButtonPressed) {
     updateHidButtonState(12, pauseButtonPressed, &mReport.buttons);
 }
 
-float HIDController::getLeftAnalogueX() const {
-    return mLeftAnalogueX;
+float HIDController::getLeftThumbstickX() const {
+    return mLeftThumbstickX;
 }
 
-void HIDController::setLeftAnalogueX(float leftAnalogueX) {
-    HIDController::mLeftAnalogueX = leftAnalogueX;
-    updateJoystickState(leftAnalogueX, &mReport.left_x, 0, nullptr);
+void HIDController::setLeftThumbstickX(float leftThumbstickX) {
+    HIDController::mLeftThumbstickX = leftThumbstickX;
+    updateJoystickState(leftThumbstickX, &mReport.left_x, 0, nullptr, JoystickLeft);
 }
 
-float HIDController::getLeftAnalogueY() const {
-    return mLeftAnalogueY;
+float HIDController::getLeftThumbstickY() const {
+    return mLeftThumbstickY;
 }
 
-void HIDController::setLeftAnalogueY(float leftAnalogueY) {
-    HIDController::mLeftAnalogueY = leftAnalogueY;
-    updateJoystickState(leftAnalogueY, &mReport.left_y, 0, nullptr);
+void HIDController::setLeftThumbstickY(float leftThumbstickY) {
+    HIDController::mLeftThumbstickY = leftThumbstickY;
+    updateJoystickState(leftThumbstickY, &mReport.left_y, 0, nullptr, JoystickLeft);
 }
 
-float HIDController::getRightAnalogueX() const {
-    return mRightAnalogueX;
+float HIDController::getRightThumbstickX() const {
+    return mRightThumbstickX;
 }
 
-void HIDController::setRightAnalogueX(float rightAnalogueX) {
-    HIDController::mRightAnalogueX = rightAnalogueX;
-    updateJoystickState(rightAnalogueX, &mReport.right_x, 0, nullptr);
+void HIDController::setRightThumbstickX(float rightThumbstickX) {
+    HIDController::mRightThumbstickX = rightThumbstickX;
+    updateJoystickState(rightThumbstickX, &mReport.right_x, 0, nullptr, JoystickRight);
 }
 
-float HIDController::getRightAnalogueY() const {
-    return mRightAnalogueY;
+float HIDController::getRightThumbstickY() const {
+    return mRightThumbstickY;
 }
 
-void HIDController::setRightAnalogueY(float rightAnalogueY) {
-    HIDController::mRightAnalogueY = rightAnalogueY;
-    updateJoystickState(rightAnalogueY, &mReport.right_y, 0, nullptr);
+void HIDController::setRightThumbstickY(float rightThumbstickY) {
+    HIDController::mRightThumbstickY = rightThumbstickY;
+    updateJoystickState(rightThumbstickY, &mReport.right_y, 0, nullptr, JoystickRight);
 }
 
-void HIDController::setLeftAnalogueXY(float leftAnalogueX, float leftAnalogueY) {
-    HIDController::mLeftAnalogueX = leftAnalogueX;
-    HIDController::mLeftAnalogueY = leftAnalogueY;
-    updateJoystickState(leftAnalogueX, &mReport.left_x, leftAnalogueY, &mReport.left_y);
+void HIDController::setLeftThumbstickXY(float leftThumbstickX, float leftThumbstickY) {
+    HIDController::mLeftThumbstickX = leftThumbstickX;
+    HIDController::mLeftThumbstickY = leftThumbstickY;
+    updateJoystickState(leftThumbstickX, &mReport.left_x, leftThumbstickY, &mReport.left_y, JoystickLeft);
 }
 
-void HIDController::setRightAnalogueXY(float rightAnalogueX, float rightAnalogueY) {
-    HIDController::mRightAnalogueX = rightAnalogueX;
-    HIDController::mRightAnalogueX = rightAnalogueX;
-    updateJoystickState(rightAnalogueX, &mReport.right_x, rightAnalogueY, &mReport.right_y);
+void HIDController::setRightThumbstickXY(float rightThumbstickX, float rightThumbstickY) {
+    HIDController::mRightThumbstickX = rightThumbstickX;
+    HIDController::mRightThumbstickX = rightThumbstickX;
+    updateJoystickState(rightThumbstickX, &mReport.right_x, rightThumbstickY, &mReport.right_y, JoystickRight);
 }
 
-float HIDController::getRightAnalogueDeadzone() const {
-    return rightAnalogueDeadzone;
+bool HIDController::isLeftThumbstickDeadzoneEnabled() const {
+    return mLeftThumbstickDeadzoneEnabled;
 }
 
-void HIDController::setRightAnalogueDeadzone(float rightAnalogueDeadzone) {
-    HIDController::rightAnalogueDeadzone = rightAnalogueDeadzone;
+void HIDController::setLeftThumbstickDeadzoneEnabled(bool leftThumbstickDeadzoneEnabled) {
+    HIDController::mLeftThumbstickDeadzoneEnabled = leftThumbstickDeadzoneEnabled;
 }
 
-float HIDController::getLeftAnalogueDeadzone() const {
-    return leftAnalogueDeadzone;
+bool HIDController::isRightThumbstickDeadzoneEnabled() const {
+    return mRightThumbstickDeadzoneEnabled;
 }
 
-void HIDController::setLeftAnalogueDeadzone(float leftAnalogueDeadzone) {
-    HIDController::leftAnalogueDeadzone = leftAnalogueDeadzone;
+void HIDController::setRightThumbstickDeadzoneEnabled(bool rightThumbstickDeadzoneEnabled) {
+    HIDController::mRightThumbstickDeadzoneEnabled = rightThumbstickDeadzoneEnabled;
+}
+
+float HIDController::getLeftThumbstickDeadzoneValue() const {
+    return mLeftThumbstickDeadzone;
+}
+
+void HIDController::setLeftThumbstickDeadzoneValue(float leftThumbstickeDeadzoneValue) {
+    HIDController::mLeftThumbstickDeadzone = leftThumbstickeDeadzoneValue;
+}
+
+float HIDController::getRightThumbstickDeadzoneValue() const {
+    return mRightThumbstickDeadzone;
+}
+
+void HIDController::setRightThumbstickDeadzoneValue(float rightThumbstickDeadzoneValue) {
+    HIDController::mRightThumbstickDeadzone = rightThumbstickDeadzoneValue;
 }
 
 void HIDController::invokeDriver() {
