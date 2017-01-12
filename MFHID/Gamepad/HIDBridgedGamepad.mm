@@ -9,6 +9,7 @@
 #import "HIDBridgedGamepad.h"
 #import "HIDController.h"
 #import "Vector2D.h"
+#import "../Other/FoohidDriverManager.h"
 
 @implementation HIDBridgedGamepad {
     HIDController *_hidController;
@@ -73,6 +74,7 @@
 
     _hidController = new HIDController(self);
     if (!_hidController->initialiseDriver()){
+        [FoohidDriverManager driverLoaded];
         return;
     }
     _hidController->sendEmptyState();

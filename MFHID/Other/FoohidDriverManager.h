@@ -7,4 +7,10 @@
 
 
 @interface FoohidDriverManager : NSObject
+
++ (void)loadDriver;
++ (BOOL)driverLoaded;
++ (BOOL)driverExists;
++ (void)fixDriverPermissions;
+
 @end

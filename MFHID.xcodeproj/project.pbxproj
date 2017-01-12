@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3306415B1E250F100044CB68 /* IOKit.framework */; };
+		334A19481E277F4600390316 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 334A19471E277F4600390316 /* main.mm */; };
+		334A194C1E278E2900390316 /* mfhid_helper in Resources */ = {isa = PBXBuildFile; fileRef = 334A19451E277F4600390316 /* mfhid_helper */; };
 		33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */; };
 		33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B3E1E24255D006C756D /* AppDelegate.m */; };
 		33B88B421E24255D006C756D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B411E24255D006C756D /* main.m */; };
 		33B88B471E24255D006C756D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B461E24255D006C756D /* Assets.xcassets */; };
 		33B88B531E242584006C756D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B88B521E242584006C756D /* GameController.framework */; };
+		33EF6CA71E277ABA008B7DEB /* CheckFoohid.scpt in Resources */ = {isa = PBXBuildFile; fileRef = D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */; };
 		D5AF611F05C90916915CB6F3 /* Vector2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6BA5EAC8DAAC80726D05 /* Vector2D.mm */; };
 		D5AF62004AA8DCDFE62929FA /* StatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6EC46AFA84F959D22770 /* StatusBarManager.m */; };
 		D5AF621B27047575D37EE70A /* FoohidDriverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF67BD109512CCCBB929B2 /* FoohidDriverManager.m */; };
@@ -20,6 +23,7 @@
 		D5AF62EB03D69606E10CD753 /* DevicesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */; };
 		D5AF6303128667E99F5997AF /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6CC4F362A02A01FD538C /* Settings.m */; };
 		D5AF67D30F8E4A6E67AA6502 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5AF6B0474515CEA814787BA /* Localizable.strings */; };
+		D5AF6862926A3B84E66E0A66 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF677B5E65924FB1AC82D5 /* STPrivilegedTask.m */; };
 		D5AF6C0EB3F523FA7AB6B09C /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF63941EB7F221601CA73F /* Categories.m */; };
 		D5AF6D3D61C8AC9591BF953C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6B796878B0F4538CE208 /* SettingsViewController.m */; };
 		D5AF6D4F2ACCF6319FF2BFCC /* HIDBridgedGamepad.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6F3B6E942DA9559E24CA /* HIDBridgedGamepad.mm */; };
@@ -27,8 +31,22 @@
 		D5AF6EABB31A9C6733F3F291 /* HIDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF624D1E6593B1686B148F /* HIDController.mm */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		334A19431E277F4600390316 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3306415B1E250F100044CB68 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		334A19451E277F4600390316 /* mfhid_helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mfhid_helper; sourceTree = BUILT_PRODUCTS_DIR; };
+		334A19471E277F4600390316 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		33B88B3A1E24255D006C756D /* MFHID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFHID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B88B3D1E24255D006C756D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,9 +62,11 @@
 		D5AF63941EB7F221601CA73F /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DevicesViewController.mm; sourceTree = "<group>"; };
 		D5AF653903AE8F76BF8782B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5AF65829B5356CA0A9E8FBB /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
 		D5AF65C6C46729EA7418A55E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		D5AF665337F99C5A26ACF4DC /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		D5AF6745B14015080F7238F7 /* MFIHID-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFIHID-Prefix.pch"; sourceTree = "<group>"; };
+		D5AF677B5E65924FB1AC82D5 /* STPrivilegedTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPrivilegedTask.m; sourceTree = "<group>"; };
 		D5AF67BD109512CCCBB929B2 /* FoohidDriverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoohidDriverManager.m; sourceTree = "<group>"; };
 		D5AF6B0474515CEA814787BA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D5AF6B4712A62019021AD55C /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -62,6 +82,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		334A19421E277F4600390316 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		33B88B371E24255D006C756D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,10 +102,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		334A19461E277F4600390316 /* mfhid_helper */ = {
+			isa = PBXGroup;
+			children = (
+				334A19471E277F4600390316 /* main.mm */,
+			);
+			path = mfhid_helper;
+			sourceTree = "<group>";
+		};
 		33B88B311E24255D006C756D = {
 			isa = PBXGroup;
 			children = (
 				33B88B3C1E24255D006C756D /* MFHID */,
+				334A19461E277F4600390316 /* mfhid_helper */,
 				33B88B3B1E24255D006C756D /* Products */,
 				33B88B511E242584006C756D /* Frameworks */,
 			);
@@ -88,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				33B88B3A1E24255D006C756D /* MFHID.app */,
+				334A19451E277F4600390316 /* mfhid_helper */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +141,7 @@
 				D5AF605FDDB5D0B51CDE6E79 /* Resources */,
 				D5AF6650C0204BE4AB16A46A /* Gamepad */,
 				D5AF69F4DE6ED41919DA51BA /* Other */,
+				D5AF6046D7B033D9C57A3E2D /* Third-Party */,
 			);
 			path = MFHID;
 			sourceTree = "<group>";
@@ -125,6 +163,15 @@
 				33B88B521E242584006C756D /* GameController.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5AF6046D7B033D9C57A3E2D /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF65829B5356CA0A9E8FBB /* STPrivilegedTask.h */,
+				D5AF677B5E65924FB1AC82D5 /* STPrivilegedTask.m */,
+			);
+			path = "Third-Party";
 			sourceTree = "<group>";
 		};
 		D5AF605FDDB5D0B51CDE6E79 /* Resources */ = {
@@ -187,6 +234,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		334A19441E277F4600390316 /* mfhid_helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 334A194B1E277F4600390316 /* Build configuration list for PBXNativeTarget "mfhid_helper" */;
+			buildPhases = (
+				334A19411E277F4600390316 /* Sources */,
+				334A19421E277F4600390316 /* Frameworks */,
+				334A19431E277F4600390316 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mfhid_helper;
+			productName = mfhid_helper;
+			productReference = 334A19451E277F4600390316 /* mfhid_helper */;
+			productType = "com.apple.product-type.tool";
+		};
 		33B88B391E24255D006C756D /* MFHID */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33B88B4E1E24255D006C756D /* Build configuration list for PBXNativeTarget "MFHID" */;
@@ -213,6 +277,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Terry Lewis";
 				TargetAttributes = {
+					334A19441E277F4600390316 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = AAQ453XLKM;
+						ProvisioningStyle = Automatic;
+					};
 					33B88B391E24255D006C756D = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = AAQ453XLKM;
@@ -234,6 +303,7 @@
 			projectRoot = "";
 			targets = (
 				33B88B391E24255D006C756D /* MFHID */,
+				334A19441E277F4600390316 /* mfhid_helper */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +313,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				334A194C1E278E2900390316 /* mfhid_helper in Resources */,
+				33EF6CA71E277ABA008B7DEB /* CheckFoohid.scpt in Resources */,
 				33B88B471E24255D006C756D /* Assets.xcassets in Resources */,
 				D5AF6DD8144DBED609588D56 /* Main.storyboard in Resources */,
 				D5AF67D30F8E4A6E67AA6502 /* Localizable.strings in Resources */,
@@ -252,6 +324,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		334A19411E277F4600390316 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334A19481E277F4600390316 /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		33B88B361E24255D006C756D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +348,7 @@
 				D5AF6303128667E99F5997AF /* Settings.m in Sources */,
 				D5AF62004AA8DCDFE62929FA /* StatusBarManager.m in Sources */,
 				D5AF611F05C90916915CB6F3 /* Vector2D.mm in Sources */,
+				D5AF6862926A3B84E66E0A66 /* STPrivilegedTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +366,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		334A19491E277F4600390316 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = AAQ453XLKM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		334A194A1E277F4600390316 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = AAQ453XLKM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		33B88B4C1E24255D006C756D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -405,6 +502,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		334A194B1E277F4600390316 /* Build configuration list for PBXNativeTarget "mfhid_helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334A19491E277F4600390316 /* Debug */,
+				334A194A1E277F4600390316 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		33B88B351E24255D006C756D /* Build configuration list for PBXProject "MFHID" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
