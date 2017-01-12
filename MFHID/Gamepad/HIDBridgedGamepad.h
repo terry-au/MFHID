@@ -40,4 +40,6 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 
 - (NSString *)localisedControllerTypeString;
 
+- (void)onFailedToInitialiseDriver;
+
 @end

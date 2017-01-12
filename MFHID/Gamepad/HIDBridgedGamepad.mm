@@ -56,6 +56,10 @@
     }
 }
 
+- (void)onFailedToInitialiseDriver {
+    NSLog(@"Failed to initialise driver.");
+}
+
 
 - (void)dealloc {
     [self unconfigureGamepad];
@@ -67,11 +71,12 @@
         delete _hidController;
     }
 
-    _hidController = new HIDController();
-    _hidController->initialiseDriver();
+    _hidController = new HIDController(self);
+    if (!_hidController->initialiseDriver()){
+        return;
+    }
     _hidController->sendEmptyState();
 
-//    _hidController->setBridgedGamepad(self);
 
     GCGamepad *mfiGamepad = self.gamepad;
 

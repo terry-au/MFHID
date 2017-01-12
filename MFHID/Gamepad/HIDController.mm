@@ -57,7 +57,7 @@ unsigned char report_descriptor[52] = {
         0xc0                           // END_COLLECTION
 };
 
-HIDController::HIDController() {
+HIDController::HIDController(HIDBridgedGamepad *gamepad) {
     // Buttons
     mButtonAPressed = false;
     mButtonBPressed = false;
@@ -92,6 +92,8 @@ HIDController::HIDController() {
     }
 
     mDriverInitialised = false;
+
+    mBridgedGamepad = gamepad;
 }
 
 void HIDController::listDevices() {
@@ -113,6 +115,7 @@ void HIDController::listDevices() {
 }
 
 HIDController::~HIDController() {
+    HIDController::mBridgedGamepad = nil;
     if (mDriverInitialised) {
         uint32_t send_count = 2;
         uint64_t send[send_count];
@@ -297,33 +300,27 @@ void HIDController::setRightThumbStick(const Vector2D &mRightThumbStick) {
 }
 
 HIDBridgedGamepad *HIDController::getBridgedGamepad() const {
-    if (!mBridgedGamepad) {
-        return nil;
-    }
-    return (__bridge HIDBridgedGamepad *) mBridgedGamepad;
+    return HIDController::mBridgedGamepad;
 }
 
 void HIDController::setBridgedGamepad(HIDBridgedGamepad *bridgedGamepad) {
-    if (getBridgedGamepad() != bridgedGamepad) {
-        if (mBridgedGamepad) {
-            CFRelease(mBridgedGamepad);
-        }
-        mBridgedGamepad = (__bridge_retained CFTypeRef) bridgedGamepad;
-    }
+    HIDController::mBridgedGamepad = bridgedGamepad;
 }
 
 void HIDController::invokeDriver() {
     if (!mDriverInitialised) {
-        initialiseDriver();
+        if (!initialiseDriver()){
+            return;
+        }
     }
 
     sendHIDMessage();
 }
 
-void HIDController::initialiseDriver() {
+bool HIDController::initialiseDriver() {
     if (mDriverInitialised) {
         cout << "Driver already initialised." << endl;
-        return;
+        return true;
     }
 
     mDriverInitialised = true;
@@ -336,7 +333,9 @@ void HIDController::initialiseDriver() {
 
     if (ret != KERN_SUCCESS) {
         printf("Unable to access IOService.\n");
-        exit(1);
+        [HIDController::getBridgedGamepad() onFailedToInitialiseDriver];
+        IOObjectRelease(ioIterator);
+        return false;
     }
 
     // Iterate till success
@@ -355,7 +354,11 @@ void HIDController::initialiseDriver() {
 
     if (!found) {
         printf("Unable to open IOService.\n");
-        exit(1);
+        [HIDController::getBridgedGamepad() onFailedToInitialiseDriver];
+        if (ioService){
+            IOObjectRelease(ioService);
+        }
+        return false;
     }
 
     // Fill up the input arguments.
@@ -376,6 +379,7 @@ void HIDController::initialiseDriver() {
 //    listDevices();
 
     cout << "IOConnect [Initialise]: " << &mIoConnect << endl;
+    return true;
 }
 
 void HIDController::sendHIDMessage() {

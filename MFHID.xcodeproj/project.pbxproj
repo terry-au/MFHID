@@ -8,52 +8,57 @@
 
 /* Begin PBXBuildFile section */
 		3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3306415B1E250F100044CB68 /* IOKit.framework */; };
-		33402E821E26285300155282 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33402E811E26285300155282 /* SettingsViewController.m */; };
-		33A117961E253F3B00698588 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A117951E253F3B00698588 /* Categories.m */; };
-		33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */ = {isa = PBXBuildFile; fileRef = 33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */; };
 		33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */; };
 		33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B3E1E24255D006C756D /* AppDelegate.m */; };
 		33B88B421E24255D006C756D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B411E24255D006C756D /* main.m */; };
-		33B88B451E24255D006C756D /* DevicesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B441E24255D006C756D /* DevicesViewController.mm */; };
 		33B88B471E24255D006C756D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B461E24255D006C756D /* Assets.xcassets */; };
-		33B88B4A1E24255D006C756D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B481E24255D006C756D /* Main.storyboard */; };
 		33B88B531E242584006C756D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B88B521E242584006C756D /* GameController.framework */; };
-		D5AF600D816B96579843D576 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5AF68A3FC84660A7FD713B2 /* Localizable.strings */; };
-		D5AF620A25D29325013CBD44 /* Vector2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF68235A8624B36C4A1EC0 /* Vector2D.mm */; };
-		D5AF675852F991207F837BEE /* HIDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF67D925AD72937A2C6379 /* HIDController.mm */; };
-		D5AF6D1560E664065B21EDCF /* StatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF64428E85C25B856CEB83 /* StatusBarManager.m */; };
-		D5AF6FE6AE2E9034DB7C9C52 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6C454697561FB85067AB /* Settings.m */; };
+		D5AF611F05C90916915CB6F3 /* Vector2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6BA5EAC8DAAC80726D05 /* Vector2D.mm */; };
+		D5AF62004AA8DCDFE62929FA /* StatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6EC46AFA84F959D22770 /* StatusBarManager.m */; };
+		D5AF621B27047575D37EE70A /* FoohidDriverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF67BD109512CCCBB929B2 /* FoohidDriverManager.m */; };
+		D5AF62246CE479EE5E30AF4C /* CheckFoohid.scpt in Sources */ = {isa = PBXBuildFile; fileRef = D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */; };
+		D5AF62EB03D69606E10CD753 /* DevicesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */; };
+		D5AF6303128667E99F5997AF /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6CC4F362A02A01FD538C /* Settings.m */; };
+		D5AF67D30F8E4A6E67AA6502 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5AF6B0474515CEA814787BA /* Localizable.strings */; };
+		D5AF6C0EB3F523FA7AB6B09C /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF63941EB7F221601CA73F /* Categories.m */; };
+		D5AF6D3D61C8AC9591BF953C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6B796878B0F4538CE208 /* SettingsViewController.m */; };
+		D5AF6D4F2ACCF6319FF2BFCC /* HIDBridgedGamepad.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6F3B6E942DA9559E24CA /* HIDBridgedGamepad.mm */; };
+		D5AF6DD8144DBED609588D56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5AF67A319ACE8DC457E61E2 /* Main.storyboard */; };
+		D5AF6EABB31A9C6733F3F291 /* HIDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF624D1E6593B1686B148F /* HIDController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3306415B1E250F100044CB68 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		33402E801E26285200155282 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		33402E811E26285300155282 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		33A117941E253F3B00698588 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
-		33A117951E253F3B00698588 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
-		33A1179A1E2541FA00698588 /* HIDBridgedGamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDBridgedGamepad.h; sourceTree = "<group>"; };
-		33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDBridgedGamepad.mm; sourceTree = "<group>"; };
 		33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		33B88B3A1E24255D006C756D /* MFHID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFHID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B88B3D1E24255D006C756D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		33B88B3E1E24255D006C756D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		33B88B411E24255D006C756D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		33B88B431E24255D006C756D /* DevicesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevicesViewController.h; sourceTree = "<group>"; };
-		33B88B441E24255D006C756D /* DevicesViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DevicesViewController.mm; sourceTree = "<group>"; };
 		33B88B461E24255D006C756D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		33B88B491E24255D006C756D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		33B88B4B1E24255D006C756D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33B88B521E242584006C756D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
-		D5AF60A07413A6097A0C2ED8 /* StatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarManager.h; sourceTree = "<group>"; };
-		D5AF62A5A5FF041D3E02C91E /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		D5AF64428E85C25B856CEB83 /* StatusBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarManager.m; sourceTree = "<group>"; };
-		D5AF67D925AD72937A2C6379 /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
-		D5AF67EF142E8AF49751059F /* HIDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDController.h; sourceTree = "<group>"; };
-		D5AF68235A8624B36C4A1EC0 /* Vector2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Vector2D.mm; sourceTree = "<group>"; };
-		D5AF68A3FC84660A7FD713B2 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		D5AF6C454697561FB85067AB /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFIHID-Prefix.pch"; sourceTree = "<group>"; };
-		D5AF6F4B4AA08FC662093C8E /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
+		D5AF61863A6514AD0940EE0C /* HIDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDController.h; sourceTree = "<group>"; };
+		D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = CheckFoohid.scpt; sourceTree = "<group>"; };
+		D5AF624D1E6593B1686B148F /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
+		D5AF6311EBE7B8D81DC364CC /* StatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarManager.h; sourceTree = "<group>"; };
+		D5AF6312955CA72A2D9C97E1 /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
+		D5AF63941EB7F221601CA73F /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DevicesViewController.mm; sourceTree = "<group>"; };
+		D5AF653903AE8F76BF8782B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5AF65C6C46729EA7418A55E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		D5AF665337F99C5A26ACF4DC /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
+		D5AF6745B14015080F7238F7 /* MFIHID-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFIHID-Prefix.pch"; sourceTree = "<group>"; };
+		D5AF67BD109512CCCBB929B2 /* FoohidDriverManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoohidDriverManager.m; sourceTree = "<group>"; };
+		D5AF6B0474515CEA814787BA /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		D5AF6B4712A62019021AD55C /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		D5AF6B6BBE8965C01F437473 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D5AF6B796878B0F4538CE208 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		D5AF6BA5EAC8DAAC80726D05 /* Vector2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Vector2D.mm; sourceTree = "<group>"; };
+		D5AF6CC4F362A02A01FD538C /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		D5AF6E73A82D36CF8A62F66D /* FoohidDriverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoohidDriverManager.h; sourceTree = "<group>"; };
+		D5AF6EC46AFA84F959D22770 /* StatusBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarManager.m; sourceTree = "<group>"; };
+		D5AF6F3B6E942DA9559E24CA /* HIDBridgedGamepad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDBridgedGamepad.mm; sourceTree = "<group>"; };
+		D5AF6F916F4C08DB74A45A63 /* DevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevicesViewController.h; sourceTree = "<group>"; };
+		D5AF6FCB1BD91368F7553914 /* HIDBridgedGamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDBridgedGamepad.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,28 +97,13 @@
 			children = (
 				33B88B3D1E24255D006C756D /* AppDelegate.h */,
 				33B88B3E1E24255D006C756D /* AppDelegate.m */,
-				33B88B431E24255D006C756D /* DevicesViewController.h */,
-				33B88B441E24255D006C756D /* DevicesViewController.mm */,
-				33A1179A1E2541FA00698588 /* HIDBridgedGamepad.h */,
-				33A1179B1E2541FA00698588 /* HIDBridgedGamepad.mm */,
-				33A117941E253F3B00698588 /* Categories.h */,
-				33A117951E253F3B00698588 /* Categories.m */,
-				33402E801E26285200155282 /* SettingsViewController.h */,
-				33402E811E26285300155282 /* SettingsViewController.m */,
 				33B88B461E24255D006C756D /* Assets.xcassets */,
-				33B88B481E24255D006C756D /* Main.storyboard */,
-				33B88B4B1E24255D006C756D /* Info.plist */,
 				33B88B401E24255D006C756D /* Supporting Files */,
-				D5AF67EF142E8AF49751059F /* HIDController.h */,
-				D5AF67D925AD72937A2C6379 /* HIDController.mm */,
-				D5AF6E9AB8109C1FCE454EFD /* MFIHID-Prefix.pch */,
-				D5AF68A3FC84660A7FD713B2 /* Localizable.strings */,
-				D5AF62A5A5FF041D3E02C91E /* Settings.h */,
-				D5AF6C454697561FB85067AB /* Settings.m */,
-				D5AF60A07413A6097A0C2ED8 /* StatusBarManager.h */,
-				D5AF64428E85C25B856CEB83 /* StatusBarManager.m */,
-				D5AF68235A8624B36C4A1EC0 /* Vector2D.mm */,
-				D5AF6F4B4AA08FC662093C8E /* Vector2D.h */,
+				D5AF6AC26BFCE18FA7C37464 /* View Controllers */,
+				D5AF609C51EB33B38019D412 /* Extensions */,
+				D5AF605FDDB5D0B51CDE6E79 /* Resources */,
+				D5AF6650C0204BE4AB16A46A /* Gamepad */,
+				D5AF69F4DE6ED41919DA51BA /* Other */,
 			);
 			path = MFHID;
 			sourceTree = "<group>";
@@ -122,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				33B88B411E24255D006C756D /* main.m */,
+				D5AF6745B14015080F7238F7 /* MFIHID-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -134,6 +125,63 @@
 				33B88B521E242584006C756D /* GameController.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5AF605FDDB5D0B51CDE6E79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF67A319ACE8DC457E61E2 /* Main.storyboard */,
+				D5AF6B0474515CEA814787BA /* Localizable.strings */,
+				D5AF65C6C46729EA7418A55E /* Info.plist */,
+				D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D5AF609C51EB33B38019D412 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF665337F99C5A26ACF4DC /* Categories.h */,
+				D5AF63941EB7F221601CA73F /* Categories.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D5AF6650C0204BE4AB16A46A /* Gamepad */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF61863A6514AD0940EE0C /* HIDController.h */,
+				D5AF624D1E6593B1686B148F /* HIDController.mm */,
+				D5AF6F3B6E942DA9559E24CA /* HIDBridgedGamepad.mm */,
+				D5AF6FCB1BD91368F7553914 /* HIDBridgedGamepad.h */,
+			);
+			path = Gamepad;
+			sourceTree = "<group>";
+		};
+		D5AF69F4DE6ED41919DA51BA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF6E73A82D36CF8A62F66D /* FoohidDriverManager.h */,
+				D5AF67BD109512CCCBB929B2 /* FoohidDriverManager.m */,
+				D5AF6B4712A62019021AD55C /* Settings.h */,
+				D5AF6CC4F362A02A01FD538C /* Settings.m */,
+				D5AF6311EBE7B8D81DC364CC /* StatusBarManager.h */,
+				D5AF6EC46AFA84F959D22770 /* StatusBarManager.m */,
+				D5AF6312955CA72A2D9C97E1 /* Vector2D.h */,
+				D5AF6BA5EAC8DAAC80726D05 /* Vector2D.mm */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		D5AF6AC26BFCE18FA7C37464 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */,
+				D5AF6F916F4C08DB74A45A63 /* DevicesViewController.h */,
+				D5AF6B796878B0F4538CE208 /* SettingsViewController.m */,
+				D5AF6B6BBE8965C01F437473 /* SettingsViewController.h */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B88B471E24255D006C756D /* Assets.xcassets in Resources */,
-				33B88B4A1E24255D006C756D /* Main.storyboard in Resources */,
-				D5AF600D816B96579843D576 /* Localizable.strings in Resources */,
+				D5AF6DD8144DBED609588D56 /* Main.storyboard in Resources */,
+				D5AF67D30F8E4A6E67AA6502 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,26 +256,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33B88B451E24255D006C756D /* DevicesViewController.mm in Sources */,
 				33B88B421E24255D006C756D /* main.m in Sources */,
 				33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */,
-				33A117961E253F3B00698588 /* Categories.m in Sources */,
-				D5AF675852F991207F837BEE /* HIDController.mm in Sources */,
-				33402E821E26285300155282 /* SettingsViewController.m in Sources */,
-				33A1179C1E2541FA00698588 /* HIDBridgedGamepad.mm in Sources */,
-				D5AF6FE6AE2E9034DB7C9C52 /* Settings.m in Sources */,
-				D5AF6D1560E664065B21EDCF /* StatusBarManager.m in Sources */,
-				D5AF620A25D29325013CBD44 /* Vector2D.mm in Sources */,
+				D5AF62EB03D69606E10CD753 /* DevicesViewController.mm in Sources */,
+				D5AF6C0EB3F523FA7AB6B09C /* Categories.m in Sources */,
+				D5AF62246CE479EE5E30AF4C /* CheckFoohid.scpt in Sources */,
+				D5AF6D3D61C8AC9591BF953C /* SettingsViewController.m in Sources */,
+				D5AF6EABB31A9C6733F3F291 /* HIDController.mm in Sources */,
+				D5AF6D4F2ACCF6319FF2BFCC /* HIDBridgedGamepad.mm in Sources */,
+				D5AF621B27047575D37EE70A /* FoohidDriverManager.m in Sources */,
+				D5AF6303128667E99F5997AF /* Settings.m in Sources */,
+				D5AF62004AA8DCDFE62929FA /* StatusBarManager.m in Sources */,
+				D5AF611F05C90916915CB6F3 /* Vector2D.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		33B88B481E24255D006C756D /* Main.storyboard */ = {
+		D5AF67A319ACE8DC457E61E2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				33B88B491E24255D006C756D /* Base */,
+				D5AF653903AE8F76BF8782B7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

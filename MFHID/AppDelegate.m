@@ -7,9 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "DevicesViewController.h"
-#import "StatusBarManager.h"
-#import "Settings.h"
+#import "View Controllers/DevicesViewController.h"
+#import "Other/StatusBarManager.h"
+#import "Other/Settings.h"
 
 @interface AppDelegate () <NSApplicationDelegate, StatusBarManagerDelegate>
 

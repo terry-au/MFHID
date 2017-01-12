@@ -27,10 +27,11 @@ struct foohid_message_send{
 
 class HIDController {
 public:
-    HIDController();
+    HIDController(HIDBridgedGamepad *gamepad);
+
     ~HIDController();
     
-    void initialiseDriver();
+    bool initialiseDriver();
 
     bool isButtonAPressed() const;
 
@@ -108,7 +109,7 @@ private:
     struct foohid_message_send mSendMessage;
 
     // Callback
-    CFTypeRef mBridgedGamepad;
+    HIDBridgedGamepad *mBridgedGamepad;
 
     // Buttons
     bool mButtonAPressed;
