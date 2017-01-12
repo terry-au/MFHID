@@ -10,12 +10,14 @@
 		3306415C1E250F100044CB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3306415B1E250F100044CB68 /* IOKit.framework */; };
 		334A19481E277F4600390316 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 334A19471E277F4600390316 /* main.mm */; };
 		334A194C1E278E2900390316 /* mfhid_helper in Resources */ = {isa = PBXBuildFile; fileRef = 334A19451E277F4600390316 /* mfhid_helper */; };
+		33992A821E27E96B00A61943 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33992A811E27E96B00A61943 /* AboutViewController.m */; };
+		33992A841E27F96A00A61943 /* Licenses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 33992A831E27F96A00A61943 /* Licenses.txt */; };
 		33A1BB171E24C7E100036C78 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */; };
 		33B88B3F1E24255D006C756D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B3E1E24255D006C756D /* AppDelegate.m */; };
 		33B88B421E24255D006C756D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B88B411E24255D006C756D /* main.m */; };
 		33B88B471E24255D006C756D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B88B461E24255D006C756D /* Assets.xcassets */; };
 		33B88B531E242584006C756D /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B88B521E242584006C756D /* GameController.framework */; };
-		33EF6CA71E277ABA008B7DEB /* CheckFoohid.scpt in Resources */ = {isa = PBXBuildFile; fileRef = D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */; };
+		D5AF603A0B4069ACA0ECE80F /* AutoResizingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6CEAF9FE2B5DBD2FCB2E /* AutoResizingTextView.m */; };
 		D5AF611F05C90916915CB6F3 /* Vector2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6BA5EAC8DAAC80726D05 /* Vector2D.mm */; };
 		D5AF62004AA8DCDFE62929FA /* StatusBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6EC46AFA84F959D22770 /* StatusBarManager.m */; };
 		D5AF621B27047575D37EE70A /* FoohidDriverManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF67BD109512CCCBB929B2 /* FoohidDriverManager.m */; };
@@ -24,6 +26,7 @@
 		D5AF6303128667E99F5997AF /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6CC4F362A02A01FD538C /* Settings.m */; };
 		D5AF67D30F8E4A6E67AA6502 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5AF6B0474515CEA814787BA /* Localizable.strings */; };
 		D5AF6862926A3B84E66E0A66 /* STPrivilegedTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF677B5E65924FB1AC82D5 /* STPrivilegedTask.m */; };
+		D5AF69550B2C63FDA12B76EE /* AutoResizingTextViewHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF65C13844A6EDDC5CC73C /* AutoResizingTextViewHolder.m */; };
 		D5AF6C0EB3F523FA7AB6B09C /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF63941EB7F221601CA73F /* Categories.m */; };
 		D5AF6D3D61C8AC9591BF953C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6B796878B0F4538CE208 /* SettingsViewController.m */; };
 		D5AF6D4F2ACCF6319FF2BFCC /* HIDBridgedGamepad.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF6F3B6E942DA9559E24CA /* HIDBridgedGamepad.mm */; };
@@ -57,6 +60,9 @@
 		3306415B1E250F100044CB68 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		334A19451E277F4600390316 /* mfhid_helper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mfhid_helper; sourceTree = BUILT_PRODUCTS_DIR; };
 		334A19471E277F4600390316 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		33992A801E27E96B00A61943 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		33992A811E27E96B00A61943 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		33992A831E27F96A00A61943 /* Licenses.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Licenses.txt; path = Licenses/Licenses.txt; sourceTree = "<group>"; };
 		33A1BB161E24C7E100036C78 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		33B88B3A1E24255D006C756D /* MFHID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFHID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B88B3D1E24255D006C756D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,10 +76,12 @@
 		D5AF624D1E6593B1686B148F /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
 		D5AF6311EBE7B8D81DC364CC /* StatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarManager.h; sourceTree = "<group>"; };
 		D5AF6312955CA72A2D9C97E1 /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
+		D5AF638C56EEFEE67D05A649 /* AutoResizingTextViewHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoResizingTextViewHolder.h; sourceTree = "<group>"; };
 		D5AF63941EB7F221601CA73F /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
 		D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DevicesViewController.mm; sourceTree = "<group>"; };
 		D5AF653903AE8F76BF8782B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5AF65829B5356CA0A9E8FBB /* STPrivilegedTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPrivilegedTask.h; sourceTree = "<group>"; };
+		D5AF65C13844A6EDDC5CC73C /* AutoResizingTextViewHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoResizingTextViewHolder.m; sourceTree = "<group>"; };
 		D5AF65C6C46729EA7418A55E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		D5AF665337F99C5A26ACF4DC /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		D5AF6745B14015080F7238F7 /* MFIHID-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MFIHID-Prefix.pch"; sourceTree = "<group>"; };
@@ -85,6 +93,8 @@
 		D5AF6B796878B0F4538CE208 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		D5AF6BA5EAC8DAAC80726D05 /* Vector2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Vector2D.mm; sourceTree = "<group>"; };
 		D5AF6CC4F362A02A01FD538C /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		D5AF6CEAF9FE2B5DBD2FCB2E /* AutoResizingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoResizingTextView.m; sourceTree = "<group>"; };
+		D5AF6D580620CC2E785E00AE /* AutoResizingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoResizingTextView.h; sourceTree = "<group>"; };
 		D5AF6E73A82D36CF8A62F66D /* FoohidDriverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoohidDriverManager.h; sourceTree = "<group>"; };
 		D5AF6EC46AFA84F959D22770 /* StatusBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarManager.m; sourceTree = "<group>"; };
 		D5AF6F3B6E942DA9559E24CA /* HIDBridgedGamepad.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDBridgedGamepad.mm; sourceTree = "<group>"; };
@@ -188,6 +198,7 @@
 		D5AF605FDDB5D0B51CDE6E79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				33992A831E27F96A00A61943 /* Licenses.txt */,
 				33B88B461E24255D006C756D /* Assets.xcassets */,
 				D5AF67A319ACE8DC457E61E2 /* Main.storyboard */,
 				D5AF6B0474515CEA814787BA /* Localizable.strings */,
@@ -202,6 +213,10 @@
 			children = (
 				D5AF665337F99C5A26ACF4DC /* Categories.h */,
 				D5AF63941EB7F221601CA73F /* Categories.m */,
+				D5AF6CEAF9FE2B5DBD2FCB2E /* AutoResizingTextView.m */,
+				D5AF6D580620CC2E785E00AE /* AutoResizingTextView.h */,
+				D5AF65C13844A6EDDC5CC73C /* AutoResizingTextViewHolder.m */,
+				D5AF638C56EEFEE67D05A649 /* AutoResizingTextViewHolder.h */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,6 +254,8 @@
 				D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */,
 				D5AF6B6BBE8965C01F437473 /* SettingsViewController.h */,
 				D5AF6B796878B0F4538CE208 /* SettingsViewController.m */,
+				33992A801E27E96B00A61943 /* AboutViewController.h */,
+				33992A811E27E96B00A61943 /* AboutViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -327,9 +344,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				334A194C1E278E2900390316 /* mfhid_helper in Resources */,
-				33EF6CA71E277ABA008B7DEB /* CheckFoohid.scpt in Resources */,
 				33B88B471E24255D006C756D /* Assets.xcassets in Resources */,
 				D5AF6DD8144DBED609588D56 /* Main.storyboard in Resources */,
+				33992A841E27F96A00A61943 /* Licenses.txt in Resources */,
 				D5AF67D30F8E4A6E67AA6502 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,10 +375,13 @@
 				D5AF6EABB31A9C6733F3F291 /* HIDController.mm in Sources */,
 				D5AF6D4F2ACCF6319FF2BFCC /* HIDBridgedGamepad.mm in Sources */,
 				D5AF621B27047575D37EE70A /* FoohidDriverManager.m in Sources */,
+				33992A821E27E96B00A61943 /* AboutViewController.m in Sources */,
 				D5AF6303128667E99F5997AF /* Settings.m in Sources */,
 				D5AF62004AA8DCDFE62929FA /* StatusBarManager.m in Sources */,
 				D5AF611F05C90916915CB6F3 /* Vector2D.mm in Sources */,
 				D5AF6862926A3B84E66E0A66 /* STPrivilegedTask.m in Sources */,
+				D5AF603A0B4069ACA0ECE80F /* AutoResizingTextView.m in Sources */,
+				D5AF69550B2C63FDA12B76EE /* AutoResizingTextViewHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

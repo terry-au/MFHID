@@ -60,60 +60,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
-                                            <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
-                                            <connections>
-                                                <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Open Recent" id="tXI-mr-wws">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
-                                                <items>
-                                                    <menuItem title="Clear Menu" id="vNY-rz-j42">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="clearRecentDocuments:" target="Ady-hI-5gd" id="Daa-9d-B3U"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
-                                            <connections>
-                                                <action selector="saveDocument:" target="Ady-hI-5gd" id="teZ-XB-qJY"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
-                                            <connections>
-                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="KaW-ft-85H">
-                                            <connections>
-                                                <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="iJ3-Pv-kwq"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
-                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="runPageLayout:" target="Ady-hI-5gd" id="Din-rz-gC5"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
-                                            <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -898,6 +847,7 @@
                     <tabViewItems>
                         <tabViewItem image="ControllerTabIcon" id="ZYC-pk-TrP"/>
                         <tabViewItem image="NSPreferencesGeneral" id="RIf-VC-UAE"/>
+                        <tabViewItem label="About" image="NSInfo" id="D14-Lx-y30"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="A9i-gl-teI">
@@ -909,6 +859,7 @@
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="tabItems" id="RKk-dx-oCo"/>
                         <segue destination="Vhk-R4-JM0" kind="relationship" relationship="tabItems" id="kU0-Q9-82A"/>
+                        <segue destination="UEt-V0-67I" kind="relationship" relationship="tabItems" id="jlq-Ac-lWR"/>
                     </connections>
                 </tabViewController>
                 <customObject id="JAA-Sz-rVI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1077,10 +1028,119 @@
             </objects>
             <point key="canvasLocation" x="782" y="1205"/>
         </scene>
+        <!--About-->
+        <scene sceneID="vvD-5G-yNl">
+            <objects>
+                <viewController title="About" id="UEt-V0-67I" customClass="AboutViewController" sceneMemberID="viewController">
+                    <view key="view" id="Mpz-jD-XgV">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="199"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-ru-Sdy">
+                                <rect key="frame" x="279" y="13" width="157" height="32"/>
+                                <buttonCell key="cell" type="push" title="Donate with PayPal" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ppt-AB-c81">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="donateWithPayPalButtonClicked:" target="UEt-V0-67I" id="HhZ-sp-irm"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Ek-iq-sYm">
+                                <rect key="frame" x="14" y="13" width="167" height="32"/>
+                                <buttonCell key="cell" type="push" title="Third-Party Licenses" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gUV-MB-TNx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="thirdPartyLicensesButtonClicked:" target="UEt-V0-67I" id="GXX-jJ-HvZ"/>
+                                </connections>
+                            </button>
+                            <scrollView horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VV8-CG-eQF">
+                                <rect key="frame" x="20" y="60" width="410" height="119"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="HkP-w9-fLG">
+                                    <rect key="frame" x="1" y="1" width="408" height="117"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView focusRingType="none" editable="NO" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dataDetection="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="dGV-w4-hQp">
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="117"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="408" height="117"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment>
+                                                    <string key="content">MFHID is provided as free open-source software.
+© 2017 Terry Lewis (https://github.com/terry1994/)
+
+</string>
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Third-Party acknolwedgments:">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="Helvetica-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment>
+                                                    <string key="content">
+• Foohid (https://github.com/unbit/foohid)
+• STPrivilegedTask (https://github.com/sveinbjornt/STPrivilegedTask)
+
+Any donations are greatly appreciated!</string>
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="410" id="1EG-a7-sYf"/>
+                                    <constraint firstAttribute="height" constant="119" id="Dkt-XW-fOj"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="pKX-Mv-CAQ">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Sbo-6I-ioP">
+                                    <rect key="frame" x="393" y="1" width="16" height="117"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Uab-ru-Sdy" secondAttribute="trailing" constant="20" id="14H-8j-I6c"/>
+                            <constraint firstItem="Uab-ru-Sdy" firstAttribute="top" secondItem="dGV-w4-hQp" secondAttribute="bottom" constant="20" id="CC6-D1-cON"/>
+                            <constraint firstAttribute="bottom" secondItem="Uab-ru-Sdy" secondAttribute="bottom" constant="20" id="Cc2-Cj-XTT"/>
+                            <constraint firstItem="3Ek-iq-sYm" firstAttribute="top" secondItem="dGV-w4-hQp" secondAttribute="bottom" constant="20" id="OQr-Lu-U2a"/>
+                            <constraint firstAttribute="bottom" secondItem="3Ek-iq-sYm" secondAttribute="bottom" constant="20" id="Zc8-U9-Asp"/>
+                            <constraint firstItem="VV8-CG-eQF" firstAttribute="top" secondItem="Mpz-jD-XgV" secondAttribute="top" constant="20" id="fiQ-3L-CEY"/>
+                            <constraint firstAttribute="trailing" secondItem="VV8-CG-eQF" secondAttribute="trailing" constant="20" id="oI3-Sn-cvk"/>
+                            <constraint firstItem="3Ek-iq-sYm" firstAttribute="leading" secondItem="Mpz-jD-XgV" secondAttribute="leading" constant="20" id="p7Z-Ne-rsM"/>
+                            <constraint firstItem="VV8-CG-eQF" firstAttribute="leading" secondItem="Mpz-jD-XgV" secondAttribute="leading" constant="20" id="wVt-si-tij"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="dGV-w4-hQp" id="u6a-Ge-5aN"/>
+                    </connections>
+                </viewController>
+                <customObject id="bL3-5p-64f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="1187"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ControllerTabIcon" width="1026" height="1026"/>
         <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSInfo" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
     </resources>
 </document>
