@@ -4,13 +4,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../../mfhid_helper/Types.h"
 
 
 @interface FoohidDriverManager : NSObject
 
-+ (void)loadDriver;
++ (MFHIDResult)fixAndLoadDriver;
 + (BOOL)driverLoaded;
 + (BOOL)driverExists;
-+ (void)fixDriverPermissions;
++ (BOOL)fixDriverPermissions;
 
 @end

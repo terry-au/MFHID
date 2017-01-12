@@ -8,7 +8,6 @@
 
 #import "HIDBridgedGamepad.h"
 #import "HIDController.h"
-#import "Vector2D.h"
 #import "../Other/FoohidDriverManager.h"
 
 @implementation HIDBridgedGamepad {
@@ -47,7 +46,7 @@
 }
 
 - (NSString *)localisedControllerTypeString {
-    switch (self.gamepadType){
+    switch (self.gamepadType) {
         case HIDBridgedGamepadTypeStandard:
             return NSLocalizedString(@"Standard", @"Standard");
         case HIDBridgedGamepadTypeExtended:
@@ -66,6 +65,17 @@
     [self unconfigureGamepad];
 }
 
+- (BOOL)attemptToFixDriverIssues {
+    MFHIDResult result = [FoohidDriverManager fixAndLoadDriver];
+    switch (result) {
+        case MFHIDResultSuccess:
+            return YES;
+        default:
+            break;
+    }
+    return NO;
+}
+
 - (void)configureGamepad {
     if (_hidController != NULL) {
 
@@ -73,9 +83,15 @@
     }
 
     _hidController = new HIDController(self);
-    if (!_hidController->initialiseDriver()){
-        [FoohidDriverManager driverLoaded];
-        return;
+    if (!_hidController->initialiseDriver()) {
+        if (![self attemptToFixDriverIssues]){
+            return;
+        }else{
+            sleep(1);
+            if (!_hidController->initialiseDriver()){
+                return;
+            }
+        }
     }
     _hidController->sendEmptyState();
 
@@ -154,10 +170,10 @@
         [extendedGamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
             Vector2D vector = Vector2D(xValue, yValue);
             float leftThumbstickDeadzone = self.leftThumbstickDeadzone;
-            if (self.leftThumbstickDeadzoneEnabled && leftThumbstickDeadzone > 0){
-                if(vector.magnitude() < leftThumbstickDeadzone){
+            if (self.leftThumbstickDeadzoneEnabled && leftThumbstickDeadzone > 0) {
+                if (vector.magnitude() < leftThumbstickDeadzone) {
                     vector = Vector2D::zero();
-                }else{
+                } else {
                     vector = vector.normalised() * ((vector.magnitude() - leftThumbstickDeadzone) / (1 - leftThumbstickDeadzone));
                 }
             }
@@ -167,10 +183,10 @@
         [extendedGamepad.rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
             Vector2D vector = Vector2D(xValue, yValue);
             float rightThumbstickDeadzone = self.rightThumbstickDeadzone;
-            if (self.rightThumbstickDeadzoneEnabled && rightThumbstickDeadzone > 0){
-                if(vector.magnitude() < rightThumbstickDeadzone){
+            if (self.rightThumbstickDeadzoneEnabled && rightThumbstickDeadzone > 0) {
+                if (vector.magnitude() < rightThumbstickDeadzone) {
                     vector = Vector2D::zero();
-                }else{
+                } else {
                     vector = vector.normalised() * ((vector.magnitude() - rightThumbstickDeadzone) / (1 - rightThumbstickDeadzone));
                 }
             }
@@ -179,7 +195,7 @@
     }
 }
 
-- (void)unconfigureGamepad{
+- (void)unconfigureGamepad {
     GCGamepad *mfiGamepad = self.gamepad;
 
     // Buttons

@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <GameController/GameController.h>
 
+@class HIDBridgedGamepad;
+
+@protocol HIDBridgedGamepadDelegate
+- (void)bridgedGamepad:(HIDBridgedGamepad *)bridgedGamepad didUpdateStatus:()status;
+@end
+
 typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
     HIDBridgedGamepadTypeStandard,
     HIDBridgedGamepadTypeExtended
@@ -34,6 +40,7 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 @property (nonatomic) BOOL rightThumbstickDeadzoneEnabled;
 @property (nonatomic) float leftThumbstickDeadzone;
 @property (nonatomic) float rightThumbstickDeadzone;
+@property (nonatomic) id <HIDBridgedGamepadDelegate> delegate;
 
 - (void)activate;
 - (void)deactivate;

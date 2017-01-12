@@ -318,13 +318,9 @@ void HIDController::invokeDriver() {
 }
 
 bool HIDController::initialiseDriver() {
-    if (mDriverInitialised) {
-        cout << "Driver already initialised." << endl;
+    if (HIDController::mDriverInitialised){
         return true;
     }
-
-    mDriverInitialised = true;
-
     io_iterator_t ioIterator;
     io_service_t ioService;
 
@@ -379,6 +375,7 @@ bool HIDController::initialiseDriver() {
 //    listDevices();
 
     cout << "IOConnect [Initialise]: " << &mIoConnect << endl;
+    mDriverInitialised = true;
     return true;
 }
 

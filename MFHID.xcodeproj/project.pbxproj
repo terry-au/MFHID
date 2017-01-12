@@ -31,6 +31,16 @@
 		D5AF6EABB31A9C6733F3F291 /* HIDController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D5AF624D1E6593B1686B148F /* HIDController.mm */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		334A194D1E27922F00390316 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 33B88B321E24255D006C756D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 334A19441E277F4600390316;
+			remoteInfo = mfhid_helper;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		334A19431E277F4600390316 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -56,6 +66,7 @@
 		33B88B521E242584006C756D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		D5AF61863A6514AD0940EE0C /* HIDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDController.h; sourceTree = "<group>"; };
 		D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = CheckFoohid.scpt; sourceTree = "<group>"; };
+		D5AF619FEAA91581BA7F1AE5 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		D5AF624D1E6593B1686B148F /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
 		D5AF6311EBE7B8D81DC364CC /* StatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarManager.h; sourceTree = "<group>"; };
 		D5AF6312955CA72A2D9C97E1 /* Vector2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector2D.h; sourceTree = "<group>"; };
@@ -106,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				334A19471E277F4600390316 /* main.mm */,
+				D5AF619FEAA91581BA7F1AE5 /* Types.h */,
 			);
 			path = mfhid_helper;
 			sourceTree = "<group>";
@@ -262,6 +274,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				334A194E1E27922F00390316 /* PBXTargetDependency */,
 			);
 			name = MFHID;
 			productName = MFHID;
@@ -353,6 +366,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		334A194E1E27922F00390316 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 334A19441E277F4600390316 /* mfhid_helper */;
+			targetProxy = 334A194D1E27922F00390316 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D5AF67A319ACE8DC457E61E2 /* Main.storyboard */ = {

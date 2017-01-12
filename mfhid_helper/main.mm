@@ -8,21 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <iostream>
+#import "Types.h"
 
 using namespace std;
 
 static NSString *kDriverPath = @"/Library/Extensions/foohid.kext";
 static NSString *kKextIdentifier = @"it.unbit.foohid";
-
-#define ERR_UNKNOWN -1
-#define ERR_ARGS 1
-#define ERR_SETEUID 2
-#define ERR_DRIVER_NOT_FOUND 3
-#define ERR_FIXING_PERMISSIONS 4
-#define ERR_LOADING_DRIVER 5
-#define ERR_UNLOADING_DRIVER 6
-#define SUCCESS 0
-#define FAILURE 100
 
 int exec_cmd(NSString *cmd, NSString *args) {
     NSString *result = [NSString stringWithFormat:@"%@ \"%@\"", cmd, args];
@@ -73,13 +64,13 @@ BOOL unloadDriver() {
 
 void showHelp() {
     cout << "usage: mfhid_helper [--fixPermissions] | [--driverExists] | " << endl;
-    cout << "[--driverLoaded] | [--loadDriver] | [--unloadDriver] | " << endl;
+    cout << "[--driverLoaded] | [--fixAndLoadDriver] | [--unloadDriver] | " << endl;
     cout << "[--fixAndLoad] | [--help]" << endl << endl;
 
     cout << "fixPermissions\t\t" << "Fix foohid driver permissions." << endl;
     cout << "driverExists\t\t" << "Check if foohid driver exists." << endl;
     cout << "driverLoaded\t\t" << "Check if foohid driver is loaded." << endl;
-    cout << "loadDriver\t\t" << "Load the foohid driver." << endl;
+    cout << "fixAndLoadDriver\t\t" << "Load the foohid driver." << endl;
     cout << "unloadDriver\t\t" << "Unload the foohid driver." << endl;
     cout << "fixAndLoad\t\t" << "Fix the foohid driver's permissions and load it." << endl;
     cout << "help\t\t\t" << "Show this help page." << endl;
@@ -88,70 +79,74 @@ void showHelp() {
 int main(int argc, const char *argv[]) {
     if (argc > 2) {
         cout << "Too many arguments" << endl;
-        return ERR_ARGS;
+        return MFHIDResultErrorArgs;
     }
 
     if (seteuid(0) != 0) {
         cout << "Failed to seteuid" << endl;
-        return ERR_SETEUID;
+        return MFHIDResultErrorSeteuid;
     }
 
     string cmd = string(argv[1]);
     if (cmd == "--fixPermissions") {
         if (fixPermissions()) {
             cout << "Permissions fixed." << endl;
-            return SUCCESS;
+            return MFHIDResultSuccess;
         }else{
-            return FAILURE;
+            return MFHIDResultFailure;
         }
     } else if (cmd == "--driverExists") {
         if (driverExists()) {
             cout << "Driver exists." << endl;
-            return SUCCESS;
+            return MFHIDResultSuccess;
         } else {
             cout << "Driver doesn't exist." << endl;
-            return FAILURE;
+            return MFHIDResultFailure;
         }
     } else if (cmd == "--driverLoaded") {
         if (driverLoaded()) {
             cout << "Driver is loaded." << endl;
-            return SUCCESS;
+            return MFHIDResultSuccess;
         } else {
             cout << "Driver is not loaded." << endl;
-            return FAILURE;
+            return MFHIDResultFailure;
         }
-    } else if (cmd == "--loadDriver") {
+    } else if (cmd == "--fixAndLoadDriver") {
         if (loadDriver()) {
-            cout << "Driver successfully loaded." << endl;
-            return SUCCESS;
+            cout << "Driver MFHIDResultSuccessfully loaded." << endl;
+            return MFHIDResultSuccess;
         }else{
             cout << "Failed to load driver." << endl;
-            return FAILURE;
+            return MFHIDResultFailure;
         }
-        return ERR_LOADING_DRIVER;
+        return MFHIDResultErrorLoadingDriver;
     } else if (cmd == "--unloadDriver") {
         if (unloadDriver()) {
-            cout << "Driver successfully unloaded." << endl;
-            return SUCCESS;
+            cout << "Driver MFHIDResultSuccessfully unloaded." << endl;
+            return MFHIDResultSuccess;
         }
         cout << "Failed to unload driver." << endl;
-        return ERR_UNLOADING_DRIVER;
+        return MFHIDResultErrorUnloadingDriver;
     } else if (cmd == "--fixAndLoad") {
         if (driverLoaded()) {
-            return SUCCESS;
+            return MFHIDResultSuccess;
         }
         if (driverExists()) {
             fixPermissions();
             if (loadDriver()){
-                return SUCCESS;
+                if (driverLoaded()){
+                    return MFHIDResultSuccess;
+                }else{
+                    return MFHIDResultErrorLoadingDriver;
+                }
             }
-            return FAILURE;
+            return MFHIDResultErrorDriverNotFound;
         }
     } else if (cmd == "--help") {
         showHelp();
-        return SUCCESS;
+        return MFHIDResultSuccess;
     } else {
         cout << "Unknown command." << endl;
-        return ERR_UNKNOWN;
+        return MFHIDResultErrorUnknown;
     }
 }
