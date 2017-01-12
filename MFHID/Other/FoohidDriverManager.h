@@ -9,7 +9,7 @@
 
 @interface FoohidDriverManager : NSObject
 
-+ (MFHIDResult)fixAndLoadDriver;
++ (MFHIDHelperExitCode)fixAndLoadDriver;
 + (BOOL)driverLoaded;
 + (BOOL)driverExists;
 + (BOOL)fixDriverPermissions;

@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, MFHIDCommand) {
     return privilegedTask.terminationStatus == 0;
 }
 
-+ (MFHIDResult)fixAndLoadDriver {
++ (MFHIDHelperExitCode)fixAndLoadDriver {
     int result = -1;
     [self launchMFHIDHelperWithCommand:MFHIDCommandFixAndLoadDriver result:&result];
     return result;

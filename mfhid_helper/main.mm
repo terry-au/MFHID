@@ -79,74 +79,74 @@ void showHelp() {
 int main(int argc, const char *argv[]) {
     if (argc > 2) {
         cout << "Too many arguments" << endl;
-        return MFHIDResultErrorArgs;
+        return MFHIDHelperExitCodeErrorArgs;
     }
 
     if (seteuid(0) != 0) {
         cout << "Failed to seteuid" << endl;
-        return MFHIDResultErrorSeteuid;
+        return MFHIDHelperExitCodeErrorSeteuid;
     }
 
     string cmd = string(argv[1]);
     if (cmd == "--fixPermissions") {
         if (fixPermissions()) {
             cout << "Permissions fixed." << endl;
-            return MFHIDResultSuccess;
+            return MFHIDHelperExitCodeSuccess;
         }else{
-            return MFHIDResultFailure;
+            return MFHIDHelperExitCodeFailure;
         }
     } else if (cmd == "--driverExists") {
         if (driverExists()) {
             cout << "Driver exists." << endl;
-            return MFHIDResultSuccess;
+            return MFHIDHelperExitCodeSuccess;
         } else {
             cout << "Driver doesn't exist." << endl;
-            return MFHIDResultFailure;
+            return MFHIDHelperExitCodeFailure;
         }
     } else if (cmd == "--driverLoaded") {
         if (driverLoaded()) {
             cout << "Driver is loaded." << endl;
-            return MFHIDResultSuccess;
+            return MFHIDHelperExitCodeSuccess;
         } else {
             cout << "Driver is not loaded." << endl;
-            return MFHIDResultFailure;
+            return MFHIDHelperExitCodeFailure;
         }
     } else if (cmd == "--fixAndLoadDriver") {
         if (loadDriver()) {
-            cout << "Driver MFHIDResultSuccessfully loaded." << endl;
-            return MFHIDResultSuccess;
+            cout << "Driver MFHIDHelperExitCodeSuccessfully loaded." << endl;
+            return MFHIDHelperExitCodeSuccess;
         }else{
             cout << "Failed to load driver." << endl;
-            return MFHIDResultFailure;
+            return MFHIDHelperExitCodeFailure;
         }
-        return MFHIDResultErrorLoadingDriver;
+        return MFHIDHelperExitCodeErrorLoadingDriver;
     } else if (cmd == "--unloadDriver") {
         if (unloadDriver()) {
-            cout << "Driver MFHIDResultSuccessfully unloaded." << endl;
-            return MFHIDResultSuccess;
+            cout << "Driver MFHIDHelperExitCodeSuccessfully unloaded." << endl;
+            return MFHIDHelperExitCodeSuccess;
         }
         cout << "Failed to unload driver." << endl;
-        return MFHIDResultErrorUnloadingDriver;
+        return MFHIDHelperExitCodeErrorUnloadingDriver;
     } else if (cmd == "--fixAndLoad") {
         if (driverLoaded()) {
-            return MFHIDResultSuccess;
+            return MFHIDHelperExitCodeSuccess;
         }
         if (driverExists()) {
             fixPermissions();
             if (loadDriver()){
                 if (driverLoaded()){
-                    return MFHIDResultSuccess;
+                    return MFHIDHelperExitCodeSuccess;
                 }else{
-                    return MFHIDResultErrorLoadingDriver;
+                    return MFHIDHelperExitCodeErrorLoadingDriver;
                 }
             }
-            return MFHIDResultErrorDriverNotFound;
+            return MFHIDHelperExitCodeErrorDriverNotFound;
         }
     } else if (cmd == "--help") {
         showHelp();
-        return MFHIDResultSuccess;
+        return MFHIDHelperExitCodeSuccess;
     } else {
         cout << "Unknown command." << endl;
-        return MFHIDResultErrorUnknown;
+        return MFHIDHelperExitCodeErrorUnknown;
     }
 }

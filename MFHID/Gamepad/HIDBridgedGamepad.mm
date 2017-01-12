@@ -66,9 +66,9 @@
 }
 
 - (BOOL)attemptToFixDriverIssues {
-    MFHIDResult result = [FoohidDriverManager fixAndLoadDriver];
+    MFHIDHelperExitCode result = [FoohidDriverManager fixAndLoadDriver];
     switch (result) {
-        case MFHIDResultSuccess:
+        case MFHIDHelperExitCodeSuccess:
             return YES;
         default:
             break;
