@@ -78,11 +78,8 @@ HIDController::HIDController() {
     mPauseButtonPressed = false;
 
     // Analogue sticks.
-    mLeftThumbstickX = 0;
-    mLeftThumbstickY = 0;
-
-    mRightThumbstickX = 0;
-    mRightThumbstickY = 0;
+    mLeftThumbStick = Vector2D::zero();
+    mRightThumbStick = Vector2D::zero();
 
     mReport.buttons = 0;
     mReport.left_x = 0;
@@ -281,52 +278,22 @@ void HIDController::setPauseButtonPressed(bool pauseButtonPressed) {
     updateHidButtonState(12, pauseButtonPressed, &mReport.buttons);
 }
 
-float HIDController::getLeftThumbstickX() const {
-    return mLeftThumbstickX;
+const Vector2D &HIDController::getLeftThumbStick() const {
+    return mLeftThumbStick;
 }
 
-void HIDController::setLeftThumbstickX(float leftThumbstickX) {
-    HIDController::mLeftThumbstickX = leftThumbstickX;
-    updateJoystickState(leftThumbstickX, &mReport.left_x, 0, nullptr);
+void HIDController::setLeftThumbStick(const Vector2D &mLeftThumbStick) {
+    HIDController::mLeftThumbStick = mLeftThumbStick;
+    updateJoystickState(mLeftThumbStick.getX(), &mReport.left_x, mLeftThumbStick.getY(), &mReport.left_y);
 }
 
-float HIDController::getLeftThumbstickY() const {
-    return mLeftThumbstickY;
+const Vector2D &HIDController::getRightThumbStick() const {
+    return mRightThumbStick;
 }
 
-void HIDController::setLeftThumbstickY(float leftThumbstickY) {
-    HIDController::mLeftThumbstickY = leftThumbstickY;
-    updateJoystickState(leftThumbstickY, &mReport.left_y, 0, nullptr);
-}
-
-float HIDController::getRightThumbstickX() const {
-    return mRightThumbstickX;
-}
-
-void HIDController::setRightThumbstickX(float rightThumbstickX) {
-    HIDController::mRightThumbstickX = rightThumbstickX;
-    updateJoystickState(rightThumbstickX, &mReport.right_x, 0, nullptr);
-}
-
-float HIDController::getRightThumbstickY() const {
-    return mRightThumbstickY;
-}
-
-void HIDController::setRightThumbstickY(float rightThumbstickY) {
-    HIDController::mRightThumbstickY = rightThumbstickY;
-    updateJoystickState(rightThumbstickY, &mReport.right_y, 0, nullptr);
-}
-
-void HIDController::setLeftThumbstickXY(float leftThumbstickX, float leftThumbstickY) {
-    HIDController::mLeftThumbstickX = leftThumbstickX;
-    HIDController::mLeftThumbstickY = leftThumbstickY;
-    updateJoystickState(leftThumbstickX, &mReport.left_x, leftThumbstickY, &mReport.left_y);
-}
-
-void HIDController::setRightThumbstickXY(Vector2D stickInput) {
-    HIDController::mRightThumbstickX = rightThumbstickX;
-    HIDController::mRightThumbstickX = rightThumbstickX;
-    updateJoystickState(stickInput.getX(), &mReport.right_x, stickInput.getY(), &mReport.right_y);
+void HIDController::setRightThumbStick(const Vector2D &mRightThumbStick) {
+    HIDController::mRightThumbStick = mRightThumbStick;
+    updateJoystickState(mRightThumbStick.getX(), &mReport.right_x, mRightThumbStick.getY(), &mReport.right_y);
 }
 
 HIDBridgedGamepad *HIDController::getBridgedGamepad() const {

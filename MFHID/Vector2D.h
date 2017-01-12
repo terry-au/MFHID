@@ -16,6 +16,8 @@ private:
 public:
     Vector2D(float mX, float mY);
 
+    Vector2D();
+
     static const Vector2D zero();
 
     float getX() const;
@@ -27,6 +29,10 @@ public:
     void setMY(float mY);
 
     float magnitude();
+
+    Vector2D normalised();
+
+    Vector2D operator*(float rhs);
 };
 
 

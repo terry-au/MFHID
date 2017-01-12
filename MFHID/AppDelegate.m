@@ -19,7 +19,7 @@
 
 @end
 
-static NSString *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenInstance";
+static NSString const *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-AwakenInstance";
 
 @implementation AppDelegate
 

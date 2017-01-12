@@ -6,7 +6,7 @@
 #import "Settings.h"
 #import "StatusBarManager.h"
 
-extern NSNotificationName kGamepadRelatedSettingsChangedNotification = @"GamepadRelatedSettingsChangedNotification";
+NSNotificationName const kGamepadRelatedSettingsChangedNotification = @"GamepadRelatedSettingsChangedNotification";
 
 static NSString *kShowDevicesWindowOnStartSettingsKey = @"ShowDevicesWindowOnStart";
 static NSString *kShowStatusBarIconSettingsKey = @"ShowStatusBarIcon";
@@ -112,22 +112,29 @@ static NSString *kRightThumbstickDeadZoneEnabledSettingsKey = @"RightThumbstickD
 - (void)setLeftStickDeadzone:(NSInteger)leftStickDeadzone {
     _leftStickDeadzone = leftStickDeadzone;
     [_userDefaults setInteger:self.leftStickDeadzone forKey:kLeftStickDeadZoneSettingsKey];
+    [self sendGamepadSettingsUpdatedNotification];
 }
 
 - (void)setRightStickDeadzone:(NSInteger)rightStickDeadzone {
     _rightStickDeadzone = rightStickDeadzone;
     [_userDefaults setInteger:self.rightStickDeadzone forKey:kRightStickDeadZoneSettingsKey];
+    [self sendGamepadSettingsUpdatedNotification];
 }
 
 - (void)setLeftThumbstickDeadzoneEnabled:(BOOL)leftThumbstickDeadzoneEnabled {
     _leftThumbstickDeadzoneEnabled = leftThumbstickDeadzoneEnabled;
     [_userDefaults setBool:self.leftThumbstickDeadzoneEnabled forKey:kLeftThumbstickDeadZoneEnabledSettingsKey];
+    [self sendGamepadSettingsUpdatedNotification];
 }
 
 - (void)setRightThumbstickDeadzoneEnabled:(BOOL)rightThumbstickDeadzoneEnabled {
     _rightThumbstickDeadzoneEnabled = rightThumbstickDeadzoneEnabled;
     [_userDefaults setBool:self.rightThumbstickDeadzoneEnabled forKey:kRightThumbstickDeadZoneEnabledSettingsKey];
+    [self sendGamepadSettingsUpdatedNotification];
 }
 
+- (void)sendGamepadSettingsUpdatedNotification{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGamepadRelatedSettingsChangedNotification object:nil];
+}
 
 @end

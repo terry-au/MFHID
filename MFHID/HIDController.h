@@ -6,6 +6,8 @@
 #ifndef MFHID_HIDCONTROLLER_H
 #define MFHID_HIDCONTROLLER_H
 
+#import "Vector2D.h"
+
 #define INPUT_COUNT 8
 
 @class HIDBridgedGamepad;
@@ -82,31 +84,19 @@ public:
 
     void setPauseButtonPressed(bool pauseButtonPressed);
 
-    float getLeftThumbstickX() const;
-
-    void setLeftThumbstickX(float leftThumbstickX);
-
-    float getLeftThumbstickY() const;
-
-    void setLeftThumbstickY(float leftThumbstickY);
-
-    float getRightThumbstickX() const;
-
-    void setRightThumbstickX(float rightThumbstickX);
-
-    float getRightThumbstickY() const;
-
-    void setRightThumbstickY(float rightThumbstickY);
-
-    void setLeftThumbstickXY(float leftThumbstickX, float leftThumbstickY);
-
-    void setRightThumbstickXY(float rightThumbstickX, float rightThumbstickY);
-
     HIDBridgedGamepad *getBridgedGamepad() const;
 
     void setBridgedGamepad(HIDBridgedGamepad *bridgedGamepad);
 
     void sendEmptyState();
+
+    const Vector2D &getLeftThumbStick() const;
+
+    void setLeftThumbStick(const Vector2D &mLeftThumbStick);
+
+    const Vector2D &getRightThumbStick() const;
+
+    void setRightThumbStick(const Vector2D &mRightThumbStick);
 
 private:
 
@@ -140,11 +130,8 @@ private:
     bool mPauseButtonPressed;
 
     // Analogue sticks.
-    float mLeftThumbstickX;
-    float mLeftThumbstickY;
-
-    float mRightThumbstickX;
-    float mRightThumbstickY;
+    Vector2D mLeftThumbStick;
+    Vector2D mRightThumbStick;
 
     void logBits();
 

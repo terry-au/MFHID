@@ -71,7 +71,7 @@
     _hidController->initialiseDriver();
     _hidController->sendEmptyState();
 
-    _hidController->setBridgedGamepad(self);
+//    _hidController->setBridgedGamepad(self);
 
     GCGamepad *mfiGamepad = self.gamepad;
 
@@ -140,33 +140,34 @@
             _hidController->setRightTriggerPressed(pressed);
         }];
 
+
+        // Deadzone code from:
+        // http://www.gamasutra.com/blogs/JoshSutphin/20130416/190541/Doing_Thumbstick_Dead_Zones_Right.php
         // Analogue sticks.
         [extendedGamepad.leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
-            if (self.leftThumbstickDeadzoneEnabled){
-                if (abs(xValue) < self.leftThumbstickDeadzone){
-                    xValue = 0;
-                }
-                if (fabs(yValue) < self.leftThumbstickDeadzone){
-                    yValue = 0;
+            Vector2D vector = Vector2D(xValue, yValue);
+            float leftThumbstickDeadzone = self.leftThumbstickDeadzone;
+            if (self.leftThumbstickDeadzoneEnabled && leftThumbstickDeadzone > 0){
+                if(vector.magnitude() < leftThumbstickDeadzone){
+                    vector = Vector2D::zero();
+                }else{
+                    vector = vector.normalised() * ((vector.magnitude() - leftThumbstickDeadzone) / (1 - leftThumbstickDeadzone));
                 }
             }
-            _hidController->setLeftThumbstickXY(xValue, yValue);
+            _hidController->setLeftThumbStick(vector);
         }];
 
         [extendedGamepad.rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
-            if (self.rightThumbstickDeadzoneEnabled){
-                if (abs(xValue) < self.rightThumbstickDeadzone){
-                    xValue = 0;
-                }
-                if (fabs(yValue) < self.rightThumbstickDeadzone){
-                    yValue = 0;
-                }
-                Vector2D vector = Vector2D(xValue, xValue);
-                if(vector.magnitude() < self.rightThumbstickDeadzone){
-
+            Vector2D vector = Vector2D(xValue, yValue);
+            float rightThumbstickDeadzone = self.rightThumbstickDeadzone;
+            if (self.rightThumbstickDeadzoneEnabled && rightThumbstickDeadzone > 0){
+                if(vector.magnitude() < rightThumbstickDeadzone){
+                    vector = Vector2D::zero();
+                }else{
+                    vector = vector.normalised() * ((vector.magnitude() - rightThumbstickDeadzone) / (1 - rightThumbstickDeadzone));
                 }
             }
-            _hidController->setRightThumbstickXY(xValue, yValue);
+            _hidController->setRightThumbStick(vector);
         }];
     }
 }
