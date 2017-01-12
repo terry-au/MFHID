@@ -134,7 +134,7 @@ private:
     Vector2D mLeftThumbStick;
     Vector2D mRightThumbStick;
 
-    void logBits();
+    void logButtons();
 
     void invokeDriver();
 
@@ -146,7 +146,7 @@ private:
 
     void updateJoystickState(float xValue, int8_t *xStick, float yValue, int8_t *yStick);
 
-    void logJoysticks();
+    void logThumbticks();
 
     bool allButtonsReleased();
 };

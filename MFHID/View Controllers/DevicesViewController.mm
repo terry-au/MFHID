@@ -138,7 +138,6 @@
 #pragma mark NSTableViewDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-    NSLog(@"%li", _connectedControllers.count);
     return _connectedControllers.count;
 }
 

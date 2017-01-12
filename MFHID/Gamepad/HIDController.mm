@@ -145,7 +145,7 @@ void HIDController::updateHidButtonState(int bitIndex, bool value, uint16_t *ptr
             *ptr &= ~(1 << bitIndex);
         }
 #if DEBUG == 1
-        logBits();
+        logButtons();
 #endif
         invokeDriver();
     }
@@ -159,7 +159,7 @@ void HIDController::updateJoystickState(float xValue, int8_t *xStick, float yVal
         *yStick = yValue * ANALOGUE_STICK_MAX;
     }
 #if DEBUG == 1
-    logJoysticks();
+    logThumbticks();
 #endif
     invokeDriver();
 }
@@ -328,7 +328,7 @@ bool HIDController::initialiseDriver() {
     kern_return_t ret = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching(SERVICE_NAME), &ioIterator);
 
     if (ret != KERN_SUCCESS) {
-        printf("Unable to access IOService.\n");
+        cout << "Unable to access IOService." << endl;
         [HIDController::getBridgedGamepad() onFailedToInitialiseDriver];
         IOObjectRelease(ioIterator);
         return false;
@@ -349,7 +349,7 @@ bool HIDController::initialiseDriver() {
     IOObjectRelease(ioIterator);
 
     if (!found) {
-        printf("Unable to open IOService.\n");
+        cout << "Unable to open IOService." << endl;
         [HIDController::getBridgedGamepad() onFailedToInitialiseDriver];
         if (ioService){
             IOObjectRelease(ioService);
@@ -369,12 +369,12 @@ bool HIDController::initialiseDriver() {
 
     ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_CREATE, mInput, input_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
-        printf("Unable to create HID device. May be fine if created previously.\n");
+        cout << "Unable to create HID device. May be fine if created previously." << endl;
     }
 
-//    listDevices();
-
+#if DEBUG == 1
     cout << "IOConnect [Initialise]: " << &mIoConnect << endl;
+#endif
     mDriverInitialised = true;
     return true;
 }
@@ -391,17 +391,15 @@ void HIDController::sendHIDMessage() {
 
     kern_return_t ret = IOConnectCallScalarMethod(mIoConnect, FOOHID_SEND, mSendMessage.fields, mSendMessage.field_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
-        printf("Unable to fields message to HID device.\n");
-    } else {
-        cout << "Sending " << mReport.buttons << endl;
+        cout << "Unable to send message to HID device" << endl;
     }
 }
 
-void HIDController::logBits() {
+void HIDController::logButtons() {
     cout << bitset<sizeof(mReport.buttons) * CHAR_BIT>(mReport.buttons) << endl;
 }
 
-void HIDController::logJoysticks() {
+void HIDController::logThumbticks() {
     cout << "L-X: " << (int) mReport.left_x << endl << "L-Y: " << (int) mReport.left_y << endl;
     cout << "R-X: " << (int) mReport.right_x << endl << "R-Y: " << (int) mReport.right_y << endl;
 }
