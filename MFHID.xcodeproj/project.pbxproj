@@ -71,7 +71,7 @@
 		33B88B461E24255D006C756D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33B88B521E242584006C756D /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		D5AF61863A6514AD0940EE0C /* HIDController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDController.h; sourceTree = "<group>"; };
-		D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = CheckFoohid.scpt; sourceTree = "<group>"; };
+		D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = CheckFoohid.scpt; path = /Users/terrylewis/Documents/Xcode/MFHID/MFHID/CheckFoohid.scpt; sourceTree = "<absolute>"; };
 		D5AF619FEAA91581BA7F1AE5 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		D5AF624D1E6593B1686B148F /* HIDController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HIDController.mm; sourceTree = "<group>"; };
 		D5AF6311EBE7B8D81DC364CC /* StatusBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarManager.h; sourceTree = "<group>"; };
@@ -203,7 +203,6 @@
 				D5AF67A319ACE8DC457E61E2 /* Main.storyboard */,
 				D5AF6B0474515CEA814787BA /* Localizable.strings */,
 				D5AF65C6C46729EA7418A55E /* Info.plist */,
-				D5AF619D5A73FECA32FA74F9 /* CheckFoohid.scpt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

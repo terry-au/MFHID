@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Extensions/AutoResizingTextView.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Extensions/AutoResizingTextView.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Extensions/AutoResizingTextViewHolder.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Extensions/AutoResizingTextViewHolder.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/Licenses/Licenses.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/View Controllers/AboutViewController.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MFHID/View Controllers/AboutViewController.m" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MFHID/CheckFoohid.scpt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm" afterPath="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -446,7 +438,7 @@
       <workItem from="1484159711655" duration="10716000" />
       <workItem from="1484208659508" duration="3297000" />
       <workItem from="1484211987480" duration="8825000" />
-      <workItem from="1484230041707" duration="9416000" />
+      <workItem from="1484230041707" duration="9935000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -602,11 +594,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484239207581</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added about page.&#10;Added third party licenses.&#10;Added donation information">
+      <created>1484243496462</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1484243496462</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71660000" />
+    <option name="totallyTimeSpent" value="72179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="6" />
@@ -663,7 +662,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor." />
     <MESSAGE value="Button masking is now setup.&#10;Ability to receive controller events when app is not focused.&#10;Refactoring and renaming.&#10;Renamed HIDController private variables." />
     <MESSAGE value="Implementing foohid.&#10;Moving to thread based messaging." />
     <MESSAGE value="Moving to driver initialisation and message sending interface." />
@@ -688,7 +686,8 @@
     <MESSAGE value="Status bar icon uses template image mode.&#10;Removed bottom bar.&#10;Show error if driver unable to load.&#10;Prompt to install driver if not found on system.&#10;Localised more strings.&#10;Controller status column.&#10;Refactored and renamed some methods.&#10;Other fixes and improvements." />
     <MESSAGE value="Removed unnecessary logging.&#10;Added missing Types.h file." />
     <MESSAGE value="Added foohid MIT copyright notice." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added foohid MIT copyright notice." />
+    <MESSAGE value="Added about page.&#10;Added third party licenses.&#10;Added donation information" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added about page.&#10;Added third party licenses.&#10;Added donation information" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
