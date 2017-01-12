@@ -19,6 +19,7 @@ MFHID will automatically attempt to resolve Foohid driver issues it may encounte
 ## Thanks
 * [Foohid](https://github.com/unbit/foohid/)
 * [STPrivilegedTask](https://github.com/sveinbjornt/STPrivilegedTask)
+
 ## Donate
 MFHID is free software, any donations are greatly appreciated but not required. Those wishing to donate may do so [here](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=DCPZ7LNKWPN6W&lc=AU&item_name=terry1994&item_number=MFHID&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted).
 ## Contact
