@@ -14,7 +14,7 @@
 @interface AppDelegate () <NSApplicationDelegate, StatusBarManagerDelegate>
 
 @property (nonatomic, retain) NSWindow *window;
-@property (nonatomic, retain) NSWindowController *devicesWindowController;
+@property (nonatomic, retain) NSWindowController *windowController;
 @property (nonatomic, retain) NSStoryboard *storyboard;
 
 @end
@@ -48,11 +48,11 @@ static NSString const *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-A
     return _window;
 }
 
-- (NSWindowController *)devicesWindowController{
-    if (!_devicesWindowController) {
-        _devicesWindowController = [self.storyboard instantiateControllerWithIdentifier:@"DevicesWindowViewController"];
+- (NSWindowController *)windowController{
+    if (!_windowController) {
+        _windowController = [self.storyboard instantiateControllerWithIdentifier:@"DevicesWindowViewController"];
     }
-    return _devicesWindowController;
+    return _windowController;
 }
 
 - (void)checkSingleInstance {
@@ -81,7 +81,7 @@ static NSString const *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-A
     [sharedSettings loadSettings];
     
     if (sharedSettings.showDevicesWindowOnStart) {
-        [self focusDevicesWindowCentred:YES];
+        [self focusMainWindowCentred:YES];
     }
     
     if (sharedSettings.showStatusBarIcon) {
@@ -114,21 +114,21 @@ static NSString const *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-A
     // Hack. Otherwise the window never comes back.
     if (transformState == kProcessTransformToUIElementApplication){
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self focusDevicesWindowCentred:NO];
+            [self focusMainWindowCentred:NO];
         });
     }
 }
 
 - (void)awakenNotificationReceived:(id)awakenNotificationReceived {
-    [self focusDevicesWindowCentred:NO];
+    [self focusMainWindowCentred:NO];
 }
 
-- (void)focusDevicesWindowCentred:(BOOL)centred{
-    [self.devicesWindowController showWindow:self.window];
-    [self.devicesWindowController.window makeKeyAndOrderFront:self];
-    [self.devicesWindowController.window makeMainWindow];
+- (void)focusMainWindowCentred:(BOOL)centred{
+    [self.windowController showWindow:self.window];
+    [self.windowController.window makeKeyAndOrderFront:self];
+    [self.windowController.window makeMainWindow];
     if (centred) {
-        [self.devicesWindowController.window center];
+        [self.windowController.window center];
     }
 }
 
@@ -137,18 +137,14 @@ static NSString const *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-A
     StatusBarManager.sharedManager.delegate = self;
 }
 
-- (void)statusBarManagerDevicesButtonClicked:(StatusBarManager *)statusBarManager{
-//    [NSApplication.sharedApplication.keyWindow.contentView addSubview:self.devicesViewController.view];
+- (void)statusBarManagerShowWindowButtonClicked:(StatusBarManager *)statusBarManager{
+    [self focusMainWindowCentred:YES];
 }
 
 - (void)statusBarManagerQuitButtonClicked:(StatusBarManager *)statusBarManager{
     [self quitApplication];
 }
 
-- (void)statusBarManagerPreferencesButtonClicked:(StatusBarManager *)statusBarManager{
-//    self.settingsWindowController = [self.storyboard instantiateControllerWithIdentifier:@"SettingsWindowController"];
-//    [self.settingsWindowController showWindow:self.window];
-}
 
 - (void)quitApplication {
     [NSApplication.sharedApplication terminate:self];
@@ -159,7 +155,7 @@ static NSString const *kAwakenInstanceNotificationName = @"com.terry1994.MFHID-A
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
-    [self focusDevicesWindowCentred:NO];
+    [self focusMainWindowCentred:NO];
     return YES;
 }
 

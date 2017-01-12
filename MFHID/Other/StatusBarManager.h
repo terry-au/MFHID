@@ -8,8 +8,7 @@
 @class StatusBarManager;
 
 @protocol StatusBarManagerDelegate
-- (void)statusBarManagerDevicesButtonClicked:(StatusBarManager *)statusBarManager;
-- (void)statusBarManagerPreferencesButtonClicked:(StatusBarManager *)statusBarManager;
+- (void)statusBarManagerShowWindowButtonClicked:(StatusBarManager *)statusBarManager;
 - (void)statusBarManagerQuitButtonClicked:(StatusBarManager *)statusBarManager;
 @end
 

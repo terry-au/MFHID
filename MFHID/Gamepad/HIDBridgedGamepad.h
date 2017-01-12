@@ -9,10 +9,24 @@
 #import <Foundation/Foundation.h>
 #import <GameController/GameController.h>
 
+typedef NS_ENUM(NSInteger, HIDBridgedGamepadStatus){
+    HIDBridgedGamepadStatusConnected,
+    HIDBridgedGamepadStatusDisconnected,
+};
+
+typedef NS_ENUM(NSInteger, HIDBridgedGamepadDriverError){
+    HIDBridgedGamepadDriverErrorUnknown = -1,
+    HIDBridgedGamepadDriverErrorNone,
+    HIDBridgedGamepadDriverErrorDriverNotFound,
+    HIDBridgedGamepadDriverErrorFailedToLoadDriver
+};
+
 @class HIDBridgedGamepad;
 
-@protocol HIDBridgedGamepadDelegate
-- (void)bridgedGamepad:(HIDBridgedGamepad *)bridgedGamepad didUpdateStatus:()status;
+@protocol HIDBridgedGamepadDelegate <NSObject>
+- (void)bridgedGamepadDidUpdateStatus:(HIDBridgedGamepad *)bridgedGamepad;
+
+- (void)bridgedGamepadFailedInitialise:(HIDBridgedGamepad *)bridgedGamepad driverError:(HIDBridgedGamepadDriverError)driverError;
 @end
 
 typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
@@ -35,12 +49,13 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 @property (nonatomic, retain, readonly) id gamepad;
 @property (nonatomic, retain, readonly) GCController *controller;
 @property (readonly) HIDBridgedGamepadType gamepadType;
-@property (nonatomic, readonly) BOOL active;
+//@property (nonatomic, readonly) BOOL active;
 @property (nonatomic) BOOL leftThumbstickDeadzoneEnabled;
 @property (nonatomic) BOOL rightThumbstickDeadzoneEnabled;
 @property (nonatomic) float leftThumbstickDeadzone;
 @property (nonatomic) float rightThumbstickDeadzone;
-@property (nonatomic) id <HIDBridgedGamepadDelegate> delegate;
+@property (nonatomic, strong) id <HIDBridgedGamepadDelegate> delegate;
+@property (nonatomic) HIDBridgedGamepadStatus status;
 
 - (void)activate;
 - (void)deactivate;
@@ -49,4 +64,5 @@ typedef NS_ENUM(NSInteger, HIDBridgedGamepadType){
 
 - (void)onFailedToInitialiseDriver;
 
+- (NSString *)localisedStatusString;
 @end

@@ -41,36 +41,27 @@
 - (void)enableStatusBar {
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.image = [NSImage imageNamed:@"StatusBarItem"];
-    self.statusItem.alternateImage = [NSImage imageNamed:@"StatusBarItem-Alt"];
     self.statusItem.highlightMode = YES;
 
     NSMenu *menu = [[NSMenu alloc] init];
 
-    NSMenuItem *devicesMenuItem = [[NSMenuItem alloc] initWithTitle:@"Devices" action:@selector(showDevicesWindow:) keyEquivalent:@"D"];
-    devicesMenuItem.target = self;
-    
-    NSMenuItem *preferencesMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preferences" action:@selector(showPreferencesWindow:) keyEquivalent:@"P"];
-    preferencesMenuItem.target = self;
+    NSMenuItem *windowMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Show Window", @"Show Window") action:@selector(showWindow:) keyEquivalent:@"D"];
+    windowMenuItem.target = self;
     
     NSMenuItem *separatorMenuItem = [NSMenuItem separatorItem];
     
-    NSMenuItem *quitMenuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quitApplication:) keyEquivalent:@"Q"];
+    NSMenuItem *quitMenuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Quit", @"Quit") action:@selector(quitApplication:) keyEquivalent:@"Q"];
     quitMenuItem.target = self;
 
-    [menu addItem:devicesMenuItem];
-    [menu addItem:preferencesMenuItem];
+    [menu addItem:windowMenuItem];
     [menu addItem:separatorMenuItem];
     [menu addItem:quitMenuItem];
 
     self.statusItem.menu = menu;
 }
 
-- (void)showDevicesWindow:(id)sender{
-    [self.delegate statusBarManagerDevicesButtonClicked:self];
-}
-
-- (void)showPreferencesWindow:(id)sender{
-    [self.delegate statusBarManagerPreferencesButtonClicked:self];
+- (void)showWindow:(id)sender{
+    [self.delegate statusBarManagerShowWindowButtonClicked:self];
 }
 
 - (void)quitApplication:(id)sender{

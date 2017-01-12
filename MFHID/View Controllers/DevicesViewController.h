@@ -12,7 +12,7 @@
 
 @property (weak) IBOutlet NSButton *searchForControllersButton;
 @property (weak) IBOutlet NSProgressIndicator *searchForControllersIndicator;
-@property (weak) IBOutlet NSButton *connectControllerButton;
+@property (weak) IBOutlet NSButton *controllerActionButton;
 @property (weak) IBOutlet NSTableView *tableView;
 
 @end

@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ea31abe-4601-467c-b58a-87a2c5c4035f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem-Alt.imageset/Contents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem-Alt.imageset/StatusBarItem-Alt.pdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/MFHID.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/AppDelegate.m" afterPath="$PROJECT_DIR$/MFHID/AppDelegate.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem.imageset/Contents.json" afterPath="$PROJECT_DIR$/MFHID/Assets.xcassets/StatusBarItem.imageset/Contents.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/MFHID/Base.lproj/Main.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h" afterPath="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.mm" afterPath="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.mm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.h" afterPath="$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.m" afterPath="$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mfhid_helper/main.mm" afterPath="$PROJECT_DIR$/mfhid_helper/main.mm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Localizable.strings" afterPath="$PROJECT_DIR$/MFHID/Localizable.strings" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Other/StatusBarManager.h" afterPath="$PROJECT_DIR$/MFHID/Other/StatusBarManager.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/Other/StatusBarManager.m" afterPath="$PROJECT_DIR$/MFHID/Other/StatusBarManager.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.h" afterPath="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm" afterPath="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,50 +30,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="macos_x86_64" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Vector2D.mm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/Other/Vector2D.mm">
+      <file leaf-file-name="DevicesViewController.mm" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+            <state relative-caret-position="133">
+              <caret line="216" column="41" lean-forward="true" selection-start-line="216" selection-start-column="41" selection-end-line="216" selection-end-column="41" />
               <folding>
-                <element signature="e#101#116#0" expanded="true" />
+                <element signature="e#6726#6887#0" expanded="true" />
+                <element signature="e#6995#7180#0" expanded="true" />
+                <element signature="e#7292#7405#0" expanded="true" />
+                <element signature="e#7502#7539#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vector2D.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/Other/Vector2D.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HIDBridgedGamepad.mm" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HIDBridgedGamepad.mm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="179">
+              <caret line="245" column="43" lean-forward="false" selection-start-line="245" selection-start-column="43" selection-end-line="245" selection-end-column="43" />
               <folding>
                 <element signature="e#138#167#0" expanded="true" />
-                <element signature="e#1153#1196#0" expanded="true" />
-                <element signature="e#1261#1304#0" expanded="true" />
-                <element signature="e#1342#1383#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FoohidDriverManager.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-              <folding>
-                <element signature="e#101#134#0" expanded="true" />
+                <element signature="e#1111#1154#0" expanded="true" />
+                <element signature="e#1219#1262#0" expanded="true" />
+                <element signature="e#1300#1341#0" expanded="true" />
+                <element signature="e#9552#9597#0" expanded="true" />
+                <element signature="e#9690#9741#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +65,8 @@
       <file leaf-file-name="HIDBridgedGamepad.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="14" column="76" lean-forward="true" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+            <state relative-caret-position="99">
+              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -83,53 +75,32 @@
       <file leaf-file-name="StatusBarManager.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MFHID/Other/StatusBarManager.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FoohidDriverManager.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="71" column="14" lean-forward="false" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
+            <state relative-caret-position="90">
+              <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding>
-                <element signature="e#101#132#0" expanded="true" />
+                <element signature="e#1244#1293#0" expanded="true" />
+                <element signature="e#1518#1553#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DevicesViewController.mm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm">
+      <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="166">
+              <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Types.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mfhid_helper/Types.h">
+      <file leaf-file-name="StatusBarManager.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MFHID/Other/StatusBarManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state relative-caret-position="146">
+              <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.mm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mfhid_helper/main.mm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2151">
-              <caret line="149" column="34" lean-forward="false" selection-start-line="149" selection-start-column="34" selection-end-line="149" selection-end-column="34" />
-              <folding>
-                <element signature="e#132#165#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -138,10 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nullptr</find>
-      <find>side_t</find>
-      <find>Adjusted</find>
-      <find>deadzone</find>
       <find>adjuste</find>
       <find>Analog</find>
       <find>FOOHID_CREATE</find>
@@ -168,6 +135,10 @@
       <find>MFHID_ERR_DRIVER_NOT_FOUND</find>
       <find>mDriverInitialised</find>
       <find>MFHIDResult</find>
+      <find>status =</find>
+      <find>controllerActionButtonClicked</find>
+      <find>unconf</find>
+      <find>handleFailureToInitialiseDriver</find>
     </findStrings>
     <replaceStrings>
       <replace>MFHID_FAILURE</replace>
@@ -201,15 +172,19 @@
         <option value="$PROJECT_DIR$/MFHID/HIDController.h" />
         <option value="$PROJECT_DIR$/MFHID/HIDController.mm" />
         <option value="$PROJECT_DIR$/MFHID/HIDBridgedGamepad.mm" />
-        <option value="$PROJECT_DIR$/MFHID/AppDelegate.m" />
         <option value="$PROJECT_DIR$/mfhid_helper/Types.h.h" />
-        <option value="$PROJECT_DIR$/MFHID/Gamepad/HIDController.mm" />
-        <option value="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h" />
         <option value="$PROJECT_DIR$/mfhid_helper/Types.h" />
         <option value="$PROJECT_DIR$/mfhid_helper/main.mm" />
         <option value="$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.m" />
         <option value="$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.h" />
+        <option value="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.h" />
+        <option value="$PROJECT_DIR$/MFHID/Gamepad/HIDController.mm" />
+        <option value="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h" />
         <option value="$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.mm" />
+        <option value="$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm" />
+        <option value="$PROJECT_DIR$/MFHID/Other/StatusBarManager.h" />
+        <option value="$PROJECT_DIR$/MFHID/Other/StatusBarManager.m" />
+        <option value="$PROJECT_DIR$/MFHID/AppDelegate.m" />
       </list>
     </option>
   </component>
@@ -221,9 +196,9 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="710" />
+    <option name="height" value="709" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -269,10 +244,6 @@
               <option name="myItemId" value="MFHID" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mfhid_helper" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -286,52 +257,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="MFHID" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View Controllers" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Other" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MFHID" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -436,7 +361,8 @@
       <workItem from="1484157603372" duration="684000" />
       <workItem from="1484159711655" duration="10716000" />
       <workItem from="1484208659508" duration="3297000" />
-      <workItem from="1484211987480" duration="7864000" />
+      <workItem from="1484211987480" duration="8825000" />
+      <workItem from="1484230041707" duration="6144000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.&#10;Detecting controller buttons.&#10;Added HID descriptor.">
       <created>1484043085191</created>
@@ -564,26 +490,34 @@
       <option name="project" value="LOCAL" />
       <updated>1484225242546</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Rename MFHIDResult to MFHIDHelperExitCode.">
+      <created>1484227871354</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1484227871354</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61283000" />
+    <option name="totallyTimeSpent" value="68388000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="710" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32761312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32761312" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.328125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3978159" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -592,7 +526,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -646,36 +579,16 @@
     <MESSAGE value="Sorted files into directories.&#10;Don't run driver if initialisation failed.&#10;Don't exit if initialisation failed.&#10;" />
     <MESSAGE value="Added mfhid_helper utility to check if driver is loaded, load if necessary, fix permissions, etc." />
     <MESSAGE value="Prevent crash when starting driver using mfihid_helper.&#10;Wait for kext to load (2 seconds).&#10;Unify result types between MFHID and mfhid_helper.&#10;Driver manager improvements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prevent crash when starting driver using mfihid_helper.&#10;Wait for kext to load (2 seconds).&#10;Unify result types between MFHID and mfhid_helper.&#10;Driver manager improvements." />
+    <MESSAGE value="Rename MFHIDResult to MFHIDHelperExitCode." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename MFHIDResult to MFHIDHelperExitCode." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/GameController.framework/Headers/GCGamepad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="883">
-          <caret line="80" column="57" lean-forward="false" selection-start-line="80" selection-start-column="57" selection-end-line="80" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableView.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="406" column="39" lean-forward="false" selection-start-line="406" selection-start-column="39" selection-end-line="406" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSIndexSet.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="64" column="32" lean-forward="false" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSMenuItem.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -687,13 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="398" column="70" lean-forward="true" selection-start-line="398" selection-start-column="70" selection-end-line="398" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/main.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -736,13 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="354" column="0" lean-forward="true" selection-start-line="354" selection-start-column="0" selection-end-line="354" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Other/StatusBarManager.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -856,17 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Other/Vector2D.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-          <folding>
-            <element signature="e#101#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,22 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1213">
-          <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="29" column="46" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,7 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="643" column="0" lean-forward="false" selection-start-line="643" selection-start-column="0" selection-end-line="643" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="248" column="8" lean-forward="false" selection-start-line="248" selection-start-column="8" selection-end-line="248" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,7 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
           <caret line="70" column="35" lean-forward="true" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,39 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDController.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="321" column="20" lean-forward="false" selection-start-line="321" selection-start-column="20" selection-end-line="321" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Other/StatusBarManager.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="29" column="16" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="76" lean-forward="true" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -995,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,8 +838,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2151">
           <caret line="149" column="34" lean-forward="false" selection-start-line="149" selection-start-column="34" selection-end-line="149" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="e#132#165#0" expanded="true" />
+            <element signature="e#101#134#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Other/Vector2D.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
+          <folding>
+            <element signature="e#101#116#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1014,31 +866,119 @@
         <state relative-caret-position="116">
           <caret line="71" column="14" lean-forward="false" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
           <folding>
-            <element signature="e#101#132#0" expanded="true" />
+            <element signature="e#101#132#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MFHID/Other/FoohidDriverManager.h">
+    <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="e#101#134#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="29" column="46" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/objc/NSObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="33" column="8" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSTableView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="411" column="38" lean-forward="false" selection-start-line="411" selection-start-column="38" selection-end-line="411" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDController.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="117" column="41" lean-forward="true" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/main.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MFHID/Gamepad/HIDBridgedGamepad.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="179">
+          <caret line="245" column="43" lean-forward="false" selection-start-line="245" selection-start-column="43" selection-end-line="245" selection-end-column="43" />
           <folding>
             <element signature="e#138#167#0" expanded="true" />
-            <element signature="e#1153#1196#0" expanded="true" />
-            <element signature="e#1261#1304#0" expanded="true" />
-            <element signature="e#1342#1383#0" expanded="true" />
+            <element signature="e#1111#1154#0" expanded="true" />
+            <element signature="e#1219#1262#0" expanded="true" />
+            <element signature="e#1300#1341#0" expanded="true" />
+            <element signature="e#9552#9597#0" expanded="true" />
+            <element signature="e#9690#9741#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/View Controllers/DevicesViewController.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="216" column="41" lean-forward="true" selection-start-line="216" selection-start-column="41" selection-end-line="216" selection-end-column="41" />
+          <folding>
+            <element signature="e#6726#6887#0" expanded="true" />
+            <element signature="e#6995#7180#0" expanded="true" />
+            <element signature="e#7292#7405#0" expanded="true" />
+            <element signature="e#7502#7539#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Other/StatusBarManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/Other/StatusBarManager.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="43" column="40" lean-forward="true" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding>
+            <element signature="e#1244#1293#0" expanded="true" />
+            <element signature="e#1518#1553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MFHID/AppDelegate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

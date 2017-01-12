@@ -11,6 +11,10 @@
 #import "StatusBarManager.h"
 #import "Settings.h"
 
+@interface DevicesViewController () <HIDBridgedGamepadDelegate>
+
+@end
+
 @implementation DevicesViewController {
     HIDBridgedGamepad *_selectedGamepad;
     NSArray<HIDBridgedGamepad *> *_connectedControllers;
@@ -24,8 +28,8 @@
     [self.searchForControllersButton setTarget:self];
     [self.searchForControllersButton setAction:@selector(searchForControllersButtonClicked:)];
 
-    self.connectControllerButton.target = self;
-    self.connectControllerButton.action = @selector(connectControllerButtonClicked:);
+    self.controllerActionButton.target = self;
+    self.controllerActionButton.action = @selector(controllerActionButtonClicked:);
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -44,14 +48,10 @@
 }
 
 - (void)searchForControllersButtonClicked:(id)sender {
-    NSLog(@"Searching for controllers...");
-    NSLog(@"Have: %@", [GCController controllers]);
     [self searchForControllers];
 }
 
 - (void)refreshTableView{
-    
-
     NSMutableArray *HIDControllers = NSMutableArray.array;
     for (GCController *controller in GCController.controllers) {
         HIDBridgedGamepad *gamepad = [[HIDBridgedGamepad alloc] initWithController:controller];
@@ -61,6 +61,11 @@
     }
     _connectedControllers = [NSArray arrayWithArray:HIDControllers];
     [self.tableView reloadData];
+
+    if (self.tableView.selectedRowIndexes.count == 0 && self.tableView.numberOfRows > 0){
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+        [self.tableView selectRowIndexes:indexSet byExtendingSelection:NO];
+    }
 }
 
 - (void)searchForControllers{
@@ -74,10 +79,23 @@
     }];
 }
 
-- (void)connectControllerButtonClicked:(id)sender {
-    if (_selectedGamepad){
-        [_selectedGamepad deactivate];
+- (void)controllerActionButtonClicked:(id)sender {
+    NSInteger selectedRow = self.tableView.selectedRowIndexes.firstIndex;
+    if (selectedRow != NSNotFound){
+        HIDBridgedGamepad *selectedGamepad = _connectedControllers[selectedRow];
+
+        if (selectedGamepad.status == HIDBridgedGamepadStatusConnected){
+            [self disconnectAction];
+        }else{
+            [self connectAction];
+        }
+        [self updateActionButton];
+        [self.tableView reloadData];
     }
+}
+
+- (void)connectAction{
+    [self disconnectAction];
 
     NSUInteger selectedIndex = [[self.tableView selectedRowIndexes] firstIndex];
     if (selectedIndex == NSNotFound){
@@ -85,17 +103,17 @@
     }
 
     _selectedGamepad = _connectedControllers[selectedIndex];
+    _selectedGamepad.delegate = self;
     [self configureGamepadSettings];
     [_selectedGamepad activate];
-//    NSArray<GCController *> *controllers = [GCController controllers];
-//    if (controllers.count > 0) {
-//        GCController *controller = [controllers firstObject];
-//        _gamepad = controller.extendedGamepad;
-//        NSLog(@"Gamepad: %@", _gamepad);
-//        [self configureGamepad];
-//    } else {
-//        NSLog(@"No gamepads found.");
-//    }
+}
+
+- (void)disconnectAction{
+    if (_selectedGamepad){
+        [_selectedGamepad deactivate];
+        _selectedGamepad.delegate = nil;
+        _selectedGamepad = nil;
+    }
 }
 
 - (void)updateGamepadSettingsNotification:(id)updateGamepadSettingsNotification {
@@ -126,7 +144,8 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     static NSString *ControllerVendorCellID = @"ControllerVendorCell";
-    static NSString *ControllerTextCellID = @"ControllerTextCell";
+    static NSString *ControllerSpecificationCellID = @"ControllerSpecificationCell";
+    static NSString *ControllerStatusCellID = @"ControllerStatusCell";
     
     NSString *cellIdentifier = nil;
     
@@ -138,8 +157,11 @@
         text = gamepad.controller.vendorName;
         image = [NSImage imageNamed:@"Controller"];
     }else if(tableColumn == tableView.tableColumns[1]){
-        cellIdentifier = ControllerTextCellID;
+        cellIdentifier = ControllerSpecificationCellID;
         text = gamepad.localisedControllerTypeString;
+    }else if(tableColumn == tableView.tableColumns[2]){
+        cellIdentifier = ControllerStatusCellID;
+        text = gamepad.localisedStatusString;
     }
     
     NSTableCellView *cell = [tableView makeViewWithIdentifier:cellIdentifier owner:nil];
@@ -151,5 +173,70 @@
     }
     return cell;
 }
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    [self updateActionButton];
+}
+
+- (void)bridgedGamepadDidUpdateStatus:(HIDBridgedGamepad *)bridgedGamepad {
+    [self.tableView reloadData];
+}
+
+- (void)bridgedGamepadFailedInitialise:(HIDBridgedGamepad *)bridgedGamepad driverError:(HIDBridgedGamepadDriverError)driverError {
+    NSString *informativeText = nil;
+    switch (driverError){
+        case HIDBridgedGamepadDriverErrorNone:
+            return;
+        case HIDBridgedGamepadDriverErrorUnknown:
+            informativeText = NSLocalizedString(@"An unknown error occurred when loading the foohid driver.",
+                    @"An unknown error occurred when loading the foohid driver.");
+            break;
+        case HIDBridgedGamepadDriverErrorDriverNotFound:
+            informativeText = NSLocalizedString(@"The foohid driver is not installed. Would you like to install it now?",
+                    @"The foohid driver is not installed. Would you like to install it now?");
+            break;
+        case HIDBridgedGamepadDriverErrorFailedToLoadDriver:
+            informativeText = NSLocalizedString(@"Failed to load the foohid driver.",
+                    @"Failed to load the foohid driver.");
+            break;
+    }
+
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = NSLocalizedString(@"Error", @"Error");
+    alert.informativeText = @"Failed to initialise HID driver.";
+    alert.alertStyle = NSAlertStyleCritical;
+
+    if (driverError == HIDBridgedGamepadDriverErrorDriverNotFound){
+        [alert addButtonWithTitle:@"Download"];
+        [alert addButtonWithTitle:@"Cancel"];
+        NSModalResponse modalResponse = [alert runModal];
+        if (modalResponse == NSAlertFirstButtonReturn) {
+            [NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/unbit/foohid/releases"]];
+        }
+    }else{
+        [alert addButtonWithTitle:@"OK"];
+        [alert runModal];
+    }
+}
+
+
+- (void)updateActionButton {
+    NSInteger selectedRow = self.tableView.selectedRowIndexes.firstIndex;
+    if (_selectedGamepad){
+        NSInteger selectedGamepadIndex = [_connectedControllers indexOfObject:_selectedGamepad];
+        if (selectedRow == selectedGamepadIndex){
+            self.controllerActionButton.title = @"Disconnect";
+        }
+    }else{
+        self.controllerActionButton.title = @"Connect";
+    }
+
+    if (selectedRow == NSNotFound){
+        self.controllerActionButton.enabled = NO;
+    }else{
+        self.controllerActionButton.enabled = YES;
+    }
+}
+
 
 @end

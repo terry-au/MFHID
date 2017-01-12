@@ -146,7 +146,6 @@
 			children = (
 				33B88B3D1E24255D006C756D /* AppDelegate.h */,
 				33B88B3E1E24255D006C756D /* AppDelegate.m */,
-				33B88B461E24255D006C756D /* Assets.xcassets */,
 				33B88B401E24255D006C756D /* Supporting Files */,
 				D5AF6AC26BFCE18FA7C37464 /* View Controllers */,
 				D5AF609C51EB33B38019D412 /* Extensions */,
@@ -189,6 +188,7 @@
 		D5AF605FDDB5D0B51CDE6E79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				33B88B461E24255D006C756D /* Assets.xcassets */,
 				D5AF67A319ACE8DC457E61E2 /* Main.storyboard */,
 				D5AF6B0474515CEA814787BA /* Localizable.strings */,
 				D5AF65C6C46729EA7418A55E /* Info.plist */,
@@ -235,10 +235,10 @@
 		D5AF6AC26BFCE18FA7C37464 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */,
 				D5AF6F916F4C08DB74A45A63 /* DevicesViewController.h */,
-				D5AF6B796878B0F4538CE208 /* SettingsViewController.m */,
+				D5AF6440ED24F3E83F881DEB /* DevicesViewController.mm */,
 				D5AF6B6BBE8965C01F437473 /* SettingsViewController.h */,
+				D5AF6B796878B0F4538CE208 /* SettingsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -530,6 +530,7 @@
 				334A194A1E277F4600390316 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33B88B351E24255D006C756D /* Build configuration list for PBXProject "MFHID" */ = {
 			isa = XCConfigurationList;

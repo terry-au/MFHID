@@ -16,6 +16,7 @@
 
 - (instancetype)initWithController:(GCController *)controller {
     if (self = [super init]) {
+        _status = HIDBridgedGamepadStatusDisconnected;
         _controller = controller;
         if (controller.extendedGamepad) {
             _gamepadType = HIDBridgedGamepadTypeExtended;
@@ -31,18 +32,11 @@
 }
 
 - (void)activate {
-    if (self.active) {
-        return;
-    }
-    _active = YES;
     [self configureGamepad];
 }
 
 - (void)deactivate {
-    if (!self.active) {
-        return;
-    }
-    _active = NO;
+    [self unconfigureGamepad];
 }
 
 - (NSString *)localisedControllerTypeString {
@@ -65,34 +59,46 @@
     [self unconfigureGamepad];
 }
 
-- (BOOL)attemptToFixDriverIssues {
+- (BOOL)attemptToFixDriverIssues:(HIDBridgedGamepadDriverError *)driverError {
     MFHIDHelperExitCode result = [FoohidDriverManager fixAndLoadDriver];
     switch (result) {
         case MFHIDHelperExitCodeSuccess:
+            *driverError = HIDBridgedGamepadDriverErrorNone;
             return YES;
-        default:
+        case MFHIDHelperExitCodeErrorLoadingDriver:
+            *driverError = HIDBridgedGamepadDriverErrorFailedToLoadDriver;
             break;
+        case MFHIDHelperExitCodeErrorDriverNotFound:
+            *driverError = HIDBridgedGamepadDriverErrorDriverNotFound;
+            break;
+        case MFHIDHelperExitCodeErrorArgs:
+        case MFHIDHelperExitCodeErrorSeteuid:
+        case MFHIDHelperExitCodeErrorFixingPermissions:
+        case MFHIDHelperExitCodeFailure:;
+        case MFHIDHelperExitCodeErrorUnknown:
+            *driverError = HIDBridgedGamepadDriverErrorUnknown;
     }
     return NO;
 }
 
 - (void)configureGamepad {
-    if (_hidController != NULL) {
-
-        delete _hidController;
-    }
-
     _hidController = new HIDController(self);
     if (!_hidController->initialiseDriver()) {
-        if (![self attemptToFixDriverIssues]){
+        HIDBridgedGamepadDriverError driverError;
+        if (![self attemptToFixDriverIssues:&driverError]){
+            self.status = HIDBridgedGamepadStatusDisconnected;
+            [self handleFailureToInitialiseDriverWithError:driverError];
             return;
         }else{
             sleep(1);
             if (!_hidController->initialiseDriver()){
+                self.status = HIDBridgedGamepadStatusDisconnected;
+                [self handleFailureToInitialiseDriverWithError:HIDBridgedGamepadDriverErrorUnknown];
                 return;
             }
         }
     }
+    self.status = HIDBridgedGamepadStatusConnected;
     _hidController->sendEmptyState();
 
 
@@ -196,6 +202,7 @@
 }
 
 - (void)unconfigureGamepad {
+    self.status = HIDBridgedGamepadStatusDisconnected;
     GCGamepad *mfiGamepad = self.gamepad;
 
     // Buttons
@@ -229,7 +236,35 @@
         [extendedGamepad.rightThumbstick setValueChangedHandler:nil];
     }
 
-    delete _hidController;
+    if (_hidController != NULL){
+        delete _hidController;
+    }
+}
+
+- (void)handleFailureToInitialiseDriverWithError:(HIDBridgedGamepadDriverError)driverError{
+    if ([self.delegate respondsToSelector:@selector(bridgedGamepadFailedInitialise:driverError:)]){
+        [self.delegate bridgedGamepadFailedInitialise:self driverError:driverError];
+    }
+}
+
+- (NSString *)localisedStatusString {
+    NSString *message = nil;
+    switch (self.status){
+        case HIDBridgedGamepadStatusConnected:
+            message = NSLocalizedString(@"Connected", @"Connected");
+            break;
+        case HIDBridgedGamepadStatusDisconnected:
+            message = NSLocalizedString(@"Disconnected", @"Disconnected");
+            break;
+    }
+    return message;
+}
+
+- (void)setStatus:(HIDBridgedGamepadStatus)status {
+    _status = status;
+    if ([self.delegate respondsToSelector:@selector(bridgedGamepadDidUpdateStatus:)]){
+        [self.delegate bridgedGamepadDidUpdateStatus:self];
+    }
 }
 
 @end

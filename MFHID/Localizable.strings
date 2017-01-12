@@ -5,3 +5,12 @@
 "Standard" = "Standard";
 "Extended" = "Extended";
 "Unknown" = "Unknown";
+"Connected" = "Connected";
+"Failed to connect" = "Failed to connect";
+"Disconnected" = "Disconnected";
+"Error" = "Error";
+"An unknown error occurred when loading the foohid driver." = "An unknown error occurred when loading the foohid driver.";
+"The foohid driver is not installed. Would you like to install it now?" = "The foohid driver is not installed. Would you like to install it now?";
+"Failed to load the foohid driver." = "Failed to load the foohid driver.";
+"Show Window" = "Show Window";
+"Quit" = "Quit";
